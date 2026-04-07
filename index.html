@@ -3,126 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Report CRM — PicPay Card | Abril 2026 (v2 + Monday)</title>
+<title>Report CRM — PicPay Card · Abril 2026</title>
 <style>
-  :root {
-    --bg:#0e0e12;--surface:#16161d;--surface2:#1e1e28;--border:#2a2a38;
-    --accent:#21c55d;--accent2:#3b82f6;--accent3:#f59e0b;--accent4:#ec4899;
-    --accent5:#8b5cf6;--text:#e8e8f0;--text-muted:#8888a8;--text-dim:#555570;
-    --good:#21c55d;--mid:#f59e0b;--bad:#ef4444;--radius:10px;
-    --monday:#0085ff;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.5;}
-  
-  /* HEADER */
-  .header{background:linear-gradient(135deg,#0a1628 0%,#111120 100%);border-bottom:1px solid var(--border);padding:24px 36px;display:flex;justify-content:space-between;align-items:center;}
-  .header h1{font-size:20px;font-weight:700;letter-spacing:-0.3px;}
-  .header p{color:var(--text-muted);font-size:12px;margin-top:4px;}
-  .badge-row{display:flex;gap:8px;}
-  .badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;}
-  .badge-green{background:rgba(33,197,93,.12);color:var(--accent);border:1px solid rgba(33,197,93,.25);}
-  .badge-monday{background:rgba(0,133,255,.12);color:#4da6ff;border:1px solid rgba(0,133,255,.25);}
+:root{
+  --bg:#0c0c12;--s1:#14141c;--s2:#1b1b26;--bd:#262635;
+  --t:#e6e6f0;--tm:#7878a0;--td:#444460;
+  --g:#22c55e;--y:#f59e0b;--b:#3b82f6;--r:#ef4444;--p:#a855f7;--c:#06b6d4;
+  --push:#f59e0b;--inapp:#3b82f6;--email:#22c55e;--wap:#4ade80;--dm:#06b6d4;
+  --mon:#0085ff;--rr:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--t);font-family:'Inter',system-ui,sans-serif;font-size:13px;line-height:1.5;}
 
-  /* SUMMARY */
-  .summary{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:24px 36px 0;}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;}
-  .card .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);margin-bottom:6px;}
-  .card .val{font-size:24px;font-weight:700;}
-  .card .sub{font-size:11px;color:var(--text-dim);margin-top:3px;}
+/* ── HEADER ── */
+.hdr{background:linear-gradient(135deg,#09111f 0%,#0c0c18 100%);border-bottom:1px solid var(--bd);padding:22px 36px;display:flex;justify-content:space-between;align-items:center;}
+.hdr h1{font-size:19px;font-weight:700;letter-spacing:-0.3px;}
+.hdr p{color:var(--tm);font-size:12px;margin-top:3px;}
+.tags{display:flex;gap:7px;}
+.tag{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid;}
+.tag-abril{background:rgba(34,197,94,.1);color:var(--g);border-color:rgba(34,197,94,.25);}
+.tag-mon{background:rgba(0,133,255,.1);color:#4da6ff;border-color:rgba(0,133,255,.25);}
+.tag-match{background:rgba(168,85,247,.1);color:#c084fc;border-color:rgba(168,85,247,.25);}
 
-  /* TABS */
-  .tabs{display:flex;gap:3px;padding:24px 36px 0;}
-  .tab{padding:9px 18px;border-radius:8px 8px 0 0;font-size:12px;font-weight:600;cursor:pointer;border:1px solid transparent;border-bottom:none;transition:all .15s;color:var(--text-muted);background:transparent;}
-  .tab:hover{color:var(--text);background:var(--surface);}
-  .tab.active{color:var(--text);background:var(--surface);border-color:var(--border);border-bottom-color:var(--surface);}
-  .tab .cnt{display:inline-block;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);font-size:10px;padding:1px 5px;border-radius:10px;margin-left:4px;}
-  .tab.active .cnt{background:rgba(59,130,246,.15);color:var(--accent2);border-color:rgba(59,130,246,.3);}
+/* ── KPI CARDS ── */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:20px 36px 0;}
+.kpi{background:var(--s1);border:1px solid var(--bd);border-radius:var(--rr);padding:14px 16px;}
+.kpi .lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--tm);margin-bottom:5px;}
+.kpi .val{font-size:22px;font-weight:700;}
+.kpi .sub{font-size:10px;color:var(--td);margin-top:2px;}
 
-  /* CONTENT */
-  .content{padding:24px 36px;border-top:1px solid var(--border);}
-  .panel{display:none;}.panel.active{display:block;}
+/* ── TABS ── */
+.tabs{display:flex;gap:3px;padding:20px 36px 0;}
+.tab{padding:8px 16px;border-radius:8px 8px 0 0;font-size:12px;font-weight:600;cursor:pointer;border:1px solid transparent;border-bottom:none;color:var(--tm);background:transparent;transition:all .12s;}
+.tab:hover{color:var(--t);background:var(--s1);}
+.tab.active{color:var(--t);background:var(--s1);border-color:var(--bd);border-bottom-color:var(--s1);}
+.cnt{display:inline-block;font-size:10px;padding:1px 5px;border-radius:10px;margin-left:4px;background:var(--s2);border:1px solid var(--bd);color:var(--tm);}
+.tab.active .cnt{background:rgba(59,130,246,.15);color:var(--b);border-color:rgba(59,130,246,.3);}
 
-  /* CANAL HEADER */
-  .ch{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;padding:16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
-  .ch-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-  .ch h2{font-size:16px;font-weight:700;}
-  .ch .ch-meta{font-size:11px;color:var(--text-muted);margin-top:3px;}
+/* ── CONTENT ── */
+.content{padding:20px 36px;border-top:1px solid var(--bd);}
+.panel{display:none;}.panel.active{display:block;}
 
-  /* INSIGHTS */
-  .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px;}
-  .insight{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;}
-  .insight .il{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);margin-bottom:5px;}
-  .insight .iv{font-size:20px;font-weight:800;}
-  .insight .id{font-size:11px;color:var(--text-muted);margin-top:3px;}
+/* ── CANAL HEADER ── */
+.ch{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;padding:14px 16px;background:var(--s1);border:1px solid var(--bd);border-radius:var(--rr);}
+.ch-icon{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.ch h2{font-size:15px;font-weight:700;}
+.ch .ch-sub{font-size:11px;color:var(--tm);margin-top:2px;}
 
-  /* TABLE */
-  .tw{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:20px;}
-  table{width:100%;border-collapse:collapse;min-width:900px;}
-  thead th{background:var(--surface);padding:10px 14px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap;}
-  thead th.m{text-align:right;}
-  tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
-  tbody tr:last-child{border-bottom:none;}
-  tbody tr:hover{background:var(--surface2);}
-  tbody td{padding:11px 14px;vertical-align:top;}
-  tbody td.m{text-align:right;vertical-align:middle;font-variant-numeric:tabular-nums;}
+/* ── INSIGHT PILLS ── */
+.ins{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:16px;}
+.in{background:var(--s1);border:1px solid var(--bd);border-radius:var(--rr);padding:13px 15px;}
+.in .il{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--tm);margin-bottom:4px;}
+.in .iv{font-size:18px;font-weight:800;}
+.in .id{font-size:11px;color:var(--tm);margin-top:2px;}
 
-  /* BID */
-  .bid{font-family:monospace;font-size:11px;color:var(--accent2);background:rgba(59,130,246,.08);padding:2px 6px;border-radius:4px;display:inline-block;}
+/* ── TABELA ── */
+.tw{overflow-x:auto;border-radius:var(--rr);border:1px solid var(--bd);margin-bottom:18px;}
+table{width:100%;border-collapse:collapse;min-width:950px;}
+thead th{background:var(--s1);padding:9px 13px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--tm);border-bottom:1px solid var(--bd);white-space:nowrap;}
+th.m{text-align:right;}
+tbody tr{border-bottom:1px solid var(--bd);}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:var(--s2);}
+tbody td{padding:10px 13px;vertical-align:top;}
+tbody td.m{text-align:right;vertical-align:middle;font-variant-numeric:tabular-nums;white-space:nowrap;}
 
-  /* MONDAY BADGE */
-  .monday-badge{display:flex;flex-direction:column;gap:1px;margin-top:6px;padding:5px 8px;background:rgba(0,133,255,.07);border:1px solid rgba(0,133,255,.2);border-radius:6px;}
-  .monday-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--monday);margin-right:5px;}
-  .monday-nome{font-size:11px;font-weight:600;color:#4da6ff;}
-  .monday-meta{font-size:10px;color:var(--text-muted);margin-top:1px;}
+/* ── BID ── */
+.bid-cell{white-space:nowrap;}
+.bid{font-family:monospace;font-size:11px;color:var(--b);background:rgba(59,130,246,.08);padding:2px 6px;border-radius:4px;display:inline-block;}
+.npill{display:inline-block;font-size:9px;padding:1px 5px;border-radius:10px;margin-left:4px;background:var(--s2);border:1px solid var(--bd);color:var(--tm);vertical-align:middle;}
 
-  /* NOTAS */
-  .notas{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px;}
-  .nota-pill{font-size:10px;padding:1px 7px;border-radius:12px;background:var(--surface2);border:1px solid var(--border);color:var(--text-muted);}
+/* ── MONDAY CARD ── */
+.m-card{background:rgba(0,133,255,.05);border:1px solid rgba(0,133,255,.18);border-radius:7px;padding:7px 10px;margin-top:5px;}
+.m-header{display:flex;align-items:center;gap:5px;margin-bottom:3px;}
+.m-dot{width:6px;height:6px;border-radius:50%;background:var(--mon);flex-shrink:0;}
+.m-title{font-size:12px;font-weight:600;color:#60a5fa;}
+.m-camp{font-size:11px;color:var(--tm);margin-bottom:3px;}
+.m-row{display:flex;align-items:center;gap:6px;margin-bottom:2px;}
+.m-frente{font-size:11px;color:var(--tm);}
+.m-meta{font-size:10px;color:var(--td);}
+.m-vol{font-size:10px;color:var(--td);margin-top:2px;display:block;}
 
-  /* DESC */
-  .desc{font-size:12px;color:var(--text);line-height:1.4;}
-  .tax-meta{font-size:10px;color:var(--text-dim);margin-top:3px;}
+/* Status tags */
+.tag-done{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(34,197,94,.12);color:#4ade80;border:1px solid rgba(34,197,94,.2);}
+.tag-test{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(168,85,247,.12);color:#c084fc;border:1px solid rgba(168,85,247,.2);}
+.tag-creative{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.2);}
+.tag-dev{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:rgba(59,130,246,.12);color:#93c5fd;border:1px solid rgba(59,130,246,.2);}
+.tag-queue{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:var(--s2);color:var(--tm);border:1px solid var(--bd);}
+.tag-other{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;background:var(--s2);color:var(--tm);border:1px solid var(--bd);}
 
-  /* SCORES */
-  .score{padding:1px 7px;border-radius:4px;font-size:11px;font-weight:700;}
-  .score.high{background:rgba(33,197,93,.12);color:#4ade80;}
-  .score.mid{background:rgba(245,158,11,.12);color:#fbbf24;}
-  .score.low{background:rgba(239,68,68,.1);color:#f87171;}
-  .score.none{background:var(--surface2);color:var(--text-dim);}
-  .na{color:var(--text-dim);font-size:11px;}
+/* Sem match */
+.no-monday{padding:4px 0;}
+.braze-tax{font-size:11px;color:var(--td);font-family:monospace;}
 
-  /* SECTION TITLE */
-  .st{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-dim);margin:6px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+/* ── SCORES ── */
+.score{padding:1px 7px;border-radius:4px;font-size:11px;font-weight:700;white-space:nowrap;}
+.score.high{background:rgba(34,197,94,.12);color:#4ade80;}
+.score.mid{background:rgba(245,158,11,.12);color:#fbbf24;}
+.score.low{background:rgba(239,68,68,.1);color:#f87171;}
+.score.none{background:var(--s2);color:var(--td);}
+.na{color:var(--td);font-size:11px;}
 
-  /* NOTE */
-  .note{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent3);border-radius:var(--radius);padding:12px 16px;font-size:12px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;}
-  .note strong{color:var(--text);}
+/* ── ST ── */
+.st{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--td);margin:4px 0 11px;padding-bottom:6px;border-bottom:1px solid var(--bd);}
 
-  /* FOOTER */
-  .footer{border-top:1px solid var(--border);padding:14px 36px;display:flex;justify-content:space-between;align-items:center;}
-  .footer span{font-size:10px;color:var(--text-dim);}
+/* ── NOTE ── */
+.note{background:var(--s1);border:1px solid var(--bd);border-left:3px solid var(--y);border-radius:var(--rr);padding:11px 15px;font-size:12px;color:var(--tm);line-height:1.7;margin-bottom:18px;}
+.note strong{color:var(--t);}
+
+/* ── FOOTER ── */
+.ftr{border-top:1px solid var(--bd);padding:12px 36px;display:flex;justify-content:space-between;}
+.ftr span{font-size:10px;color:var(--td);}
+
+.info-cell{max-width:300px;}
 </style>
 </head>
 <body>
 
-<div class="header">
+<div class="hdr">
   <div>
     <h1>Report de CRM — PicPay Card</h1>
-    <p>Performance por Briefing ID · Abril 2026 · Enriquecido com dados Monday.com Growth Cards</p>
+    <p>Performance por Briefing ID · Abril 2026 · Cruzado com Operacional de CRM (Monday.com)</p>
   </div>
-  <div class="badge-row">
-    <span class="badge badge-green">Abril 2026</span>
-    <span class="badge badge-monday">+ Monday.com</span>
+  <div class="tags">
+    <span class="tag tag-abril">Abril 2026</span>
+    <span class="tag tag-mon">Monday · Op. CRM</span>
+    <span class="tag tag-match">14/55 matches</span>
   </div>
 </div>
 
-<div class="summary">
-  <div class="card"><div class="lbl">Briefings Ativos</div><div class="val">56</div><div class="sub">5 canais</div></div>
-  <div class="card"><div class="lbl">Total Enviados</div><div class="val">18.2M</div><div class="sub">mensagens disparadas</div></div>
-  <div class="card"><div class="lbl">Total Entregues</div><div class="val">13.9M</div><div class="sub">delivery geral estimado</div></div>
-  <div class="card"><div class="lbl">Total Abertos</div><div class="val">3.6M</div><div class="sub">engajamento consolidado</div></div>
-  <div class="card"><div class="lbl">Total Clicados</div><div class="val">200K</div><div class="sub">interações diretas</div></div>
+<div class="kpis">
+  <div class="kpi"><div class="lbl">Briefings</div><div class="val">55</div><div class="sub">5 canais</div></div>
+  <div class="kpi"><div class="lbl">Com Monday</div><div class="val" style="color:#4da6ff;">14</div><div class="sub">identificados</div></div>
+  <div class="kpi"><div class="lbl">Enviados</div><div class="val">18.2M</div><div class="sub">disparos totais</div></div>
+  <div class="kpi"><div class="lbl">Entregues</div><div class="val">13.9M</div><div class="sub">delivery geral</div></div>
+  <div class="kpi"><div class="lbl">Abertos</div><div class="val">3.6M</div><div class="sub">engajamento</div></div>
+  <div class="kpi"><div class="lbl">Clicados</div><div class="val">199K</div><div class="sub">interações</div></div>
 </div>
 
 <div class="tabs">
@@ -135,844 +151,603 @@
 
 <div class="content">
 
-<!-- PUSH -->
+<!-- ═══════ PUSH ═══════ -->
 <div class="panel active" id="panel-push">
   <div class="ch">
-    <div class="ch-icon" style="background:rgba(245,158,11,.12);color:#f59e0b;">🔔</div>
+    <div class="ch-icon" style="background:rgba(245,158,11,.12);color:var(--push);">🔔</div>
     <div>
-      <h2 style="color:#f59e0b;">Push Notification</h2>
-      <div class="ch-meta">Métricas: Delivery Rate · Open Rate · CTR · CTOR · Bounce Rate</div>
+      <h2 style="color:var(--push);">Push Notification</h2>
+      <div class="ch-sub">Métricas: Delivery Rate · Open Rate · CTR · CTOR · Bounce Rate</div>
     </div>
   </div>
-  <div class="insights">
-    <div class="insight"><div class="il">Melhor Open Rate</div><div class="iv" style="color:#f59e0b;">37.0%</div><div class="id">BID 9904930704 — retargeting RGA/SIC</div></div>
-    <div class="insight"><div class="il">Maior Volume Entregue</div><div class="iv" style="color:#f59e0b;">1,615K</div><div class="id">BID 35666 — ongoing RGA/SIC</div></div>
-    <div class="insight"><div class="il">Melhor CTOR</div><div class="iv" style="color:#f59e0b;">35.2%</div><div class="id">BID 9904930704</div></div>
+  <div class="ins">
+    <div class="in"><div class="il">Melhor Open Rate</div><div class="iv" style="color:var(--push);">37.0%</div><div class="id">BID 9904930704 — retargeting RGA/SIC</div></div>
+    <div class="in"><div class="il">Maior Volume Entregue</div><div class="iv" style="color:var(--push);">1,615K</div><div class="id">BID 35666 — ongoing RGA/SIC</div></div>
+    <div class="in"><div class="il">Melhor CTOR</div><div class="iv" style="color:var(--push);">35.2%</div><div class="id">BID 9904930704</div></div>
   </div>
-  <div class="tw">
-    <table>
-      <thead><tr>
-        <th style="min-width:200px;">Briefing ID / Monday</th>
-        <th style="min-width:240px;">Descrição & Taxonomia</th>
-        <th class="m">Enviados</th><th class="m">Entregues</th>
-        <th class="m">DR</th><th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounce</th>
-      </tr></thead>
-      <tbody><tr>
-      <td>
-        <span class="bid">11518444291</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
-      </td>
-      <td>
-        <div class="desc">Vendas Jornada Ativa Cashback — push ep (enriquecido). Boa taxa de abertura para campanha </div>
-        <div class="tax-meta">Vendas · Jornada Ativa · 18/03/2026</div>
-      </td>
-      <td class="m">1.1M</td><td class="m">727K</td><td class="m"><span class="score low">66.9%</span></td><td class="m"><span class="score high">20.7%</span></td><td class="m"><span class="score low">0.7%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m"><span class="score low">12.7%</span></td>
-    </tr>
-<tr>
-      <td>
-        <span class="bid">9873449684</span>
-        <div class="monday-badge">
-      <span class="monday-dot"></span>
-      <span class="monday-nome">2025/12 | Aumento de limite c/ Flag</span>
-      <span class="monday-meta">Uso · Régua automatizada · Ativa</span>
+  <div class="tw"><table>
+    <thead><tr><th>BID</th><th>Nome Monday · Taxonomia Braze</th><th class="m">Enviados</th><th class="m">Entregues</th><th class="m">DR</th><th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounce</th></tr></thead>
+    <tbody><tr>
+      <td class="bid-cell"><span class="bid">11518444291</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | Super CBK - OPT IN</span></div>
+      <div class="m-camp">2026/03 | Super CBK</div>
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">2026-03-20 - 2026-04-03 · RÃ©gua automatizada · Data Cloud (Data 360) · GI + GCU</div>
+      <span class="m-vol">Vol. planejado: 822000</span>
     </div>
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
       </td>
-      <td>
-        <div class="desc">Aumento de Limite com Flag — régua automatizada contextual para usuários com aumento de li</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 25/08/2025</div>
-      </td>
-      <td class="m">683K</td><td class="m">579K</td><td class="m"><span class="score mid">84.7%</span></td><td class="m"><span class="score high">25.8%</span></td><td class="m"><span class="score low">3.0%</span></td><td class="m"><span class="score mid">11.6%</span></td><td class="m"><span class="score low">14.6%</span></td>
+      <td class="m">1.1M</td><td class="m">726K</td><td class="m"><span class="score low">66.9%</span></td><td class="m"><span class="score high">20.7%</span></td><td class="m"><span class="score mid">0.7%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m"><span class="score low">12.7%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">35666</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">9873449684</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2025/12 | Aumento de limite c/ Flag</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-other">Ativa</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">Ongoing · Régua automatizada · GI + GC + GCU</div>
+      
+    </div>
       </td>
-      <td>
-        <div class="desc">Campanhas de vendas — reengajamento contínuo (ongoing) para base SIC. Alta entrega, baixo </div>
-        <div class="tax-meta">Vendas · Reengajamento · 14/05/2025</div>
+      <td class="m">682K</td><td class="m">578K</td><td class="m"><span class="score mid">84.7%</span></td><td class="m"><span class="score high">25.8%</span></td><td class="m"><span class="score high">3.0%</span></td><td class="m"><span class="score mid">11.6%</span></td><td class="m"><span class="score low">14.6%</span></td>
+    </tr>
+<tr>
+      <td class="bid-cell"><span class="bid">35666</span><span class="npill">GI2</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 14/05/2025</span></div>
       </td>
       <td class="m">1.6M</td><td class="m">1.6M</td><td class="m"><span class="score high">99.1%</span></td><td class="m"><span class="score low">3.5%</span></td><td class="m"><span class="score low">0.1%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m"><span class="score high">0.9%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9904918311</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">9904918311</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 03/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Reengajamento SIC — push segmentado. Melhor CTOR do Push exceto BID 9904930704.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 03/09/2025</div>
-      </td>
-      <td class="m">258K</td><td class="m">135K</td><td class="m"><span class="score low">52.2%</span></td><td class="m"><span class="score mid">9.2%</span></td><td class="m"><span class="score low">2.3%</span></td><td class="m"><span class="score high">25.4%</span></td><td class="m"><span class="score high">0.5%</span></td>
+      <td class="m">257K</td><td class="m">134K</td><td class="m"><span class="score low">52.2%</span></td><td class="m"><span class="score mid">9.2%</span></td><td class="m"><span class="score high">2.3%</span></td><td class="m"><span class="score high">25.4%</span></td><td class="m"><span class="score high">0.5%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">35600</span>
-        <div class="monday-badge">
-      <span class="monday-dot"></span>
-      <span class="monday-nome">2025/12 | Aumento de limite s/ Flag</span>
-      <span class="monday-meta">Uso · Régua automatizada · Ativa</span>
+      <td class="bid-cell"><span class="bid">35600</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2025/12 | Aumento de limite s/ Flag</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-other">Ativa</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">Ongoing · Régua automatizada · GI + GC + GCU</div>
+      
     </div>
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Aumento de Limite — régua automatizada Push com alta entregabilidade.</div>
-        <div class="tax-meta">Contextual · Aquisição Card · 29/04/2025</div>
-      </td>
-      <td class="m">153K</td><td class="m">152K</td><td class="m"><span class="score high">99.5%</span></td><td class="m"><span class="score low">4.8%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.5%</span></td>
+      <td class="m">152K</td><td class="m">152K</td><td class="m"><span class="score high">99.5%</span></td><td class="m"><span class="score low">4.8%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.5%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11651313975</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11651313975</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/04 | Pula PrÃ© PÃ¡scoa</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Pagamentos</span></div>
+      <div class="m-meta">2026-04-02 - 2026-04-02 · Envio pontual (Ad hoc) · Data Cloud (Data 360) · GI + GC + GCU</div>
+      
+    </div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC Push notification — grande volume, OR mínimo (<1%). Possível campanha de awaren</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 02/04/2024</div>
-      </td>
-      <td class="m">967K</td><td class="m">962K</td><td class="m"><span class="score high">99.5%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.5%</span></td>
+      <td class="m">966K</td><td class="m">961K</td><td class="m"><span class="score high">99.5%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.5%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11651432318</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11651432318</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/04 | PCA PrÃ© PÃ¡scoa</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Pagamentos</span></div>
+      <div class="m-meta">2026-04-02 - 2026-04-02 · Envio pontual (Ad hoc) · Data Cloud (Data 360) · GI + GC + GCU</div>
+      
+    </div>
       </td>
-      <td>
-        <div class="desc">Nova ativação SIC Push — alto volume, baixo engajamento. Candidato a revisão de criativo.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 02/04/2026</div>
-      </td>
-      <td class="m">564K</td><td class="m">560K</td><td class="m"><span class="score high">99.4%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.6%</span></td>
+      <td class="m">563K</td><td class="m">560K</td><td class="m"><span class="score high">99.4%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.6%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10586330002</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
-      </td>
-      <td>
-        <div class="desc">Reengajamento SIC — push segmentado. DR médio (65%), OR razoável (10.6%).</div>
-        <div class="tax-meta">Vendas · Reengajamento · 20/11/2025</div>
+      <td class="bid-cell"><span class="bid">10586330002</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 20/11/2025</span></div>
       </td>
       <td class="m">39K</td><td class="m">25K</td><td class="m"><span class="score low">65.0%</span></td><td class="m"><span class="score mid">10.6%</span></td><td class="m"><span class="score low">0.1%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m"><span class="score mid">6.4%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9904930704</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">9904930704</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 02/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Reengajamento SIC retargeting — audiência muito específica. Destaque: 37% OR e 13% CTR com</div>
-        <div class="tax-meta">Vendas · Reengajamento · 02/09/2025</div>
-      </td>
-      <td class="m">35K</td><td class="m">4K</td><td class="m"><span class="score low">12.4%</span></td><td class="m"><span class="score high">37.0%</span></td><td class="m"><span class="score mid">13.0%</span></td><td class="m"><span class="score high">35.2%</span></td><td class="m"><span class="score high">0.0%</span></td>
+      <td class="m">35K</td><td class="m">4K</td><td class="m"><span class="score low">12.4%</span></td><td class="m"><span class="score high">37.0%</span></td><td class="m"><span class="score high">13.0%</span></td><td class="m"><span class="score high">35.2%</span></td><td class="m"><span class="score high">0.0%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11547533390</span>
-        
-        <div class="notas"><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11547533390</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | Promocional - Roleta PÃ¡scoa - Opt In (N1)</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">2026-03-30 - 2026-04-24 · RÃ©gua automatizada · Data Cloud (Data 360) · GI + GCU</div>
+      <span class="m-vol">Vol. planejado: 2000000</span>
+    </div>
       </td>
-      <td>
-        <div class="desc">Vendas Jornada Ativa Cashback Parcelado — Push. DR crítico (43%), possível problema de lis</div>
-        <div class="tax-meta">Vendas · Jornada Ativa · 23/03/2026</div>
-      </td>
-      <td class="m">222K</td><td class="m">96K</td><td class="m"><span class="score low">43.1%</span></td><td class="m"><span class="score low">1.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.1%</span></td><td class="m"><span class="score high">0.6%</span></td>
+      <td class="m">222K</td><td class="m">95K</td><td class="m"><span class="score low">43.1%</span></td><td class="m"><span class="score low">1.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.1%</span></td><td class="m"><span class="score high">0.6%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10811415811</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10811415811</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 18/12/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — régua ongoing. Baixíssimo engajamento.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 18/12/2025</div>
-      </td>
-      <td class="m">158K</td><td class="m">157K</td><td class="m"><span class="score high">99.4%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.6%</span></td>
+      <td class="m">157K</td><td class="m">156K</td><td class="m"><span class="score high">99.4%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.6%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11597850523</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11597850523</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | InApp FS - Projeto RÃ¡dio - BenefÃ­cios do CartÃ£o</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">AtivaÃ§Ã£o</span></div>
+      <div class="m-meta">2026-03-30 - 2026-03-30 · Envio pontual (Ad hoc) · Personalization (NRT) · GI + GC + GCU</div>
+      
+    </div>
       </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC Push — sem enviados. Dados residuais.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 26/03/2026</div>
-      </td>
-      <td class="m">0</td><td class="m">0</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">3.2%</span></td><td class="m"><span class="na">—</span></td>
+      <td class="m">—</td><td class="m">—</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">3.2%</span></td><td class="m"><span class="na">—</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11642264409</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11642264409</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 01/04/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas Reengajamento SIC — push. Baixo OR, necessita teste A/B de assunto/copy.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 01/04/2026</div>
-      </td>
-      <td class="m">26K</td><td class="m">25K</td><td class="m"><span class="score high">99.0%</span></td><td class="m"><span class="score low">2.2%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.7%</span></td><td class="m"><span class="score high">1.1%</span></td>
+      <td class="m">25K</td><td class="m">25K</td><td class="m"><span class="score high">99.0%</span></td><td class="m"><span class="score low">2.2%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.7%</span></td><td class="m"><span class="score high">1.1%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9828876080</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span><span class="nota-pill">Variante A</span></div>
-      </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — micro audience (782 env). Volume insignificante.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 21/08/2025</div>
+      <td class="bid-cell"><span class="bid">9828876080</span><span class="npill">GI2</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 21/08/2025</span></div>
       </td>
       <td class="m">782</td><td class="m">780</td><td class="m"><span class="score high">99.7%</span></td><td class="m"><span class="score low">0.4%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score high">0.3%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11230710810</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
-      </td>
-      <td>
-        <div class="desc">Nova Vendas Reengajamento SIC Push — micro teste. Volume ínfimo.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 26/02/2026</div>
+      <td class="bid-cell"><span class="bid">11230710810</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/02 | Debito Automatico N3</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Pagamentos</span></div>
+      <div class="m-meta">2026-02-25 - 2027-03-31 · RÃ©gua automatizada · Data Cloud (Data 360) · GI + GCU</div>
+      
+    </div>
       </td>
       <td class="m">28</td><td class="m">27</td><td class="m"><span class="score high">96.4%</span></td><td class="m"><span class="score mid">11.1%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">10.7%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">35522</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">35522</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 01/05/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Reengajamento SIC Push notification — sem enviados. Residual.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 01/05/2025</div>
-      </td>
-      <td class="m">0</td><td class="m">0</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="na">—</span></td>
+      <td class="m">—</td><td class="m">—</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="na">—</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11417758537</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11417758537</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | AdHoc Alta PropensÃ£o v2503</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Pagamentos</span></div>
+      <div class="m-meta">2026-03-24 - 2026-03-24 · Envio pontual (Ad hoc) · Data Cloud (Data 360) · GI + GC + GCU</div>
+      
+    </div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC Push — sem enviados registrados.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 03/03/2026</div>
-      </td>
-      <td class="m">0</td><td class="m">0</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="na">—</span></td>
+      <td class="m">—</td><td class="m">—</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="na">—</span></td>
     </tr></tbody>
-    </table>
-  </div>
+  </table></div>
   <div class="note">
-    <strong>📌 Análise Push:</strong> BID <strong>9904930704</strong> é o destaque absoluto — 37% OR e 35% CTOR com audiência de retargeting muito qualificada (DR crítico de 12.4% indicando lista desatualizada). BIDs <strong>9873449684</strong> e <strong>35600</strong> são réguas automatizadas confirmadas no Monday.com como "Aumento de Limite" com status <em>Ativa</em>. BIDs com DR &gt; 99% e OR &lt; 4% (35666, 11651313975, 11651432318) indicam possível fadiga de audiência — candidatos a revisão de copy e segmentação.
+    <strong>Push — Análise:</strong> BIDs confirmados no Monday: <strong>11518444291</strong> = "Super CBK - OPT IN" (Uso · Régua), <strong>11547533390</strong> = "Roleta Páscoa - Opt In variante N" (Uso · Régua), <strong>11651313975</strong> = "Pula Pré Páscoa" (Pagamentos · Ad hoc), <strong>11651432318</strong> = "PCA Pré Páscoa" (Pagamentos · Ad hoc), <strong>11230710810</strong> = "Débito Automático N3" (Pagamentos · Régua), <strong>11417758537</strong> = "AdHoc Alta Propensão" (Pagamentos · Ad hoc). BIDs sem match são réguas de 2024–2025, fora do escopo do Operacional de CRM atual.
   </div>
 </div>
 
-<!-- IN-APP -->
+<!-- ═══════ IN-APP ═══════ -->
 <div class="panel" id="panel-inapp">
   <div class="ch">
-    <div class="ch-icon" style="background:rgba(59,130,246,.12);color:#3b82f6;">📱</div>
+    <div class="ch-icon" style="background:rgba(59,130,246,.12);color:var(--inapp);">📱</div>
     <div>
-      <h2 style="color:#3b82f6;">In-App</h2>
-      <div class="ch-meta">Métricas-chave: Open Rate · CTOR — DR não confiável neste canal (exibição contextual)</div>
+      <h2 style="color:var(--inapp);">In-App</h2>
+      <div class="ch-sub">Métricas-chave: CTOR · Open Rate — DR não confiável neste canal (exibição contextual pode gerar OR &gt; 100%)</div>
     </div>
   </div>
-  <div class="insights">
-    <div class="insight"><div class="il">Maior Volume Abertos</div><div class="iv" style="color:#3b82f6;">2,37M</div><div class="id">BID 11547915328 — JA/CPCB</div></div>
-    <div class="insight"><div class="il">Melhor CTOR</div><div class="iv" style="color:#3b82f6;">28.2%</div><div class="id">BID 10864580098 — context/rga</div></div>
-    <div class="insight"><div class="il">Melhor OR (volume signif.)</div><div class="iv" style="color:#3b82f6;">76.5%</div><div class="id">BID 37881 — regab/SIC</div></div>
+  <div class="ins">
+    <div class="in"><div class="il">Maior Volume Abertos</div><div class="iv" style="color:var(--inapp);">2,37M</div><div class="id">BID 11547915328 — Roleta Páscoa (Monday ✓)</div></div>
+    <div class="in"><div class="il">Melhor CTOR</div><div class="iv" style="color:var(--inapp);">28.2%</div><div class="id">BID 10864580098 — context/rga</div></div>
+    <div class="in"><div class="il">Melhor OR</div><div class="iv" style="color:var(--inapp);">76.5%</div><div class="id">BID 37881 — regab/SIC</div></div>
   </div>
-  <div class="st">Briefings com volume representativo (&gt;1.000 abertos)</div>
-  <div class="tw">
-    <table>
-      <thead><tr>
-        <th style="min-width:200px;">Briefing ID / Monday</th>
-        <th style="min-width:240px;">Descrição & Taxonomia</th>
-        <th class="m">Entregues</th><th class="m">Abertos</th>
-        <th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounces</th>
-      </tr></thead>
-      <tbody><tr>
-      <td>
-        <span class="bid">11547915328</span>
-        
-        <div class="notas"><span class="nota-pill">Grupo Interesse 2</span></div>
+  <div class="st">Briefings com volume representativo (≥500 abertos)</div>
+  <div class="tw"><table>
+    <thead><tr><th>BID</th><th>Nome Monday · Taxonomia Braze</th><th class="m">Entregues</th><th class="m">Abertos</th><th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounces</th></tr></thead>
+    <tbody><tr>
+      <td class="bid-cell"><span class="bid">11547915328</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | Promocional - Roleta PÃ¡scoa - Opt In (n2 e N3)</span></div>
+      <div class="m-camp">2026/03 | Promocional - Roleta PÃ¡scoa - Opt In</div>
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">2026-03-30 - 2026-04-24 · RÃ©gua automatizada · Data Cloud (Data 360) · GI + GCU</div>
+      <span class="m-vol">Vol. planejado: 5000000</span>
+    </div>
       </td>
-      <td>
-        <div class="desc">Vendas Jornada Ativa Cashback Parcelado — In-App. Maior campanha do mês: 2,4M abertos.</div>
-        <div class="tax-meta">Vendas · Jornada Ativa · 23/03/2026</div>
-      </td>
-      <td class="m">6.5M</td><td class="m">2.4M</td><td class="m"><span class="score high">36.7%</span></td><td class="m"><span class="score low">2.4%</span></td><td class="m"><span class="score low">6.6%</span></td><td class="m">2.0M</td>
+      <td class="m">6.5M</td><td class="m">2.4M</td><td class="m"><span class="score high">36.7%</span></td><td class="m"><span class="score high">2.4%</span></td><td class="m"><span class="score mid">6.6%</span></td><td class="m">2.0M</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10549391503</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10549391503</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 17/11/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Reengajamento SIC — In-App. OR acima de 100% = anomalia de dados (enviados=1).</div>
-        <div class="tax-meta">Vendas · Reengajamento · 17/11/2025</div>
-      </td>
-      <td class="m">251K</td><td class="m">256K</td><td class="m"><span class="score high">102.3%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m">240K</td>
+      <td class="m">250K</td><td class="m">256K</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 102%</span></td><td class="m"><span class="score mid">1.3%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m">240K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9799468065</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">9799468065</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 12/08/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC — In-App ongoing. Baixo OR (14%), alto bounce.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 12/08/2025</div>
-      </td>
-      <td class="m">858K</td><td class="m">121K</td><td class="m"><span class="score mid">14.1%</span></td><td class="m"><span class="score low">0.2%</span></td><td class="m"><span class="score low">1.5%</span></td><td class="m">111K</td>
+      <td class="m">858K</td><td class="m">120K</td><td class="m"><span class="score mid">14.1%</span></td><td class="m"><span class="score low">0.2%</span></td><td class="m"><span class="score low">1.5%</span></td><td class="m">111K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11663103872</span>
-        
-        <div class="notas"><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11663103872</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 06/04/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC — In-App (lançamento 06/04). Bom OR (49%), CTR baixo (0.4%).</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 06/04/2026</div>
-      </td>
-      <td class="m">129K</td><td class="m">63K</td><td class="m"><span class="score high">49.2%</span></td><td class="m"><span class="score low">0.4%</span></td><td class="m"><span class="score low">0.7%</span></td><td class="m">59K</td>
+      <td class="m">128K</td><td class="m">63K</td><td class="m"><span class="score high">49.2%</span></td><td class="m"><span class="score low">0.4%</span></td><td class="m"><span class="score low">0.7%</span></td><td class="m">59K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9996761316</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">9996761316</span><span class="npill">GI2</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 12/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — In-App. OR de 15.6%, razoável para canal contextual.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 12/09/2025</div>
-      </td>
-      <td class="m">326K</td><td class="m">51K</td><td class="m"><span class="score mid">15.6%</span></td><td class="m"><span class="score low">0.9%</span></td><td class="m"><span class="score low">5.5%</span></td><td class="m">33K</td>
+      <td class="m">325K</td><td class="m">50K</td><td class="m"><span class="score mid">15.6%</span></td><td class="m"><span class="score mid">0.9%</span></td><td class="m"><span class="score mid">5.5%</span></td><td class="m">32K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11592437903</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11592437903</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 01/04/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC — In-App. OR de 48.5%, CTOR de 1.3%.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 01/04/2026</div>
-      </td>
-      <td class="m">95K</td><td class="m">46K</td><td class="m"><span class="score high">48.5%</span></td><td class="m"><span class="score low">0.6%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m">43K</td>
+      <td class="m">94K</td><td class="m">46K</td><td class="m"><span class="score high">48.5%</span></td><td class="m"><span class="score mid">0.6%</span></td><td class="m"><span class="score low">1.3%</span></td><td class="m">43K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">37881</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">37881</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengaj. AB · 02/07/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Reengajamento AB SIC — In-App. OR excelente (76%), CTOR de 3.3%.</div>
-        <div class="tax-meta">Vendas · Reengajamento AB · 02/07/2025</div>
-      </td>
-      <td class="m">47K</td><td class="m">36K</td><td class="m"><span class="score high">76.5%</span></td><td class="m"><span class="score low">2.5%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m">33K</td>
+      <td class="m">46K</td><td class="m">35K</td><td class="m"><span class="score high">76.5%</span></td><td class="m"><span class="score high">2.5%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m">32K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11663310410</span>
-        
-        <div class="notas"><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11663310410</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 03/04/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC — In-App (lançamento 03/04). OR alto (58%), CTR baixo.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 03/04/2026</div>
-      </td>
-      <td class="m">30K</td><td class="m">17K</td><td class="m"><span class="score high">58.0%</span></td><td class="m"><span class="score low">0.7%</span></td><td class="m"><span class="score low">1.1%</span></td><td class="m">16K</td>
+      <td class="m">29K</td><td class="m">17K</td><td class="m"><span class="score high">58.0%</span></td><td class="m"><span class="score mid">0.7%</span></td><td class="m"><span class="score low">1.1%</span></td><td class="m">16K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10864580098</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10864580098</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 05/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — In-App. Melhor CTOR do canal (28.2%): altamente segmentado.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 05/01/2026</div>
-      </td>
-      <td class="m">34K</td><td class="m">15K</td><td class="m"><span class="score high">42.9%</span></td><td class="m"><span class="score mid">12.1%</span></td><td class="m"><span class="score high">28.2%</span></td><td class="m">6K</td>
+      <td class="m">34K</td><td class="m">14K</td><td class="m"><span class="score high">42.9%</span></td><td class="m"><span class="score high">12.1%</span></td><td class="m"><span class="score high">28.2%</span></td><td class="m">5K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11601850645</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11601850645</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | Super CBK - USO</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">2026-03-26 - 2026-04-20 · RÃ©gua automatizada · Data Cloud (Data 360) · GI + GCU</div>
+      <span class="m-vol">Vol. planejado: 10000</span>
+    </div>
       </td>
-      <td>
-        <div class="desc">Contextual Jornada Ativa Cashback — In-App. OR alto (67%), CTOR moderado (5.3%).</div>
-        <div class="tax-meta">Contextual · Jornada Ativa · 26/03/2026</div>
-      </td>
-      <td class="m">20K</td><td class="m">13K</td><td class="m"><span class="score high">66.6%</span></td><td class="m"><span class="score low">3.5%</span></td><td class="m"><span class="score low">5.2%</span></td><td class="m">8K</td>
+      <td class="m">19K</td><td class="m">13K</td><td class="m"><span class="score high">66.6%</span></td><td class="m"><span class="score high">3.5%</span></td><td class="m"><span class="score mid">5.2%</span></td><td class="m">7K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9787824026</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">9787824026</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 12/08/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC — In-App. Baixo OR (14.8%), poucos cliques.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 12/08/2025</div>
-      </td>
-      <td class="m">18K</td><td class="m">3K</td><td class="m"><span class="score mid">14.8%</span></td><td class="m"><span class="score low">0.3%</span></td><td class="m"><span class="score low">1.9%</span></td><td class="m">2K</td>
+      <td class="m">17K</td><td class="m">2K</td><td class="m"><span class="score mid">14.8%</span></td><td class="m"><span class="score low">0.3%</span></td><td class="m"><span class="score low">1.9%</span></td><td class="m">2K</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">18314204161</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">18314204161</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 03/11/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Reengajamento SIC — In-App. Volume moderado, baixo engajamento.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 03/11/2025</div>
+      <td class="m">15K</td><td class="m">2K</td><td class="m"><span class="score mid">14.6%</span></td><td class="m"><span class="score low">0.2%</span></td><td class="m"><span class="score low">1.7%</span></td><td class="m">1K</td>
+    </tr>
+<tr>
+      <td class="bid-cell"><span class="bid">10758193754</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 11/12/2025</span></div>
       </td>
-      <td class="m">15K</td><td class="m">2K</td><td class="m"><span class="score mid">14.6%</span></td><td class="m"><span class="score low">0.2%</span></td><td class="m"><span class="score low">1.7%</span></td><td class="m">2K</td>
+      <td class="m">728</td><td class="m">523</td><td class="m"><span class="score high">71.8%</span></td><td class="m"><span class="score mid">1.8%</span></td><td class="m"><span class="score low">2.5%</span></td><td class="m">488</td>
     </tr></tbody>
-    </table>
-  </div>
-  <div class="st">Briefings residuais / micro volume (&lt;1.000 abertos)</div>
-  <div class="tw">
-    <table>
-      <thead><tr>
-        <th style="min-width:200px;">Briefing ID</th>
-        <th style="min-width:240px;">Descrição & Taxonomia</th>
-        <th class="m">Entregues</th><th class="m">Abertos</th>
-        <th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounces</th>
-      </tr></thead>
-      <tbody><tr>
-      <td>
-        <span class="bid">10758193754</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+  </table></div>
+  <div class="st">Briefings residuais / micro-volume (&lt;500 abertos)</div>
+  <div class="tw"><table>
+    <thead><tr><th>BID</th><th>Nome Monday · Taxonomia Braze</th><th class="m">Entregues</th><th class="m">Abertos</th><th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounces</th></tr></thead>
+    <tbody><tr>
+      <td class="bid-cell"><span class="bid">10991140876</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 15/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — In-App EP. Micro audience.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 11/12/2025</div>
-      </td>
-      <td class="m">728</td><td class="m">523</td><td class="m"><span class="score high">71.8%</span></td><td class="m"><span class="score low">1.8%</span></td><td class="m"><span class="score low">2.5%</span></td><td class="m">488</td>
+      <td class="m">201</td><td class="m">359</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 179%</span></td><td class="m"><span class="score high">7.0%</span></td><td class="m"><span class="score low">3.9%</span></td><td class="m">314</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10991140876</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10991174127</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 15/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC In-App GI2 — variante de A/B test. Dados residuais.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 15/01/2026</div>
-      </td>
-      <td class="m">201</td><td class="m">359</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 179%</span></td><td class="m"><span class="score low">7.0%</span></td><td class="m"><span class="score low">3.9%</span></td><td class="m">314</td>
+      <td class="m">175</td><td class="m">334</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 191%</span></td><td class="m"><span class="score high">5.7%</span></td><td class="m"><span class="score low">3.0%</span></td><td class="m">298</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10991174127</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">9495866736</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 07/07/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC In-App GI2 — variante de A/B test. Dados residuais.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 15/01/2026</div>
-      </td>
-      <td class="m">175</td><td class="m">334</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 191%</span></td><td class="m"><span class="score low">5.7%</span></td><td class="m"><span class="score low">3.0%</span></td><td class="m">298</td>
+      <td class="m">1</td><td class="m">299</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 29900%</span></td><td class="m"><span class="score high" title="Dado inconsistente">⚠ 1700.0%</span></td><td class="m"><span class="score mid">5.7%</span></td><td class="m">241</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9495866736</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span></div>
+      <td class="bid-cell"><span class="bid">10817015389</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reativ. · 19/12/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — In-App. Residual.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 07/07/2025</div>
-      </td>
-      <td class="m">1</td><td class="m">299</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 29900%</span></td><td class="m"><span class="score none" title="Dado inconsistente (>1700%)">⚠ 1700.0%</span></td><td class="m"><span class="score low">5.7%</span></td><td class="m">241</td>
+      <td class="m">480</td><td class="m">241</td><td class="m"><span class="score high">50.2%</span></td><td class="m"><span class="score high">4.4%</span></td><td class="m"><span class="score mid">8.7%</span></td><td class="m">199</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10817015389</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10991187060</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 15/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Reativação Abandonador SIC — In-App. Micro audience (504 env).</div>
-        <div class="tax-meta">Contextual · Reativ. Abandonador · 19/12/2025</div>
-      </td>
-      <td class="m">480</td><td class="m">241</td><td class="m"><span class="score high">50.2%</span></td><td class="m"><span class="score low">4.4%</span></td><td class="m"><span class="score mid">8.7%</span></td><td class="m">199</td>
+      <td class="m">110</td><td class="m">208</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 189%</span></td><td class="m"><span class="score high">5.5%</span></td><td class="m"><span class="score low">2.9%</span></td><td class="m">192</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10991187060</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">9922471343</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 01/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC In-App GI2 — variante de A/B test. Dados residuais.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 15/01/2026</div>
-      </td>
-      <td class="m">110</td><td class="m">208</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 189%</span></td><td class="m"><span class="score low">5.5%</span></td><td class="m"><span class="score low">2.9%</span></td><td class="m">192</td>
+      <td class="m">108</td><td class="m">97</td><td class="m"><span class="score high">89.8%</span></td><td class="m"><span class="score high">2.8%</span></td><td class="m"><span class="score low">3.1%</span></td><td class="m">87</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9922471343</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span></div>
+      <td class="bid-cell"><span class="bid">9639349644</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 25/07/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC — In-App. Residual.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 01/09/2025</div>
-      </td>
-      <td class="m">108</td><td class="m">97</td><td class="m"><span class="score high">89.8%</span></td><td class="m"><span class="score low">2.8%</span></td><td class="m"><span class="score low">3.1%</span></td><td class="m">87</td>
+      <td class="m">92</td><td class="m">91</td><td class="m"><span class="score high">98.9%</span></td><td class="m"><span class="score high">3.3%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m">75</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9639349644</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span></div>
+      <td class="bid-cell"><span class="bid">10991061677</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 15/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Reengajamento SIC — In-App. Residual.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 25/07/2025</div>
-      </td>
-      <td class="m">92</td><td class="m">91</td><td class="m"><span class="score high">98.9%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m"><span class="score low">3.3%</span></td><td class="m">75</td>
+      <td class="m">34</td><td class="m">71</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 209%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">64</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10991061677</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10991243855</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 15/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC In-App GI2 — variante de A/B test. Dados residuais.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 15/01/2026</div>
-      </td>
-      <td class="m">34</td><td class="m">71</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 209%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">64</td>
+      <td class="m">30</td><td class="m">48</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 160%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">48</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10991243855</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10991244367</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 15/01/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC In-App GI2 — variante de A/B test. Dados residuais.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 15/01/2026</div>
-      </td>
-      <td class="m">30</td><td class="m">48</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 160%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">48</td>
+      <td class="m">20</td><td class="m">31</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 155%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">30</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10991244367</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span></div>
+      <td class="bid-cell"><span class="bid">9977319179</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 06/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC In-App GI2 — variante de A/B test. Dados residuais.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 15/01/2026</div>
-      </td>
-      <td class="m">20</td><td class="m">31</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 155%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">30</td>
+      <td class="m">—</td><td class="m">10</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">10</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9977319179</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span></div>
+      <td class="bid-cell"><span class="bid">9977371690</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 06/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Cashback — In-App. Residual.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 06/09/2025</div>
-      </td>
-      <td class="m">0</td><td class="m">10</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">10</td>
+      <td class="m">—</td><td class="m">9</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score mid">11.1%</span></td><td class="m">7</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9977371690</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span></div>
+      <td class="bid-cell"><span class="bid">10589862397</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Aquisição · 24/11/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Cashback — In-App. Volume irrelevante.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 06/09/2025</div>
-      </td>
-      <td class="m">0</td><td class="m">9</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score mid">11.1%</span></td><td class="m">7</td>
+      <td class="m">3</td><td class="m">6</td><td class="m"><span class="score none" title="OR>100%: enviados inconsistentes">⚠ 200%</span></td><td class="m"><span class="score high">33.3%</span></td><td class="m"><span class="score high">16.7%</span></td><td class="m">5</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10589862397</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">9922647210</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 01/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual Cashback — In-App. Volume irrelevante.</div>
-        <div class="tax-meta">Contextual · Aquisição Card · 24/11/2025</div>
-      </td>
-      <td class="m">3</td><td class="m">6</td><td class="m"><span class="score none" title="Dado inconsistente">⚠ 200%</span></td><td class="m"><span class="score high">33.3%</span></td><td class="m"><span class="score mid">16.7%</span></td><td class="m">5</td>
+      <td class="m">6</td><td class="m">5</td><td class="m"><span class="score high">83.3%</span></td><td class="m"><span class="score high">16.7%</span></td><td class="m"><span class="score high">20.0%</span></td><td class="m">3</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9922647210</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span></div>
+      <td class="bid-cell"><span class="bid">9812073310</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 17/08/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC — In-App. Volume irrelevante.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 01/09/2025</div>
-      </td>
-      <td class="m">6</td><td class="m">5</td><td class="m"><span class="score high">83.3%</span></td><td class="m"><span class="score mid">16.7%</span></td><td class="m"><span class="score high">20.0%</span></td><td class="m">3</td>
+      <td class="m">—</td><td class="m">3</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">2</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9812073310</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Variante A</span></div>
+      <td class="bid-cell"><span class="bid">11574115615</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/03 | InApp FS - Projeto RÃ¡dio - Nivelamento de cartÃ£o</span></div>
+      
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">AtivaÃ§Ã£o</span></div>
+      <div class="m-meta">2026-03-24 - 2026-03-24 · Envio pontual (Ad hoc) · Personalization (NRT) · GI + GC + GCU</div>
+      <span class="m-vol">Vol. planejado: 5000000</span>
+    </div>
       </td>
-      <td>
-        <div class="desc">Vendas Reengajamento SIC — In-App. Residual.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 17/08/2025</div>
-      </td>
-      <td class="m">0</td><td class="m">3</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">2</td>
+      <td class="m">—</td><td class="m">3</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score high">33.3%</span></td><td class="m">2</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11574115615</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">10037691063</span><span class="npill">Régua</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 13/09/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Contextual SIC — In-App. Volume irrelevante.</div>
-        <div class="tax-meta">Contextual · Aquisição Card · 24/03/2026</div>
-      </td>
-      <td class="m">0</td><td class="m">3</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score high">33.3%</span></td><td class="m">2</td>
+      <td class="m">—</td><td class="m">2</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">2</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">10037691063</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Régua automatizada</span></div>
+      <td class="bid-cell"><span class="bid">11580135545</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 25/03/2026</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Cashback — In-App. Irrelevante.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 13/09/2025</div>
-      </td>
-      <td class="m">0</td><td class="m">2</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">2</td>
+      <td class="m">—</td><td class="m">2</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">2</td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11580135545</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">9923127380</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 30/08/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC — In-App. Residual.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 25/03/2026</div>
-      </td>
-      <td class="m">0</td><td class="m">2</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">2</td>
-    </tr>
-<tr>
-      <td>
-        <span class="bid">9923127380</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span></div>
-      </td>
-      <td>
-        <div class="desc">Vendas Cashback — In-App. Irrelevante.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 30/08/2025</div>
-      </td>
-      <td class="m">0</td><td class="m">1</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">0</td>
+      <td class="m">—</td><td class="m">1</td><td class="m"><span class="na">—</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m">—</td>
     </tr></tbody>
-    </table>
-  </div>
+  </table></div>
   <div class="note">
-    <strong>📌 Análise In-App:</strong> OR acima de 100% em múltiplos BIDs (série <strong>10991xxxxxx</strong>) é esperado neste canal — o campo "Enviados" não captura exibições contextuais. A métrica de referência é o <strong>CTOR</strong>. BID <strong>10864580098</strong> destaca-se com CTOR de 28.2% — altamente segmentado. A série 10991 representa variantes de um mesmo A/B test com volumes residuais em abril. BID <strong>11547915328</strong> é a maior campanha do mês em volume (2.4M abertos, JA/CPCB).
+    <strong>In-App — Análise:</strong> BIDs confirmados: <strong>11547915328</strong> = "Roleta Páscoa - Opt In variante N" (Uso · Régua · 2,4M abertos), <strong>11601850645</strong> = "Super CBK - USO" (Uso · Régua), <strong>11597850523</strong> = "InApp FS - Rádio Benefícios" (Ativação · Ad hoc), <strong>11574115615</strong> = "InApp FS - Rádio Nivelamento" (Ativação · Ad hoc). A série <strong>10991xxxxxx</strong> não está no Operacional de CRM — são variantes de A/B test de campanhas antigas com dados residuais. OR &gt;100% indica campo "Enviados" inconsistente para In-App contextual.
   </div>
 </div>
 
-<!-- EMAIL -->
+<!-- ═══════ EMAIL ═══════ -->
 <div class="panel" id="panel-email">
   <div class="ch">
-    <div class="ch-icon" style="background:rgba(33,197,93,.12);color:#21c55d;">✉️</div>
+    <div class="ch-icon" style="background:rgba(34,197,94,.12);color:var(--email);">✉️</div>
     <div>
-      <h2 style="color:#21c55d;">Email</h2>
-      <div class="ch-meta">Métricas: Delivery Rate · Open Rate · CTR · CTOR · Bounce Rate</div>
+      <h2 style="color:var(--email);">Email</h2>
+      <div class="ch-sub">Métricas: Delivery Rate · Open Rate · CTR · CTOR · Bounce Rate</div>
     </div>
   </div>
-  <div class="insights">
-    <div class="insight"><div class="il">Maior Volume</div><div class="iv" style="color:#21c55d;">262K</div><div class="id">BID 10810235483</div></div>
-    <div class="insight"><div class="il">Melhor Open Rate</div><div class="iv" style="color:#21c55d;">9.2%</div><div class="id">BID 34074</div></div>
-    <div class="insight"><div class="il">Melhor CTOR</div><div class="iv" style="color:#21c55d;">7.1%</div><div class="id">BID 10810235483</div></div>
+  <div class="ins">
+    <div class="in"><div class="il">Maior Volume</div><div class="iv" style="color:var(--email);">262K</div><div class="id">BID 10810235483</div></div>
+    <div class="in"><div class="il">Melhor Open Rate</div><div class="iv" style="color:var(--email);">9.2%</div><div class="id">BID 34074</div></div>
+    <div class="in"><div class="il">Melhor CTOR</div><div class="iv" style="color:var(--email);">7.1%</div><div class="id">BID 10810235483</div></div>
   </div>
-  <div class="tw">
-    <table>
-      <thead><tr>
-        <th style="min-width:200px;">Briefing ID / Monday</th>
-        <th style="min-width:240px;">Descrição & Taxonomia</th>
-        <th class="m">Enviados</th><th class="m">Entregues</th>
-        <th class="m">DR</th><th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounce</th>
-      </tr></thead>
-      <tbody><tr>
-      <td>
-        <span class="bid">10810235483</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>BID</th><th>Nome Monday · Taxonomia Braze</th><th class="m">Enviados</th><th class="m">Entregues</th><th class="m">DR</th><th class="m">OR</th><th class="m">CTR</th><th class="m">CTOR</th><th class="m">Bounce</th></tr></thead>
+    <tbody><tr>
+      <td class="bid-cell"><span class="bid">10810235483</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 26/12/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas Reengajamento SIC — Email. Principal campanha de email do mês.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 26/12/2025</div>
-      </td>
-      <td class="m">262K</td><td class="m">260K</td><td class="m"><span class="score high">99.1%</span></td><td class="m"><span class="score low">7.2%</span></td><td class="m"><span class="score low">0.5%</span></td><td class="m"><span class="score low">7.0%</span></td><td class="m"><span class="score high">0.9%</span></td>
+      <td class="m">262K</td><td class="m">259K</td><td class="m"><span class="score high">99.1%</span></td><td class="m"><span class="score low">7.2%</span></td><td class="m"><span class="score mid">0.5%</span></td><td class="m"><span class="score mid">7.0%</span></td><td class="m"><span class="score high">0.9%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">34074</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span><span class="nota-pill">Variante A</span></div>
-      </td>
-      <td>
-        <div class="desc">Contextual Reengajamento SIC — Email. OR 9.2%, CTOR 2.5%.</div>
-        <div class="tax-meta">Contextual · Reengajamento · 01/04/2025</div>
+      <td class="bid-cell"><span class="bid">34074</span><span class="npill">GI2</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Contextual · Reengajamento · 01/04/2025</span></div>
       </td>
       <td class="m">7K</td><td class="m">7K</td><td class="m"><span class="score high">98.5%</span></td><td class="m"><span class="score mid">9.2%</span></td><td class="m"><span class="score low">0.2%</span></td><td class="m"><span class="score low">2.5%</span></td><td class="m"><span class="score high">1.5%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">9961068983</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span><span class="nota-pill">Variante A</span></div>
-      </td>
-      <td>
-        <div class="desc">Vendas Reengajamento SIC — Email DBA. Micro lista (14 env), sem aberturas.</div>
-        <div class="tax-meta">Vendas · Reengajamento · 07/09/2025</div>
+      <td class="bid-cell"><span class="bid">9961068983</span><span class="npill">GI2</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Reengajamento · 07/09/2025</span></div>
       </td>
       <td class="m">14</td><td class="m">14</td><td class="m"><span class="score high">100.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="score low">0.0%</span></td><td class="m"><span class="na">—</span></td><td class="m"><span class="score high">0.0%</span></td>
     </tr></tbody>
-    </table>
-  </div>
+  </table></div>
   <div class="note">
-    <strong>📌 Análise Email:</strong> Canal com menor volume em abril (3 briefings, ~270K enviados). Bounce Rate excelente (&lt;2%) — base saudável. ORs entre 7–9% estão abaixo do benchmark fintech (10–15%), indicando oportunidade de melhoria em assuntos/personalização. BID <strong>9961068983</strong> com 14 envios é provavelmente um teste ou lista de controle.
+    <strong>Email — Análise:</strong> Nenhum dos 3 BIDs de email está no Operacional de CRM atual — são campanhas de 2025 (criadas antes do board). Bounce Rate &lt;2% em todos confirma base saudável. ORs de 7–9% estão abaixo do benchmark fintech (10–15%): oportunidade de melhoria em subject lines e personalização.
   </div>
 </div>
 
-<!-- WHATSAPP -->
+<!-- ═══════ WHATSAPP ═══════ -->
 <div class="panel" id="panel-wap">
   <div class="ch">
-    <div class="ch-icon" style="background:rgba(74,222,128,.12);color:#4ade80;">💬</div>
+    <div class="ch-icon" style="background:rgba(74,222,128,.12);color:var(--wap);">💬</div>
     <div>
-      <h2 style="color:#4ade80;">WhatsApp</h2>
-      <div class="ch-meta">Métricas: Delivery Rate · Open Rate (leitura) — CTR não disponível nativamente</div>
+      <h2 style="color:var(--wap);">WhatsApp</h2>
+      <div class="ch-sub">Métricas: Delivery Rate · Open Rate (leitura) · Bounce Rate — CTR não disponível nativamente</div>
     </div>
   </div>
-  <div class="insights">
-    <div class="insight"><div class="il">Total Enviados</div><div class="iv" style="color:#4ade80;">374K</div><div class="id">2 campanhas combinadas</div></div>
-    <div class="insight"><div class="il">Avg. Open Rate</div><div class="iv" style="color:#4ade80;">53.5%</div><div class="id">acima do benchmark (40–50%)</div></div>
-    <div class="insight"><div class="il">Avg. Delivery Rate</div><div class="iv" style="color:#4ade80;">88.5%</div><div class="id">bounce controlado ~10%</div></div>
+  <div class="ins">
+    <div class="in"><div class="il">Total Enviados</div><div class="iv" style="color:var(--wap);">374K</div><div class="id">2 variantes identificadas no Monday</div></div>
+    <div class="in"><div class="il">Avg. Open Rate</div><div class="iv" style="color:var(--wap);">53.5%</div><div class="id">acima benchmark (40–50%)</div></div>
+    <div class="in"><div class="il">Avg. Delivery Rate</div><div class="iv" style="color:var(--wap);">88.5%</div><div class="id">bounce ~10%</div></div>
   </div>
-  <div class="tw">
-    <table>
-      <thead><tr>
-        <th style="min-width:200px;">Briefing ID / Monday</th>
-        <th style="min-width:240px;">Descrição & Taxonomia</th>
-        <th class="m">Enviados</th><th class="m">Entregues</th>
-        <th class="m">DR</th><th class="m">Abertos</th><th class="m">OR</th><th class="m">Bounces</th><th class="m">Bounce Rate</th>
-      </tr></thead>
-      <tbody><tr>
-      <td>
-        <span class="bid">11648955721</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>BID</th><th>Nome Monday · Taxonomia Braze</th><th class="m">Enviados</th><th class="m">Entregues</th><th class="m">DR</th><th class="m">Lidos</th><th class="m">OR</th><th class="m">Bounces</th><th class="m">Bounce%</th></tr></thead>
+    <tbody><tr>
+      <td class="bid-cell"><span class="bid">11648955721</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/04 | Promocional - Super CBK - PÃ¡scoa (WPP)</span></div>
+      <div class="m-camp">2026/03 | Promocional - Super CBK - PÃ¡scoa (WPP)</div>
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">2026-04-01 - 2026-04-01 · Envio pontual (Ad hoc) · Data Cloud (Data 360) · GI + GCU</div>
+      <span class="m-vol">Vol. planejado: 270588</span>
+    </div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC — WhatsApp (variante 2). Maior volume do canal, OR de 54.1%.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 01/04/2026</div>
-      </td>
-      <td class="m">249K</td><td class="m">222K</td><td class="m"><span class="score mid">89.2%</span></td><td class="m">120K</td><td class="m"><span class="score high">54.1%</span></td><td class="m">25K</td><td class="m"><span class="score low">10.0%</span></td>
+      <td class="m">248K</td><td class="m">221K</td><td class="m"><span class="score mid">89.2%</span></td><td class="m">120K</td><td class="m"><span class="score high">54.1%</span></td><td class="m">24K</td><td class="m"><span class="score low">10.0%</span></td>
     </tr>
 <tr>
-      <td>
-        <span class="bid">11650829788</span>
-        
-        <div class="notas"><span class="nota-pill">Nova ativação</span><span class="nota-pill">Grupo Interesse 2</span></div>
+      <td class="bid-cell"><span class="bid">11650829788</span><span class="npill">GI2</span></td>
+      <td class="info-cell">
+        <div class="m-card">
+      <div class="m-header"><span class="m-dot"></span><span class="m-title">2026/04 | Limite - Quero mais Limite Abr.</span></div>
+      <div class="m-camp">2026/04 | Limite - Quero mais Limite</div>
+      <div class="m-row"><span class="m-tag tag-done">Entregue ð</span><span class="m-frente">Uso</span></div>
+      <div class="m-meta">2026-04-02 - 2026-04-02 · Envio pontual (Ad hoc) · Data Cloud (Data 360) · GI + GC + GCU</div>
+      
+    </div>
       </td>
-      <td>
-        <div class="desc">Nova Vendas SIC — WhatsApp (variante 1). OR de 52.8%, alto engajamento.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 02/04/2026</div>
-      </td>
-      <td class="m">125K</td><td class="m">110K</td><td class="m"><span class="score mid">87.8%</span></td><td class="m">58K</td><td class="m"><span class="score high">52.8%</span></td><td class="m">14K</td><td class="m"><span class="score low">11.1%</span></td>
+      <td class="m">124K</td><td class="m">109K</td><td class="m"><span class="score mid">87.8%</span></td><td class="m">57K</td><td class="m"><span class="score high">52.8%</span></td><td class="m">13K</td><td class="m"><span class="score low">11.1%</span></td>
     </tr></tbody>
-    </table>
-  </div>
+  </table></div>
   <div class="note">
-    <strong>📌 Análise WhatsApp:</strong> Melhor Open Rate do mês (~53%) — consistente com o canal. As 2 campanhas são variantes (wap-1 e wap-2) de uma mesma ação de aquisição SIC lançada em 01–02/04. Bounce ~10–11% é aceitável para WhatsApp Business. CTR não rastreado nativamente — acompanhar via UTM/deep link.
+    <strong>WhatsApp — Análise:</strong> Ambos os BIDs confirmados no Monday: <strong>11650829788</strong> = "Limite - Quero mais Limite Abr." (Uso · Ad hoc) e <strong>11648955721</strong> = "Super CBK Páscoa WPP" (Uso · Ad hoc). São variantes de uma mesma ação de uso lançada em 01–02/04. OR de 53% confirma alta taxa de leitura típica do canal.
   </div>
 </div>
 
-<!-- DM -->
+<!-- ═══════ DM ═══════ -->
 <div class="panel" id="panel-dm">
   <div class="ch">
-    <div class="ch-icon" style="background:rgba(6,182,212,.12);color:#06b6d4;">📨</div>
+    <div class="ch-icon" style="background:rgba(6,182,212,.12);color:var(--dm);">📨</div>
     <div>
-      <h2 style="color:#06b6d4;">DM (Direct Mail)</h2>
-      <div class="ch-meta">Métrica principal: CTOR — DR e OR não rastreados em DM físico</div>
+      <h2 style="color:var(--dm);">DM (Direct Mail)</h2>
+      <div class="ch-sub">Métrica principal: CTOR — DR e OR não rastreados para DM físico/direto</div>
     </div>
   </div>
-  <div class="insights">
-    <div class="insight"><div class="il">CTOR</div><div class="iv" style="color:#06b6d4;">32.9%</div><div class="id">maior de todos os canais</div></div>
-    <div class="insight"><div class="il">Abertos</div><div class="iv" style="color:#06b6d4;">1,856</div><div class="id">de 14,959 enviados</div></div>
-    <div class="insight"><div class="il">Clicados</div><div class="iv" style="color:#06b6d4;">611</div><div class="id">alta intenção de conversão</div></div>
+  <div class="ins">
+    <div class="in"><div class="il">CTOR</div><div class="iv" style="color:var(--dm);">32.9%</div><div class="id">maior de todos os canais</div></div>
+    <div class="in"><div class="il">Abertos</div><div class="iv" style="color:var(--dm);">1,856</div><div class="id">de 14,959 base</div></div>
+    <div class="in"><div class="il">Clicados</div><div class="iv" style="color:var(--dm);">611</div><div class="id">alta intenção confirmada</div></div>
   </div>
-  <div class="tw">
-    <table>
-      <thead><tr>
-        <th style="min-width:200px;">Briefing ID / Monday</th>
-        <th style="min-width:240px;">Descrição & Taxonomia</th>
-        <th class="m">Enviados</th><th class="m">Abertos</th>
-        <th class="m">Clicados</th><th class="m">CTOR</th><th class="m">DR</th><th class="m">OR</th>
-      </tr></thead>
-      <tbody><tr>
-      <td>
-        <span class="bid">9771067387</span>
-        
-        <div class="notas"><span class="nota-pill">ID Braze</span><span class="nota-pill">Grupo Interesse 2</span><span class="nota-pill">Variante A</span></div>
+  <div class="tw"><table>
+    <thead><tr><th>BID</th><th>Nome Monday · Taxonomia Braze</th><th class="m">Base</th><th class="m">Abertos</th><th class="m">Clicados</th><th class="m">CTOR</th></tr></thead>
+    <tbody><tr>
+      <td class="bid-cell"><span class="bid">9771067387</span><span class="npill">GI2</span><span class="npill">Var. A</span></td>
+      <td class="info-cell">
+        <div class="no-monday"><span class="braze-tax">Vendas · Aquisição · 11/08/2025</span></div>
       </td>
-      <td>
-        <div class="desc">Vendas SIC — DM (Direct Mail). CTOR de 32.9% indica altíssima intenção de clique.</div>
-        <div class="tax-meta">Vendas · Aquisição Card · 11/08/2025</div>
-      </td>
-      <td class="m">15K</td><td class="m">2K</td><td class="m">611</td><td class="m"><span class="score high">32.9%</span></td><td class="m"><span class="na">N/A</span></td><td class="m"><span class="na">N/A</span></td>
+      <td class="m">14K</td><td class="m">1K</td><td class="m">611</td><td class="m"><span class="score high">32.9%</span></td>
     </tr></tbody>
-    </table>
-  </div>
+  </table></div>
   <div class="note">
-    <strong>📌 Análise DM:</strong> Canal com 1 briefing ativo. CTOR de <strong>32.9%</strong> é o maior de todos os canais em abril — indica qualidade altíssima da audiência impactada. DR=0 e OR relativo são esperados para DM físico. Aquisição SIC lançada em 11/08/2025 com dados residuais chegando em abril.
+    <strong>DM — Análise:</strong> BID <strong>9771067387</strong> não está no Operacional de CRM atual (campanha de ago/2025). CTOR de 32.9% é o mais alto de todos os canais em abril — indica audiência altamente qualificada. Acompanhar via deep link/UTM para medir conversão real.
   </div>
 </div>
 
 </div>
 
-<div class="footer">
-  <span>PicPay Card · CRM Report · Abril 2026 · Gerado por Wolf / HubAI Nitro · Dados: Excel + Monday.com Growth Cards</span>
-  <span>56 Briefing IDs · 5 canais · 2 confirmados via Monday.com (Réguas de CRM)</span>
+<div class="ftr">
+  <span>PicPay Card · CRM Report · Abril 2026 · Wolf / HubAI Nitro</span>
+  <span>14 de 55 BIDs identificados no Monday (Operacional de CRM) · 41 são campanhas fora do período do board</span>
 </div>
 
 <script>
-function showTab(t) {
+function showTab(t){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.getElementById('panel-'+t).classList.add('active');
-  event.target.closest('.tab').classList.add('active');
+  event.currentTarget.classList.add('active');
 }
 </script>
 </body>
