@@ -3,1305 +3,2359 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CRM Report — PicPay Card · Abril 2026</title>
+<title>CRM Report — PicPay Card · Mar–Abr 2026</title>
 <style>
-/* ── reset ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { background: #e8eaed; font-family: 'Inter', system-ui, sans-serif; font-size: 13px;
-  color: #111827; line-height: 1.5; }
-img { display: block; max-width: 100%; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e8eaed;font-family:'Inter',system-ui,sans-serif;font-size:13px;color:#111827;line-height:1.5}
+img{display:block;max-width:100%}
 
-/* ── header ── */
-.hdr { background: #fff; border-bottom: 1.5px solid #e5e7eb; padding: 13px 36px;
-  display: flex; justify-content: space-between; align-items: center;
-  position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
-.hdr h1 { font-size: 14px; font-weight: 700; color: #111; }
-.hdr p  { font-size: 11px; color: #6b7280; margin-top: 1px; }
-.hdr-r  { display: flex; gap: 8px; align-items: center; }
-.badge  { padding: 3px 11px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-.b-green { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
-.b-cnt   { font-size: 11px; color: #6b7280; }
+/* header */
+.hdr{background:#fff;border-bottom:1.5px solid #e5e7eb;padding:12px 36px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:100;box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.hdr h1{font-size:14px;font-weight:700;color:#111}
+.hdr p{font-size:11px;color:#6b7280;margin-top:1px}
+.hdr-r{display:flex;gap:8px;align-items:center}
+.badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600}
+.bg{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
 
-/* ── nav lateral ── */
-.sidenav { position: fixed; left: 12px; top: 50%; transform: translateY(-50%);
-  display: flex; flex-direction: column; gap: 6px; z-index: 200; }
-.nd { width: 7px; height: 7px; border-radius: 50%; background: #d1d5db;
-  cursor: pointer; transition: all .18s; }
-.nd.active { background: #374151; transform: scale(1.5); }
-.nd:hover  { background: #9ca3af; }
+/* nav lateral */
+.sidenav{position:fixed;left:11px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:5px;z-index:200}
+.nd{width:7px;height:7px;border-radius:50%;background:#d1d5db;cursor:pointer;transition:all .18s}
+.nd.active{background:#1f2937;transform:scale(1.5)}
+.nd:hover{background:#9ca3af}
 
-/* ── slide ── */
-.slide { background: #f9fafb; border-bottom: 2px solid #e5e7eb;
-  min-height: 100vh; padding: 36px 52px 44px 52px;
-  display: flex; flex-direction: column; gap: 24px; }
+/* slide */
+.slide{background:#f9fafb;border-bottom:2px solid #e5e7eb;
+  min-height:100vh;padding:32px 52px 40px;
+  display:flex;flex-direction:column;gap:22px}
 
-/* ── slide top ── */
-.slide-top { display: flex; justify-content: space-between; align-items: flex-start; }
-.sl-title  { font-size: 22px; font-weight: 700; color: #21c55d; letter-spacing: -.3px; line-height: 1.2; }
-.sl-sub    { font-size: 11px; color: #9ca3af; margin-top: 4px; font-family: monospace; }
-.sl-per    { font-size: 13px; font-weight: 600; color: #374151;
-  background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px;
-  padding: 4px 12px; }
+/* slide top */
+.stop{display:flex;justify-content:space-between;align-items:flex-start}
+.stitle{font-size:22px;font-weight:700;color:#21c55d;letter-spacing:-.3px;line-height:1.2}
+.ssub{font-size:11px;color:#9ca3af;margin-top:4px;font-family:monospace}
+.sper{font-size:13px;font-weight:600;color:#374151;background:#f3f4f6;
+  border:1px solid #e5e7eb;border-radius:6px;padding:4px 12px}
 
-/* ── TP row ── */
-.tp-row { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
+/* TP row */
+.tprow{display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap}
 
-/* ── TP card ── */
-.tp-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
-  overflow: hidden; width: 220px; flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-.tp-hdr  { padding: 9px 12px; background: #fafafa; border-bottom: 1px solid #f3f4f6; }
-.tp-canal { font-size: 11px; font-weight: 700; letter-spacing: .2px; }
-.tp-mock { padding: 12px; display: flex; justify-content: center; min-height: 200px; align-items: flex-start; }
-.tp-metrics { padding: 0 10px 12px; }
+/* TP card */
+.tpc{background:#fff;border:1px solid #e5e7eb;border-radius:12px;
+  overflow:hidden;width:216px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.tphdr{padding:8px 12px;background:#fafafa;border-bottom:1px solid #f3f4f6}
+.tpcanal{font-size:11px;font-weight:700;letter-spacing:.2px}
+.tpmock{padding:12px;display:flex;justify-content:center;min-height:190px;align-items:flex-start}
+.tpmet{padding:0 8px 10px}
 
 /* ── MOCKUPS COMUNS ── */
-.mock { position: relative; }
-.m-notch { width: 48px; height: 5px; background: #1f2937; border-radius: 3px;
-  margin: 8px auto 6px; }
-.m-home  { width: 36px; height: 4px; background: #e5e7eb; border-radius: 3px;
-  margin: 8px auto; }
+.mock{position:relative}
+.notch{width:46px;height:5px;background:#1f2937;border-radius:3px;margin:8px auto 5px}
+.home{width:34px;height:4px;background:#e5e7eb;border-radius:3px;margin:7px auto}
 
 /* PUSH */
-.mock-push { width: 190px; background: #fff; border: 2px solid #1f2937;
-  border-radius: 22px; overflow: hidden; }
-.m-screen  { padding: 0 6px; }
-.push-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px;
-  padding: 8px; display: flex; gap: 6px; }
-.push-icon-wrap { flex-shrink: 0; }
-.push-icon { width: 24px; height: 24px; border-radius: 6px;
-  background: linear-gradient(135deg, #22c55e, #16a34a); }
-.push-content { flex: 1; min-width: 0; }
-.push-app   { font-size: 9px; font-weight: 700; color: #374151; }
-.push-title { font-size: 9px; font-weight: 700; color: #111; margin-top: 1px;
-  line-height: 1.3; }
-.push-body  { font-size: 8px; color: #6b7280; margin-top: 2px; line-height: 1.3;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-.push-time  { font-size: 8px; color: #9ca3af; flex-shrink: 0; }
+.mpush{width:188px;background:#fff;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.screen{padding:0 5px}
+.pn{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;
+  padding:7px;display:flex;gap:6px;align-items:flex-start}
+.pico{width:22px;height:22px;border-radius:6px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);flex-shrink:0}
+.pb_{flex:1;min-width:0}
+.pt{font-size:9px;font-weight:700;color:#374151}
+.ptitle{font-size:9px;font-weight:700;color:#111;margin-top:1px;line-height:1.3}
+.pmsg{font-size:8px;color:#6b7280;margin-top:2px;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.ptime{font-size:8px;color:#9ca3af;flex-shrink:0}
 
 /* IN-APP MODAL */
-.mock-inapp { width: 190px; background: #fff; border: 2px solid #1f2937;
-  border-radius: 22px; overflow: hidden; }
-.ia-card    { border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;
-  margin: 0 4px; }
-.ia-img     { width: 100%; height: 80px; object-fit: cover; }
-.ia-img-fallback { width: 100%; height: 80px; background: linear-gradient(135deg, #dbeafe, #ede9fe);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px; color: #9ca3af; }
-.ia-body    { padding: 8px; }
-.ia-title   { font-size: 9px; font-weight: 700; color: #111; line-height: 1.3; }
-.ia-msg     { font-size: 8px; color: #6b7280; margin-top: 2px; line-height: 1.3;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-.ia-btn     { margin-top: 7px; background: #22c55e; color: #fff;
-  font-size: 9px; font-weight: 700; text-align: center;
-  padding: 5px; border-radius: 6px; }
+.minapp{width:188px;background:#fff;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.icard{border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;margin:0 3px}
+.iimg{width:100%;height:78px;object-fit:cover}
+.iimgf{width:100%;height:78px;background:linear-gradient(135deg,#dbeafe,#ede9fe);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#9ca3af;font-style:italic}
+.ibody{padding:7px}
+.ititle{font-size:9px;font-weight:700;color:#111;line-height:1.3}
+.imsg{font-size:8px;color:#6b7280;margin-top:2px;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.ibtn{margin-top:6px;background:#22c55e;color:#fff;font-size:9px;font-weight:700;
+  text-align:center;padding:5px;border-radius:6px}
 
-/* IN-APP FULL SCREEN */
-.mock-iafs  { width: 190px; background: #1f2937; border: 2px solid #1f2937;
-  border-radius: 22px; overflow: hidden; }
-.iafs-screen { padding: 0 !important; position: relative; min-height: 160px; }
-.iafs-img   { width: 100%; height: 160px; object-fit: cover; }
-.iafs-img-fallback { width: 100%; height: 160px; background: linear-gradient(135deg, #1e1b4b, #312e81);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 10px; color: #a5b4fc; }
-.iafs-btn   { position: absolute; bottom: 12px; left: 12px; right: 12px;
-  background: #22c55e; color: #fff; font-size: 9px; font-weight: 700;
-  text-align: center; padding: 7px; border-radius: 8px; }
+/* IN-APP FS */
+.miafs{width:188px;background:#1f2937;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.fsscreen{padding:0!important;position:relative;min-height:156px}
+.fsimg{width:100%;height:156px;object-fit:cover}
+.fsimgf{width:100%;height:156px;background:linear-gradient(135deg,#1e1b4b,#312e81);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#a5b4fc;font-style:italic}
+.fsbtn{position:absolute;bottom:10px;left:10px;right:10px;background:#22c55e;
+  color:#fff;font-size:9px;font-weight:700;text-align:center;padding:6px;border-radius:7px}
 
 /* WHATSAPP */
-.mock-wap   { width: 190px; background: #e5ddd5; border: 2px solid #1f2937;
-  border-radius: 22px; overflow: hidden; }
-.wap-hdr    { background: #075e54; padding: 6px 8px; display: flex; gap: 6px; align-items: center; }
-.wap-av     { width: 22px; height: 22px; border-radius: 50%; background: #25d366;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 7px; font-weight: 700; color: #fff; flex-shrink: 0; }
-.wap-name   { font-size: 9px; font-weight: 700; color: #fff; }
-.wap-on     { font-size: 7px; color: #b2dfdb; }
-.wap-body   { padding: 6px 6px 4px; }
-.wap-bubble { background: #fff; border-radius: 0 8px 8px 8px; padding: 6px; margin-bottom: 4px; }
-.wap-img    { width: 100%; border-radius: 4px; margin-bottom: 4px; max-height: 70px; object-fit: cover; }
-.wap-title  { font-size: 8px; font-weight: 700; color: #111; line-height: 1.3;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.wap-msg    { font-size: 7px; color: #374151; margin-top: 2px; line-height: 1.35;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-.wap-time   { font-size: 7px; color: #9ca3af; text-align: right; margin-top: 2px; }
-.wap-cta-btn { background: #25d366; color: #fff; font-size: 8px; font-weight: 700;
-  text-align: center; padding: 5px 8px; border-radius: 0 0 6px 6px; }
+.mwap{width:188px;background:#e5ddd5;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.whead{background:#075e54;padding:6px 8px;display:flex;gap:5px;align-items:center}
+.wav{width:20px;height:20px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:#fff;flex-shrink:0}
+.wname{font-size:9px;font-weight:700;color:#fff}
+.won{font-size:7px;color:#b2dfdb}
+.wbody{padding:5px 5px 3px;min-height:60px}
+.wbub{background:#fff;border-radius:0 8px 8px 8px;padding:5px;margin-bottom:4px}
+.wimg{width:100%;border-radius:4px;margin-bottom:3px;max-height:65px;object-fit:cover}
+.wimgf{width:100%;height:55px;background:linear-gradient(135deg,#dcfce7,#bbf7d0);
+  display:flex;align-items:center;justify-content:center;font-size:9px;color:#16a34a;
+  border-radius:4px;margin-bottom:3px;font-style:italic}
+.wtitle{font-size:8px;font-weight:700;color:#111;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.wmsg{font-size:7px;color:#374151;margin-top:2px;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+.wtime{font-size:7px;color:#9ca3af;text-align:right;margin-top:2px}
+.wcta{background:#25d366;color:#fff;font-size:8px;font-weight:700;
+  text-align:center;padding:5px 8px;border-radius:0 0 5px 5px}
 
 /* E-MAIL */
-.mock-email { width: 190px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
-.email-hdr  { background: #f9fafb; padding: 6px 8px; border-bottom: 1px solid #e5e7eb; }
-.email-from { font-size: 8px; color: #9ca3af; }
-.email-subj { font-size: 9px; font-weight: 700; color: #111; overflow: hidden;
-  white-space: nowrap; text-overflow: ellipsis; }
-.email-banner { height: 60px; background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 9px; color: #7c3aed; }
-.email-body { padding: 6px 8px; }
-.email-msg  { font-size: 8px; color: #374151; line-height: 1.35;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
-.email-cta  { margin-top: 7px; background: #7c3aed; color: #fff;
-  font-size: 9px; font-weight: 700; text-align: center;
-  padding: 5px; border-radius: 6px; }
+.memail{width:188px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;overflow:hidden}
+.ehdr{background:#f9fafb;padding:6px 8px;border-bottom:1px solid #e5e7eb}
+.efrom{font-size:7px;color:#9ca3af}
+.esubj{font-size:8px;font-weight:700;color:#111;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.epre{font-size:7px;color:#9ca3af}
+.eban{height:55px;background:linear-gradient(135deg,#ede9fe,#ddd6fe);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#7c3aed;font-style:italic}
+.ebody{padding:6px 8px}
+.emsg{font-size:8px;color:#374151;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+.ecta{margin-top:6px;background:#7c3aed;color:#fff;font-size:9px;font-weight:700;
+  text-align:center;padding:5px;border-radius:6px}
 
 /* DM */
-.mock-dm    { width: 190px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
-.dm-img     { width: 100%; max-height: 90px; object-fit: cover; }
-.dm-img-fallback { width: 100%; height: 70px; background: linear-gradient(135deg, #e0f2fe, #bae6fd);
-  display: flex; align-items: center; justify-content: center; font-size: 9px; color: #0369a1; }
-.dm-body    { padding: 8px; }
-.dm-title   { font-size: 9px; font-weight: 700; color: #111; line-height: 1.3; }
-.dm-msg     { font-size: 8px; color: #374151; margin-top: 3px; line-height: 1.35;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-.dm-cta     { margin-top: 6px; font-size: 9px; font-weight: 700; color: #0369a1; }
+.mdm{width:188px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;overflow:hidden}
+.dimg{width:100%;max-height:85px;object-fit:cover}
+.dimgf{width:100%;height:70px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#0369a1;font-style:italic}
+.dbody{padding:7px}
+.dtitle{font-size:8px;font-weight:700;color:#111;line-height:1.3}
+.dmsg{font-size:8px;color:#374151;margin-top:2px;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.dcta{margin-top:6px;background:#22c55e;color:#fff;font-size:9px;font-weight:700;
+  text-align:center;padding:5px;border-radius:6px}
+.dreg{margin-top:3px;font-size:8px;text-align:center;color:#9ca3af;
+  border-top:1px solid #f3f4f6;padding-top:3px}
+
+/* SMS */
+.msms{width:188px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;overflow:hidden;padding:8px}
+.smshead{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.smsico{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);flex-shrink:0}
+.smsname{font-size:9px;font-weight:700;color:#111}
+.smsdesc{font-size:8px;color:#9ca3af}
+.smsbub{font-size:8px;color:#374151;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical}
 
 /* GENÉRICO */
-.mock-generic { width: 180px; background: #f9fafb; border: 1px dashed #d1d5db;
-  border-radius: 8px; padding: 10px; }
-.gen-label  { font-size: 9px; font-weight: 700; color: #9ca3af; text-transform: uppercase;
-  letter-spacing: .5px; margin-bottom: 4px; }
-.gen-title  { font-size: 9px; font-weight: 700; color: #374151; }
-.gen-msg    { font-size: 8px; color: #6b7280; margin-top: 3px; line-height: 1.35;
-  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
+.mgen{width:176px;background:#f9fafb;border:1px dashed #d1d5db;border-radius:8px;padding:10px}
+.glabel{font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.gtitle{font-size:9px;font-weight:700;color:#374151}
+.gmsg{font-size:8px;color:#6b7280;margin-top:3px;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
 
-/* ── Métrica table ── */
-.mt { width: 100%; border-collapse: collapse; border-top: 1px solid #f3f4f6; margin-top: 4px; }
-.mt thead th { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
-  color: #9ca3af; padding: 4px 4px; text-align: left; border-bottom: 1px solid #f3f4f6; }
-.mt tbody td { padding: 4px; font-size: 11px; color: #374151; border-bottom: 1px solid #f9fafb; }
-.mt tbody tr:last-child td { border-bottom: none; }
-.mn { font-weight: 700; color: #374151; width: 42px; }
-.mb { color: #9ca3af; }
-.mv { font-weight: 600; color: #111; }
-.pos { font-weight: 700; color: #16a34a; }
-.neg { font-weight: 700; color: #dc2626; }
-.no-met { font-size: 10px; color: #d1d5db; padding: 6px 4px; }
+/* Métricas */
+.mt{width:100%;border-collapse:collapse;border-top:1px solid #f3f4f6;margin-top:3px}
+.mt thead th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+  color:#9ca3af;padding:4px 3px;text-align:left;border-bottom:1px solid #f3f4f6}
+.mt tbody td{padding:3px;font-size:11px;color:#374151;border-bottom:1px solid #fafafa}
+.mt tbody tr:last-child td{border-bottom:none}
+.mn{font-weight:700;color:#374151;width:38px}
+.mb{color:#9ca3af}
+.mv{font-weight:600;color:#111}
+.pos{font-weight:700;color:#16a34a}
+.neg{font-weight:700;color:#dc2626}
+.nd_{font-weight:400;color:#9ca3af}
+.nm{font-size:10px;color:#d1d5db;padding:5px 3px}
 
-/* ── Slide footer ── */
-.slide-footer { display: flex; gap: 14px; align-items: center;
-  padding: 14px 18px; background: #fff; border: 1px solid #e5e7eb;
-  border-radius: 10px; max-width: 650px; }
-.sf-icon { flex-shrink: 0; }
-.sf-text { font-size: 12px; color: #374151; line-height: 1.7; }
-.sf-text strong { font-weight: 700; }
+/* Slide footer */
+.sfooter{display:flex;gap:12px;align-items:center;
+  padding:12px 16px;background:#fff;border:1px solid #e5e7eb;
+  border-radius:10px;max-width:680px}
+.sftext{font-size:12px;color:#374151;line-height:1.7}
+.sftext strong{font-weight:700}
 
-/* ── print ── */
-@media print {
-  .hdr, .sidenav { display: none; }
-  .slide { page-break-after: always; min-height: auto; padding: 20px; }
+@media print{
+  .hdr,.sidenav{display:none}
+  .slide{page-break-after:always;min-height:auto;padding:18px}
 }
 </style>
 </head>
 <body>
-
-<nav class="sidenav">
-<div class="nd" onclick="goTo(0)" id="nd-0" title="Promocional — Roleta Páscoa Op"></div>
-<div class="nd" onclick="goTo(1)" id="nd-1" title="Super CBK — USO"></div>
-<div class="nd" onclick="goTo(2)" id="nd-2" title="InApp FS — Projeto Rádio — Niv"></div>
-<div class="nd" onclick="goTo(3)" id="nd-3" title="Super CBK — OPT IN"></div>
-<div class="nd" onclick="goTo(4)" id="nd-4" title="Aumento de Limite c/ Flag"></div>
-<div class="nd" onclick="goTo(5)" id="nd-5" title="Aumento de Limite s/ Flag"></div>
-<div class="nd" onclick="goTo(6)" id="nd-6" title="Pula Pré Páscoa"></div>
-<div class="nd" onclick="goTo(7)" id="nd-7" title="PCA Pré Páscoa"></div>
-<div class="nd" onclick="goTo(8)" id="nd-8" title="Promocional — Roleta Páscoa Op"></div>
-<div class="nd" onclick="goTo(9)" id="nd-9" title="InApp FS — Projeto Rádio — Ben"></div>
-<div class="nd" onclick="goTo(10)" id="nd-10" title="Débito Automático N3"></div>
-<div class="nd" onclick="goTo(11)" id="nd-11" title="AdHoc Alta Propensão v25/03"></div>
-<div class="nd" onclick="goTo(12)" id="nd-12" title="Promocional — Super CBK Páscoa"></div>
-<div class="nd" onclick="goTo(13)" id="nd-13" title="Limite — Quero mais Limite Abr"></div>
-
+<nav class="sidenav"><div class="nd" onclick="goTo(0)" id="nd-0" title="Promocional — Roleta Páscoa "></div>
+<div class="nd" onclick="goTo(1)" id="nd-1" title="InApp FS — Projeto Rádio — N"></div>
+<div class="nd" onclick="goTo(2)" id="nd-2" title="PCA Dia do Consumidor"></div>
+<div class="nd" onclick="goTo(3)" id="nd-3" title="Pula Compra Semi Final Pauli"></div>
+<div class="nd" onclick="goTo(4)" id="nd-4" title="Aceleração Vencimento 25"></div>
+<div class="nd" onclick="goTo(5)" id="nd-5" title="Super CBK — USO"></div>
+<div class="nd" onclick="goTo(6)" id="nd-6" title="InApp FS — Projeto Rádio — B"></div>
+<div class="nd" onclick="goTo(7)" id="nd-7" title="Aumento de Limite c/ Flag"></div>
+<div class="nd" onclick="goTo(8)" id="nd-8" title="Super CBK — OPT IN"></div>
+<div class="nd" onclick="goTo(9)" id="nd-9" title="Débito Automático N3"></div>
+<div class="nd" onclick="goTo(10)" id="nd-10" title="AdHoc Alta Propensão v25/03"></div>
+<div class="nd" onclick="goTo(11)" id="nd-11" title="Aumento de Limite s/ Flag"></div>
+<div class="nd" onclick="goTo(12)" id="nd-12" title="AdHoc Alta Propensão v15/03"></div>
+<div class="nd" onclick="goTo(13)" id="nd-13" title="Ação 03/03"></div>
+<div class="nd" onclick="goTo(14)" id="nd-14" title="Promocional — Roleta Páscoa "></div>
+<div class="nd" onclick="goTo(15)" id="nd-15" title="Pula Pré Páscoa"></div>
+<div class="nd" onclick="goTo(16)" id="nd-16" title="Dia do Consumidor Pula"></div>
+<div class="nd" onclick="goTo(17)" id="nd-17" title="Pré Dia Consumidor PCA Gold+"></div>
+<div class="nd" onclick="goTo(18)" id="nd-18" title="PCA Pré Páscoa"></div>
+<div class="nd" onclick="goTo(19)" id="nd-19" title="Incentivo PCA"></div>
+<div class="nd" onclick="goTo(20)" id="nd-20" title="Comece o mês no verde PCA"></div>
+<div class="nd" onclick="goTo(21)" id="nd-21" title="Resgate PF Março"></div>
+<div class="nd" onclick="goTo(22)" id="nd-22" title="Pré Dia Consumidor PCA Black"></div>
+<div class="nd" onclick="goTo(23)" id="nd-23" title="Ação Resgate PST Março"></div>
+<div class="nd" onclick="goTo(24)" id="nd-24" title="AdHoc Pgto Venc 25 — Push"></div>
+<div class="nd" onclick="goTo(25)" id="nd-25" title="Promocional — Super CBK Pásc"></div>
+<div class="nd" onclick="goTo(26)" id="nd-26" title="Uso — Transitados SL — Churn"></div>
+<div class="nd" onclick="goTo(27)" id="nd-27" title="Limite — Quero mais Limite A"></div>
+<div class="nd" onclick="goTo(28)" id="nd-28" title="TESTE AB — Base Nitro Recorr"></div>
+<div class="nd" onclick="goTo(29)" id="nd-29" title="Limite Temporário — Última c"></div>
+<div class="nd" onclick="goTo(30)" id="nd-30" title="TESTE AB — Base Nitro (tomar"></div>
+<div class="nd" onclick="goTo(31)" id="nd-31" title="Ação Pgto Chave Pix"></div>
+<div class="nd" onclick="goTo(32)" id="nd-32" title="Limite Temporário"></div>
+<div class="nd" onclick="goTo(33)" id="nd-33" title="Adhoc Game N3 — Pagamento"></div>
+<div class="nd" onclick="goTo(34)" id="nd-34" title="Pula Compra — Aumento de Lim"></div>
 </nav>
-
 <div class="hdr">
   <div>
-    <h1>Report CRM — PicPay Card · Abril 2026</h1>
-    <p>Uma dobra por Briefing ID · touchpoints por canal · apenas campanhas com match no Monday</p>
+    <h1>Report CRM — PicPay Card · Mar–Abr 2026</h1>
+    <p>Uma dobra por Briefing ID · touchpoints por canal · benchmarks reais · 35 campanhas</p>
   </div>
   <div class="hdr-r">
-    <span class="b-cnt">14 campanhas</span>
-    <span class="badge b-green">Monday verificado</span>
+    <span style="font-size:11px;color:#6b7280">35 briefings</span>
+    <span class="badge bg">Monday verificado</span>
   </div>
 </div>
 
-
 <section class="slide" id="s0">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Promocional — Roleta Páscoa Opt-In (N2/N3)</div>
-      <div class="sl-sub">11547915328 &nbsp;·&nbsp; GI + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Promocional — Roleta Páscoa Opt-In (N2/N3)</div>
+      <div class="ssub">11547915328 &nbsp;·&nbsp; GI + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">30/03 – 24/04/2026</div>
-    </div>
+    <div class="str_"><div class="sper">30/03 – 24/04/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #64748b">
-    <span class="tp-canal" style="color:#64748b">Banner — Banner Home</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #64748b">
+    <span class="tpcanal" style="color:#64748b">Banner — Banner Home</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-generic">
-  <div class="gen-label">Banner</div>
-  <div class="gen-title">Roleta de Páscoa</div>
-  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">36.73%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #94a3b8">
-    <span class="tp-canal" style="color:#94a3b8">Prop. Valor — Prop. Valor</span>
+  <div class="tpmock"><div class="mock mgen"><div class="glabel">Banner</div><div class="gtitle">Roleta de Páscoa</div><div class="gmsg">Até R$ 250 em Vale Bonus para você!</div></div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">39.10%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #94a3b8">
+    <span class="tpcanal" style="color:#94a3b8">Prop. Valor — Prop. Valor</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-generic">
-  <div class="gen-label">Prop. Valor</div>
-  <div class="gen-title">Roleta de Páscoa</div>
-  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
+  <div class="tpmock"><div class="mock mgen"><div class="glabel">Prop. Valor</div><div class="gtitle">Roleta de Páscoa</div><div class="gmsg">Até R$ 250 em Vale Bonus para você!</div></div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 8.9M &nbsp; <strong>Entregues:</strong> 6.5M &nbsp; <strong>Abertos:</strong> 2.4M &nbsp; <strong>Clicados:</strong> 155K &nbsp; <strong>TPs:</strong> 2</div>
+      <div><strong>Volume:</strong> 23.3M &nbsp; <strong>Entregues:</strong> 14.0M &nbsp; <strong>Abertos:</strong> 5.5M &nbsp; <strong>Clicados:</strong> 489K &nbsp; <strong>TPs:</strong> 2</div>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s1">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Super CBK — USO</div>
-      <div class="sl-sub">11601850645 &nbsp;·&nbsp; GI + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">InApp FS — Projeto Rádio — Nivelamento de cartão</div>
+      <div class="ssub">11574115615 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">26/03 – 20/04/2026</div>
-    </div>
+    <div class="str_"><div class="sper">24/03/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D1</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Ganhe R$ 250 em Vale Bonus! \U0001f381</div>
-        <div class="push-body">Use agora seu PicPay Card e ganhe no Super Cashback.</div>
-      </div>
-      <span class="push-time">agora</span>
-    </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen">
+    <img class="fsimg" src="https://picpay.monday.com/protected_static/17037971/resources/2848959233/InApp-N" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="fsimgf" style="display:none">Imagem Full Screen</div>
+    <div class="fsbtn">Confira</div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
-    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D1</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-inapp">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="ia-card">
-      <img class="ia-img" src="https://picpay.monday.com/protected_static/17037971/resources/2856596236/IMG-ina" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ia-img-fallback" style="display:none">Banner</div>
-      <div class="ia-body">
-        <div class="ia-title">Use seu PicPay Card para ganhar.</div>
-        <div class="ia-msg">Até 20/4! Bata a meta de compras com o cartão e ganhe no Super Cashback.</div>
-        <div class="ia-btn">Use seu cartão</div>
-      </div>
-    </div>
-  </div>
-  <div class="m-home"></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">42.97%</td><td class="pos">+22.16pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">4.39%</td><td class="neg">-45.75pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">10.23%</td><td class="pos">+7.32pp</td></tr></tbody></table></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">66.56%</td><td class="mv">30.00%</td><td class="pos">+36.56pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.49%</td><td class="mv">2.00%</td><td class="pos">+1.49pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">5.25%</td><td class="mv">8.00%</td><td class="neg">-2.75pp</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #a855f7">
-    <span class="tp-canal" style="color:#a855f7">E-mail — D2</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-email">
-  <div class="email-hdr">
-    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
-    <div class="email-subj">R$ 250 em Vale Bonus é no PicPay!🎁</div>
-  </div>
-  <div class="email-banner">Header E-mail</div>
-  <div class="email-body">
-    <div class="email-msg">Use sempre seu cartão, bata sua meta e aproveite seu Vale Bonus.</div>
-    <div class="email-cta">Use seu cartão</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #22c55e">
-    <span class="tp-canal" style="color:#22c55e">WhatsApp — D3</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-wap">
-  <div class="m-notch"></div>
-  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
-  <div class="wap-body">
-    <div class="wap-bubble">
-      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2856668246/Whatsap" alt="banner" onerror="this.style.display='none'">
-      <div class="wap-title">Imperdível! Ganhe R$ 250 em Vale Bonus.</div>
-      <div class="wap-msg">Com seu Super Cashback, comprar com o PicPay Card ficou ainda melhor.</div>
-      <div class="wap-time">10:23 ✓✓</div>
-    </div>
-    <div class="wap-cta-btn">Use seu cartão</div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
-    <span class="tp-canal" style="color:#06b6d4">DM — D4</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-dm">
-  <div class="dm-img-fallback">Banner DM</div>
-  <div class="dm-body">
-    <div class="dm-title">Ganhe R$ 250 em Vale Bonus para ter descontos.</div>
-    <div class="dm-msg">Aproveite o Super Cashback PicPay Card.</div>
-    <div class="dm-cta">Use seu cartão</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 25K &nbsp; <strong>Entregues:</strong> 19K &nbsp; <strong>Abertos:</strong> 13K &nbsp; <strong>Clicados:</strong> 698 &nbsp; <strong>TPs:</strong> 5</div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 6.3M &nbsp; <strong>Entregues:</strong> 2.9M &nbsp; <strong>Abertos:</strong> 1.3M &nbsp; <strong>Clicados:</strong> 128K &nbsp; <strong>TPs:</strong> 1</div>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s2">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">InApp FS — Projeto Rádio — Nivelamento de cartão</div>
-      <div class="sl-sub">11574115615 &nbsp;·&nbsp; GI + GC + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">PCA Dia do Consumidor</div>
+      <div class="ssub">11411843771 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">24/03/2026</div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Aproveitou o Dia do Consumidor? Parcele em até 24x as compras realizadas à vista…</div>
+      </div>
+      <span class="ptime">agora</span>
     </div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #6366f1">
-    <span class="tp-canal" style="color:#6366f1">In-App FS — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-iafs">
-  <div class="m-notch"></div>
-  <div class="m-screen iafs-screen">
-    <img class="iafs-img" src="https://picpay.monday.com/protected_static/17037971/resources/2848959233/InApp-N" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="iafs-img-fallback" style="display:none">Full Screen</div>
-    <div class="iafs-btn">Confira</div>
-  </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">30.00%</td><td class="">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">2.00%</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">33.33%</td><td class="mv">8.00%</td><td class="pos">+25.33pp</td></tr></tbody></table></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00b</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Parcele em até 24x — Usou o PicPay Card no Dia do Consumidor? Parcele agora.</div>
+      </div>
+      <span class="ptime">agora</span>
     </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
-      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 3 &nbsp; <strong>Clicados:</strong> 1 &nbsp; <strong>TPs:</strong> 1</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: </div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody">
+    <div class="emsg">Aproveite e parcele suas compras do Dia do Consumidor.</div>
+    <div class="ecta">\u2014</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen">
+    <div class="fsimgf">Imagem Full Screen</div>
+    <div class="fsbtn">Parcelar compras</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">21.51%</td><td class="pos">+0.70pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.68%</td><td class="neg">-49.46pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.16%</td><td class="pos">+0.25pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <div class="dimgf">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Parcele já as compras feitas à vista!</div>
+    <div class="dmsg">Parcele em até 24x as compras realizadas à vista com seu PicPay Card.</div>
+    <div class="dcta">Parcelar compras</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 2.4M &nbsp; <strong>Entregues:</strong> 1.6M &nbsp; <strong>Abertos:</strong> 353K &nbsp; <strong>Clicados:</strong> 11K &nbsp; <strong>TPs:</strong> 5</div>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s3">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Super CBK — OPT IN</div>
-      <div class="sl-sub">11518444291 &nbsp;·&nbsp; GI + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Pula Compra Semi Final Paulistão</div>
+      <div class="ssub">18106808900 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">20/03 – 03/04/2026</div>
-    </div>
+    <div class="str_"><div class="sper">Fev/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #64748b">
-    <span class="tp-canal" style="color:#64748b">Banner — D1</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-generic">
-  <div class="gen-label">Banner</div>
-  <div class="gen-title">Super Cashback</div>
-  <div class="gen-msg">Ganhe 2x mais cashback com o cartão Black.</div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
-    <span class="tp-canal" style="color:#06b6d4">DM — D1</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-dm">
-  <div class="dm-img-fallback">Banner DM</div>
-  <div class="dm-body">
-    <div class="dm-title">Chegou o Super Cashback!</div>
-    <div class="dm-msg">Chegou o Super Cashback do seu PicPay Card Black, participe agora.</div>
-    <div class="dm-cta">Quero participar</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D3</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Chegou o Super Cashback! \U0001f381</div>
-        <div class="push-body">Ganhe cashback em dobro com seu cartão Black.</div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Hoje é dia de futebol ⚽ Nada melhor do que usar seu PicPay Card e pular compras!</div>
       </div>
-      <span class="push-time">agora</span>
+      <span class="ptime">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.67%</td><td class="mv">5.00%</td><td class="pos">+15.67pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.68%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">3.28%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #a855f7">
-    <span class="tp-canal" style="color:#a855f7">E-mail — D3</span>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00b</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-email">
-  <div class="email-hdr">
-    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
-    <div class="email-subj">2x mais cashback para você. 🎁</div>
-  </div>
-  <div class="email-banner">Header E-mail</div>
-  <div class="email-body">
-    <div class="email-msg">Bata a meta com seu cartão e ganhe no Super Cashback.</div>
-    <div class="email-cta">Quero participar</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
-    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D6</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-inapp">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="ia-card">
-      <img class="ia-img" src="https://picpay.monday.com/protected_static/17037971/resources/2838380882/IMG-ina" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ia-img-fallback" style="display:none">Banner</div>
-      <div class="ia-body">
-        <div class="ia-title">2,4% é cashback em dobro para vo…</div>
-        <div class="ia-msg">Aproveite o benefício do Super Cashback.</div>
-        <div class="ia-btn">Quero participar</div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Dia de decisão ⚽ Golaço é usar o Pula Compra e ganhar tempo para pagar.</div>
       </div>
+      <span class="ptime">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #6366f1">
-    <span class="tp-canal" style="color:#6366f1">In-App FS — D12</span>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-iafs">
-  <div class="m-notch"></div>
-  <div class="m-screen iafs-screen">
-    <img class="iafs-img" src="https://picpay.monday.com/protected_static/17037971/resources/2832469285/trava%2" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="iafs-img-fallback" style="display:none">Full Screen</div>
-    <div class="iafs-btn">Quero participar</div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen">
+    <div class="fsimgf">Imagem Full Screen</div>
+    <div class="fsbtn">Confira</div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #22c55e">
-    <span class="tp-canal" style="color:#22c55e">WhatsApp — D1 Epic</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-wap">
-  <div class="m-notch"></div>
-  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
-  <div class="wap-body">
-    <div class="wap-bubble">
-      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2838420139/WhatsAp" alt="banner" onerror="this.style.display='none'">
-      <div class="wap-title">Chegou o Super Cashback do seu cartão Black Epic.</div>
-      <div class="wap-msg">Ganhe cashback em dobro com seu Black Epic.</div>
-      <div class="wap-time">10:23 ✓✓</div>
-    </div>
-    <div class="wap-cta-btn">Quero participar</div>
-  </div>
-  <div class="m-home"></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">40.52%</td><td class="pos">+19.71pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">1.75%</td><td class="neg">-48.39pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">4.33%</td><td class="pos">+1.42pp</td></tr></tbody></table></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 1.1M &nbsp; <strong>Entregues:</strong> 726K &nbsp; <strong>Abertos:</strong> 150K &nbsp; <strong>Clicados:</strong> 4K &nbsp; <strong>TPs:</strong> 7</div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 70K &nbsp; <strong>Entregues:</strong> 589K &nbsp; <strong>Abertos:</strong> 239K &nbsp; <strong>Clicados:</strong> 10K &nbsp; <strong>TPs:</strong> 3</div>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s4">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Aumento de Limite c/ Flag</div>
-      <div class="sl-sub">9873449684 &nbsp;·&nbsp; GI + GC + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Aceleração Vencimento 25</div>
+      <div class="ssub">11406806020 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">Ongoing</div>
-    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Seu limite pode aumentar!</div>
-        <div class="push-body">Mais chances de aumentar seu limite. Ative o débito automático.</div>
-      </div>
-      <span class="push-time">agora</span>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.76%</td><td class="mv">5.00%</td><td class="pos">+20.76pp</td></tr><tr><td class="mn">CTR</td><td class="mb">2.99%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">11.63%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
-    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-inapp">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="ia-card">
-      <img class="ia-img" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/1fdacd8d-cc0a-4a11-84bb-ce91b8c9037e.png" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ia-img-fallback" style="display:none">Banner</div>
-      <div class="ia-body">
-        <div class="ia-title">Aumente seu limite agora.</div>
-        <div class="ia-msg">Use seu cartão e ganhe mais limite.</div>
-        <div class="ia-btn">Use seu cartão</div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <div class="iimgf">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">A fatura veio mais alta?</div>
+        <div class="imsg">Parcele agora e organize suas contas com mais facilidade.</div>
+        <div class="ibtn">Parcelar agora</div>
       </div>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
-    <span class="tp-canal" style="color:#06b6d4">DM — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-dm">
-  <img class="dm-img" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/aa5499ce-d125-439a-b8d8-5d550b96a350.png" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="dm-img-fallback" style="display:none">Banner DM</div>
-  <div class="dm-body">
-    <div class="dm-title">Mais limite para você!</div>
-    <div class="dm-msg">Aumente o limite do seu PicPay Card.</div>
-    <div class="dm-cta">Use seu cartão</div>
-  </div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">52.66%</td><td class="pos">+31.85pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.76%</td><td class="neg">-49.38pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">1.45%</td><td class="neg">-1.46pp</td></tr></tbody></table></div>
 </div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #a855f7">
-    <span class="tp-canal" style="color:#a855f7">E-mail — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-email">
-  <div class="email-hdr">
-    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
-    <div class="email-subj">Aumento de limite disponível.</div>
-  </div>
-  <div class="email-banner">Header E-mail</div>
-  <div class="email-body">
-    <div class="email-msg">Ative seu débito automático e ganhe mais limite.</div>
-    <div class="email-cta">Ative aqui</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 682K &nbsp; <strong>Entregues:</strong> 578K &nbsp; <strong>Abertos:</strong> 149K &nbsp; <strong>Clicados:</strong> 17K &nbsp; <strong>TPs:</strong> 4</div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 83K &nbsp; <strong>Entregues:</strong> 54K &nbsp; <strong>Abertos:</strong> 28K &nbsp; <strong>Clicados:</strong> 412 &nbsp; <strong>TPs:</strong> 1</div>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s5">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Aumento de Limite s/ Flag</div>
-      <div class="sl-sub">35600 &nbsp;·&nbsp; GI + GC + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Super CBK — USO</div>
+      <div class="ssub">11601850645 &nbsp;·&nbsp; GI + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">Ongoing</div>
-    </div>
+    <div class="str_"><div class="sper">26/03 – 20/04/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D1</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Seu limite pode aumentar!</div>
-        <div class="push-body">Mais chances de aumentar seu limite. Ative o débito automático.</div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Ganhe R$ 250 em Vale Bonus! \U0001f381</div>
+        <div class="pmsg">Use agora seu PicPay Card e ganhe no Super Cashback.</div>
       </div>
-      <span class="push-time">agora</span>
+      <span class="ptime">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">4.81%</td><td class="mv">5.00%</td><td class="neg">-0.19pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
-    <span class="tp-canal" style="color:#06b6d4">DM — D00</span>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D1</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-dm">
-  <img class="dm-img" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/99a92fc4-a382-4aa0-bd05-acc958e9d2ff.png" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="dm-img-fallback" style="display:none">Banner DM</div>
-  <div class="dm-body">
-    <div class="dm-title">Mais limite no seu cartão!</div>
-    <div class="dm-msg">Você pode ter mais limite agora. Ative aqui.</div>
-    <div class="dm-cta">Ative aqui</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #a855f7">
-    <span class="tp-canal" style="color:#a855f7">E-mail — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-email">
-  <div class="email-hdr">
-    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
-    <div class="email-subj">Aumento de limite disponível.</div>
-  </div>
-  <div class="email-banner">Header E-mail</div>
-  <div class="email-body">
-    <div class="email-msg">Ative seu débito automático e ganhe mais limite.</div>
-    <div class="email-cta">Ative aqui</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856596236/IMG-ina" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">Use seu PicPay Card para ganhar.</div>
+        <div class="imsg">Até 20/4! Bata a meta de compras com o cartão e ganhe no Super Cashback.</div>
+        <div class="ibtn">Use seu cartão</div>
+      </div>
     </div>
-    <div class="sf-text">
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">52.78%</td><td class="pos">+31.97pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">3.65%</td><td class="neg">-46.49pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">6.91%</td><td class="pos">+4.00pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D2</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: R$ 250 em Vale Bonus é no PicPay!🎁</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody">
+    <div class="emsg">Use sempre seu cartão, bata sua meta e aproveite seu Vale Bonus.</div>
+    <div class="ecta">Use seu cartão</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D3</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856668246/Whatsap" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Imperdível! Ganhe R$ 250 em Vale Bonus.</div>
+      <div class="wmsg">Com seu Super Cashback, comprar com o PicPay Card ficou ainda melhor.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D4</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <div class="dimgf">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Ganhe R$ 250 em Vale Bonus para ter descontos.</div>
+    <div class="dmsg">Aproveite o Super Cashback PicPay Card.</div>
+    <div class="dcta">Use seu cartão</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 152K &nbsp; <strong>Entregues:</strong> 152K &nbsp; <strong>Abertos:</strong> 7K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 3</div>
+      <div><strong>Volume:</strong> 42K &nbsp; <strong>Entregues:</strong> 35K &nbsp; <strong>Abertos:</strong> 18K &nbsp; <strong>Clicados:</strong> 1K &nbsp; <strong>TPs:</strong> 5</div>
     </div>
   </div>
 </section>
 
 <section class="slide" id="s6">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Pula Pré Páscoa</div>
-      <div class="sl-sub">11651313975 &nbsp;·&nbsp; GI + GC + GCU</div>
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">InApp FS — Projeto Rádio — Benefícios do Cartão</div>
+      <div class="ssub">11597850523 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">02/04/2026</div>
+    <div class="str_"><div class="sper">30/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen">
+    <img class="fsimg" src="https://picpay.monday.com/protected_static/17037971/resources/2861338942/in-app-" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="fsimgf" style="display:none">Imagem Full Screen</div>
+    <div class="fsbtn">Confira</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Experimente o Minhas Assinaturas. \U0001…</div>
+        <div class="pmsg">Ganhe 2% de cashback em assinaturas com seu PicPay Card.</div>
+      </div>
+      <span class="ptime">agora</span>
     </div>
   </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">29.15%</td><td class="pos">+28.41pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">1.05%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 15.5M &nbsp; <strong>Entregues:</strong> 11.7M &nbsp; <strong>Abertos:</strong> 3.4M &nbsp; <strong>Clicados:</strong> 121K &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
 
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00-A</span>
+<section class="slide" id="s7">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Aumento de Limite c/ Flag</div>
+      <div class="ssub">9873449684 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Ongoing</div></div>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Contando os dias para a Páscoa?</div>
-        <div class="push-body">Com o Pula Compra, você consegue pular a compra desta fatura.</div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Seu limite pode aumentar!</div>
+        <div class="pmsg">Mais chances de aumentar seu limite. Ative o débito automático.</div>
       </div>
-      <span class="push-time">agora</span>
+      <span class="ptime">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00-B</span>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">31.76%</td><td class="pos">+31.02pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">4.33%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Últimos dias para aproveitar 🐣</div>
-        <div class="push-body">Com o Pula Compra, você pode garantir a sua Páscoa.</div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <img class="iimg" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/1fdacd8d-cc0a-4a11-84bb-ce91b8c9037e.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">Aumente seu limite agora.</div>
+        <div class="imsg">Use seu cartão e ganhe mais limite.</div>
+        <div class="ibtn">Use seu cartão</div>
       </div>
-      <span class="push-time">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D01-A</span>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Contando os dias para a Páscoa?</div>
-        <div class="push-body">Compre à vista com o PicPay Card.</div>
-      </div>
-      <span class="push-time">agora</span>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/aa5499ce-d125-439a-b8d8-5d550b96a350.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Mais limite para você!</div>
+    <div class="dmsg">Aumente o limite do seu PicPay Card.</div>
+    <div class="dcta">Use seu cartão</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: Aumento de limite disponível.</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody">
+    <div class="emsg">Ative seu débito automático e ganhe mais limite.</div>
+    <div class="ecta">Ative aqui</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 2.6M &nbsp; <strong>Entregues:</strong> 2.1M &nbsp; <strong>Abertos:</strong> 655K &nbsp; <strong>Clicados:</strong> 89K &nbsp; <strong>TPs:</strong> 4</div>
     </div>
   </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D01-B</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Deixou para a última hora? 🐣</div>
-        <div class="push-body">Compre à vista com o PicPay Card.</div>
-      </div>
-      <span class="push-time">agora</span>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div></div>
+</section>
 
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
+<section class="slide" id="s8">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Super CBK — OPT IN</div>
+      <div class="ssub">11518444291 &nbsp;·&nbsp; GI + GCU</div>
     </div>
-    <div class="sf-text">
+    <div class="str_"><div class="sper">20/03 – 03/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #64748b">
+    <span class="tpcanal" style="color:#64748b">Banner — D1</span>
+  </div>
+  <div class="tpmock"><div class="mock mgen"><div class="glabel">Banner</div><div class="gtitle">Super Cashback</div><div class="gmsg">Ganhe 2x mais cashback com o cartão Black.</div></div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D1</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <div class="dimgf">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Chegou o Super Cashback!</div>
+    <div class="dmsg">Chegou o Super Cashback do seu PicPay Card Black, participe agora.</div>
+    <div class="dcta">Quero participar</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D3</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Chegou o Super Cashback! \U0001f381</div>
+        <div class="pmsg">Ganhe cashback em dobro com seu cartão Black.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D3</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: 2x mais cashback para você. 🎁</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody">
+    <div class="emsg">Bata a meta com seu cartão e ganhe no Super Cashback.</div>
+    <div class="ecta">Quero participar</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D6</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838380882/IMG-ina" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">2,4% é cashback em dobro para você…</div>
+        <div class="imsg">Aproveite o benefício do Super Cashback.</div>
+        <div class="ibtn">Quero participar</div>
+      </div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen">
+    <img class="fsimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832469285/trava%2" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="fsimgf" style="display:none">Imagem Full Screen</div>
+    <div class="fsbtn">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D1 Epic</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838420139/WhatsAp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Chegou o Super Cashback do seu cartão Black Epic.</div>
+      <div class="wmsg">Ganhe cashback em dobro com seu Black Epic.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 3.5M &nbsp; <strong>Entregues:</strong> 2.2M &nbsp; <strong>Abertos:</strong> 364K &nbsp; <strong>Clicados:</strong> 10K &nbsp; <strong>TPs:</strong> 7</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Débito Automático N3</div>
+      <div class="ssub">11230710810 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">25/02 – 31/03/2027</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: Ative o débito automático.</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody">
+    <div class="emsg">Mais chances de aumentar seu limite. Ative o débito automático.</div>
+    <div class="ecta">\u2014</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Mais chances de aumentar seu limite.</div>
+        <div class="pmsg">Ative o débito automático no PicPay Card.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">11.53%</td><td class="pos">+10.79pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.28%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <div class="iimgf">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">Ative já o débito automático.</div>
+        <div class="imsg">Garanta o pagamento do PicPay Card no vencimento.</div>
+        <div class="ibtn">\u2014</div>
+      </div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Ative já o débito automático 💳</div>
+        <div class="pmsg">Garanta o pagamento do PicPay Card no vencimento.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">11.53%</td><td class="pos">+10.79pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.28%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 1.3M &nbsp; <strong>Entregues:</strong> 1.2M &nbsp; <strong>Abertos:</strong> 136K &nbsp; <strong>Clicados:</strong> 3K &nbsp; <strong>TPs:</strong> 4</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">AdHoc Alta Propensão v25/03</div>
+      <div class="ssub">11417758537 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">24/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <div class="iimgf">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">Parcele a fatura do PicPay Card.</div>
+        <div class="imsg">A fatura veio mais alta este mês? Parcele agora e organize suas finanças.</div>
+        <div class="ibtn">\u2014</div>
+      </div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">A fatura veio mais alta neste mês?</div>
+        <div class="pmsg">Parcele agora e organize suas finanças.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">31.96%</td><td class="pos">+31.22pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.42%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 476K &nbsp; <strong>Entregues:</strong> 410K &nbsp; <strong>Abertos:</strong> 131K &nbsp; <strong>Clicados:</strong> 1K &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s11">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Aumento de Limite s/ Flag</div>
+      <div class="ssub">35600 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Ongoing</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Seu limite pode aumentar!</div>
+        <div class="pmsg">Mais chances de aumentar seu limite. Ative o débito automático.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">8.68%</td><td class="pos">+7.94pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.45%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/99a92fc4-a382-4aa0-bd05-acc958e9d2ff.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Mais limite no seu cartão!</div>
+    <div class="dmsg">Você pode ter mais limite agora. Ative aqui.</div>
+    <div class="dcta">Ative aqui</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: Aumento de limite disponível.</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody">
+    <div class="emsg">Ative seu débito automático e ganhe mais limite.</div>
+    <div class="ecta">Ative aqui</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 575K &nbsp; <strong>Entregues:</strong> 539K &nbsp; <strong>Abertos:</strong> 46K &nbsp; <strong>Clicados:</strong> 2K &nbsp; <strong>TPs:</strong> 3</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">AdHoc Alta Propensão v15/03</div>
+      <div class="ssub">11417687146 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard">
+      <div class="iimgf">Mockup In-App</div>
+      <div class="ibody">
+        <div class="ititle">Parcele a fatura do PicPay Card.</div>
+        <div class="imsg">A fatura veio mais alta este mês? Parcele agora e organize suas finanças.</div>
+        <div class="ibtn">\u2014</div>
+      </div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">A fatura veio mais alta neste mês? Parcele agora e organize suas contas.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">13.58%</td><td class="pos">+12.84pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.12%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 268K &nbsp; <strong>Entregues:</strong> 233K &nbsp; <strong>Abertos:</strong> 31K &nbsp; <strong>Clicados:</strong> 277 &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s13">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Ação 03/03</div>
+      <div class="ssub">11411465901 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Usou o PicPay Card no 03/03? Parcele já suas compras à vista em até 24x.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">3.07%</td><td class="pos">+2.33pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 518K &nbsp; <strong>Entregues:</strong> 514K &nbsp; <strong>Abertos:</strong> 15K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s14">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Promocional — Roleta Páscoa Opt-In (N1)</div>
+      <div class="ssub">11547533390 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">30/03 – 24/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #64748b">
+    <span class="tpcanal" style="color:#64748b">Banner — Banner Home</span>
+  </div>
+  <div class="tpmock"><div class="mock mgen"><div class="glabel">Banner</div><div class="gtitle">Roleta de Páscoa</div><div class="gmsg">Até R$ 250 em Vale Bonus para você!</div></div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #94a3b8">
+    <span class="tpcanal" style="color:#94a3b8">Prop. Valor — Prop. Valor</span>
+  </div>
+  <div class="tpmock"><div class="mock mgen"><div class="glabel">Prop. Valor</div><div class="gtitle">Roleta de Páscoa</div><div class="gmsg">Até R$ 250 em Vale Bonus para você!</div></div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 766K &nbsp; <strong>Entregues:</strong> 255K &nbsp; <strong>Abertos:</strong> 11K &nbsp; <strong>Clicados:</strong> 2K &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s15">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Pula Pré Páscoa</div>
+      <div class="ssub">11651313975 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">02/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00-A</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Contando os dias para a Páscoa?</div>
+        <div class="pmsg">Com o Pula Compra, você consegue pular a compra desta fatura.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.64%</td><td class="neg">-0.10pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00-B</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Últimos dias para aproveitar 🐣</div>
+        <div class="pmsg">Com o Pula Compra, você pode garantir a sua Páscoa.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.64%</td><td class="neg">-0.10pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D01-A</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Contando os dias para a Páscoa?</div>
+        <div class="pmsg">Compre à vista com o PicPay Card.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.64%</td><td class="neg">-0.10pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D01-B</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Deixou para a última hora? 🐣</div>
+        <div class="pmsg">Compre à vista com o PicPay Card.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.64%</td><td class="neg">-0.10pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
       <div><strong>Volume:</strong> 966K &nbsp; <strong>Entregues:</strong> 961K &nbsp; <strong>Abertos:</strong> 6K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 4</div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s7">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">PCA Pré Páscoa</div>
-      <div class="sl-sub">11651432318 &nbsp;·&nbsp; GI + GC + GCU</div>
+<section class="slide" id="s16">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Dia do Consumidor Pula</div>
+      <div class="ssub">11416019620 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">02/04/2026</div>
-    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00a</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Pensando nos chocolates?</div>
-        <div class="push-body">Aproveite seu PicPay Card na Páscoa.</div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Caprichou no Dia do Consumidor? Pule as compras feitas à vista no crédito.</div>
       </div>
-      <span class="push-time">agora</span>
+      <span class="ptime">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.59%</td><td class="mv">5.00%</td><td class="neg">-4.41pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.96%</td><td class="pos">+0.22pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00b</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Comprou à vista? Pule agora — Pule as compras feitas à vista no Dia do Consumido…</div>
+      </div>
+      <span class="ptime">agora</span>
     </div>
-    <div class="sf-text">
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.96%</td><td class="pos">+0.22pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 522K &nbsp; <strong>Entregues:</strong> 517K &nbsp; <strong>Abertos:</strong> 4K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s17">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Pré Dia Consumidor PCA Gold+Platinum</div>
+      <div class="ssub">11447973532 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00a</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">De olho no Dia do Consumidor? Compre à vista com seu PicPay Card e parcele depoi…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00b</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Compre à vista, parcele depois — Use seu cartão Black à vista no Dia do Consumid…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 3K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s18">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">PCA Pré Páscoa</div>
+      <div class="ssub">11651432318 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">02/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Pensando nos chocolates?</div>
+        <div class="pmsg">Aproveite seu PicPay Card na Páscoa.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.59%</td><td class="neg">-0.15pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
       <div><strong>Volume:</strong> 563K &nbsp; <strong>Entregues:</strong> 560K &nbsp; <strong>Abertos:</strong> 3K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s8">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Promocional — Roleta Páscoa Opt-In (N1)</div>
-      <div class="sl-sub">11547533390 &nbsp;·&nbsp; GI + GCU</div>
+<section class="slide" id="s19">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Incentivo PCA</div>
+      <div class="ssub">11592143478 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">30/03 – 24/04/2026</div>
-    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
   </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #64748b">
-    <span class="tp-canal" style="color:#64748b">Banner — Banner Home</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-generic">
-  <div class="gen-label">Banner</div>
-  <div class="gen-title">Roleta de Páscoa</div>
-  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #94a3b8">
-    <span class="tp-canal" style="color:#94a3b8">Prop. Valor — Prop. Valor</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-generic">
-  <div class="gen-label">Prop. Valor</div>
-  <div class="gen-title">Roleta de Páscoa</div>
-  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 222K &nbsp; <strong>Entregues:</strong> 95K &nbsp; <strong>Abertos:</strong> 955 &nbsp; <strong>Clicados:</strong> 1 &nbsp; <strong>TPs:</strong> 2</div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="s9">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">InApp FS — Projeto Rádio — Benefícios do Cartão</div>
-      <div class="sl-sub">11597850523 &nbsp;·&nbsp; GI + GC + GCU</div>
-    </div>
-    <div class="sl-right">
-      <div class="sl-per">30/03/2026</div>
-    </div>
-  </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #6366f1">
-    <span class="tp-canal" style="color:#6366f1">In-App FS — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-iafs">
-  <div class="m-notch"></div>
-  <div class="m-screen iafs-screen">
-    <img class="iafs-img" src="https://picpay.monday.com/protected_static/17037971/resources/2861338942/in-app-" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="iafs-img-fallback" style="display:none">Full Screen</div>
-    <div class="iafs-btn">Confira</div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Experimente o Minhas Assinaturas. \U00…</div>
-        <div class="push-body">Ganhe 2% de cashback em assinaturas com seu PicPay Card.</div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Não conseguiu parcelar na loja? Parcele já em até 24x compras realizadas à vista…</div>
       </div>
-      <span class="push-time">agora</span>
+      <span class="ptime">agora</span>
     </div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">5.00%</td><td class="">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">3.24%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.95%</td><td class="pos">+0.21pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
 </div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
-      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 896 &nbsp; <strong>Clicados:</strong> 29 &nbsp; <strong>TPs:</strong> 2</div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="s10">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Débito Automático N3</div>
-      <div class="sl-sub">11230710810 &nbsp;·&nbsp; GI + GCU</div>
-    </div>
-    <div class="sl-right">
-      <div class="sl-per">25/02 – 31/03/2027</div>
-    </div>
-  </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #a855f7">
-    <span class="tp-canal" style="color:#a855f7">E-mail — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-email">
-  <div class="email-hdr">
-    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
-    <div class="email-subj">Ative o débito automático.</div>
-  </div>
-  <div class="email-banner">Header E-mail</div>
-  <div class="email-body">
-    <div class="email-msg">Mais chances de aumentar seu limite. Ative o débito automático.</div>
-    <div class="email-cta">\u2014</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Mais chances de aumentar seu limite.</div>
-        <div class="push-body">Ative o débito automático no PicPay Card.</div>
-      </div>
-      <span class="push-time">agora</span>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">11.11%</td><td class="mv">5.00%</td><td class="pos">+6.11pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
-    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D03</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-inapp">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="ia-card">
-      <div class="ia-img-fallback">Banner</div>
-      <div class="ia-body">
-        <div class="ia-title">Ative já o débito automático.</div>
-        <div class="ia-msg">Garanta o pagamento do PicPay Card no vencimento.</div>
-        <div class="ia-btn">\u2014</div>
-      </div>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D03</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">Ative já o débito automático 💳</div>
-        <div class="push-body">Garanta o pagamento do PicPay Card no vencimento.</div>
-      </div>
-      <span class="push-time">agora</span>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">11.11%</td><td class="mv">5.00%</td><td class="pos">+6.11pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
-      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
-      <div><strong>Volume:</strong> 28 &nbsp; <strong>Entregues:</strong> 27 &nbsp; <strong>Abertos:</strong> 3 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 4</div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="s11">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">AdHoc Alta Propensão v25/03</div>
-      <div class="sl-sub">11417758537 &nbsp;·&nbsp; GI + GC + GCU</div>
-    </div>
-    <div class="sl-right">
-      <div class="sl-per">24/03/2026</div>
-    </div>
-  </div>
-
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
-    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-inapp">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="ia-card">
-      <div class="ia-img-fallback">Banner</div>
-      <div class="ia-body">
-        <div class="ia-title">Parcele a fatura do PicPay Card.</div>
-        <div class="ia-msg">A fatura veio mais alta este mês? Parcele agora e organize suas finanças.</div>
-        <div class="ia-btn">\u2014</div>
-      </div>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
-    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-push">
-  <div class="m-notch"></div>
-  <div class="m-screen">
-    <div class="push-card">
-      <div class="push-icon-wrap"><div class="push-icon"></div></div>
-      <div class="push-content">
-        <div class="push-app">PicPay</div>
-        <div class="push-title">A fatura veio mais alta neste mês?</div>
-        <div class="push-body">Parcele agora e organize suas finanças.</div>
-      </div>
-      <span class="push-time">agora</span>
-    </div>
-  </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">5.00%</td><td class="">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
-    </div>
-    <div class="sf-text">
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
-      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 1 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+      <div><strong>Volume:</strong> 262K &nbsp; <strong>Entregues:</strong> 259K &nbsp; <strong>Abertos:</strong> 2K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s12">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Promocional — Super CBK Páscoa (WhatsApp)</div>
-      <div class="sl-sub">11648955721 &nbsp;·&nbsp; GI + GCU</div>
+<section class="slide" id="s20">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Comece o mês no verde PCA</div>
+      <div class="ssub">11388108569 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">01/04/2026</div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Comece o mês no verde 💚 Parcele já suas compras e alivie sua fatura.</div>
+      </div>
+      <span class="ptime">agora</span>
     </div>
   </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">1.04%</td><td class="pos">+0.30pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 147K &nbsp; <strong>Entregues:</strong> 147K &nbsp; <strong>Abertos:</strong> 1K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
 
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #22c55e">
-    <span class="tp-canal" style="color:#22c55e">WhatsApp — Gold/Platinum</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-wap">
-  <div class="m-notch"></div>
-  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
-  <div class="wap-body">
-    <div class="wap-bubble">
-      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2870448053/Whatsap" alt="banner" onerror="this.style.display='none'">
-      <div class="wap-title">Ganhe R$ 250 em Vale Bonus para deixar sua Páscoa mais …</div>
-      <div class="wap-msg">Use seu PicPay Card no crédito para presentear com o melhor chocolate.</div>
-      <div class="wap-time">10:23 ✓✓</div>
+<section class="slide" id="s21">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Resgate PF Março</div>
+      <div class="ssub">11405267229 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="wap-cta-btn">Quero participar</div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
   </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">54.08%</td><td class="mv">45.00%</td><td class="pos">+9.08pp</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #22c55e">
-    <span class="tp-canal" style="color:#22c55e">WhatsApp — Black</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-wap">
-  <div class="m-notch"></div>
-  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
-  <div class="wap-body">
-    <div class="wap-bubble">
-      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2870467625/WhatsAp" alt="banner" onerror="this.style.display='none'">
-      <div class="wap-title">2x mais cashback para deixar sua Páscoa 2x mais doce. 🍫</div>
-      <div class="wap-msg">Use seu PicPay Card Black para presentear com o melhor chocolate.</div>
-      <div class="wap-time">10:23 ✓✓</div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Fatura alta? Parcele já. Este é o melhor momento para parcelar a fatura.</div>
+      </div>
+      <span class="ptime">agora</span>
     </div>
-    <div class="wap-cta-btn">Quero participar</div>
   </div>
-  <div class="m-home"></div>
+  <div class="home"></div>
 </div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">54.08%</td><td class="mv">45.00%</td><td class="pos">+9.08pp</td></tr></tbody></table></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.96%</td><td class="pos">+0.22pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
 </div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 72K &nbsp; <strong>Entregues:</strong> 71K &nbsp; <strong>Abertos:</strong> 690 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
 
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
+<section class="slide" id="s22">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Pré Dia Consumidor PCA Black</div>
+      <div class="ssub">11447958576 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="sf-text">
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00a</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Planos para o Dia do Consumidor? Compre à vista com seu PicPay Card e parcele de…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="nd">—</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00b</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Compre à vista, parcele depois — Aproveite seu PicPay Card no Dia do Consumidor.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 442 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s23">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Ação Resgate PST Março</div>
+      <div class="ssub">11404604091 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">O que você faz com R$ 1? No PicPay, você usa como entrada e parcela o restante.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.80%</td><td class="pos">+0.06pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 12K &nbsp; <strong>Entregues:</strong> 12K &nbsp; <strong>Abertos:</strong> 104 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s24">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">AdHoc Pgto Venc 25 — Push</div>
+      <div class="ssub">9357037848 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Fev/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Regularize seu PicPay Card. Pague com saldo ou Pix e libere o limite.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="nd">—</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 62 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s25">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Promocional — Super CBK Páscoa (WhatsApp)</div>
+      <div class="ssub">11648955721 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">01/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Gold/Platinum</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2870448053/Whatsap" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Ganhe R$ 250 em Vale Bonus para deixar sua Páscoa mais doce.…</div>
+      <div class="wmsg">Use seu PicPay Card no crédito para presentear com o melhor chocolate.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">54.08%</td><td class="pos">+28.73pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Black</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2870467625/WhatsAp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">2x mais cashback para deixar sua Páscoa 2x mais doce. 🍫</div>
+      <div class="wmsg">Use seu PicPay Card Black para presentear com o melhor chocolate.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">54.08%</td><td class="pos">+28.73pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
       <div><strong>Volume:</strong> 248K &nbsp; <strong>Entregues:</strong> 221K &nbsp; <strong>Abertos:</strong> 120K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s13">
-  <div class="slide-top">
-    <div class="sl-left">
-      <div class="sl-title">Limite — Quero mais Limite Abr.</div>
-      <div class="sl-sub">11650829788 &nbsp;·&nbsp; GI + GC + GCU</div>
+<section class="slide" id="s26">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Uso — Transitados SL — Churn</div>
+      <div class="ssub">11626191773 &nbsp;·&nbsp; GI + GCU</div>
     </div>
-    <div class="sl-right">
-      <div class="sl-per">02/04/2026</div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — WPP</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2864058355/Banner%20Whatsapp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Use seu PicPay Card no crédito a partir de R$20 até 31/3 e g…</div>
+      <div class="wmsg">Aproveite todas as vantagens do seu cartão de crédito.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">48.04%</td><td class="pos">+22.69pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 145K &nbsp; <strong>Entregues:</strong> 124K &nbsp; <strong>Abertos:</strong> 59K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
     </div>
   </div>
+</section>
 
-  <div class="tp-row"><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #22c55e">
-    <span class="tp-canal" style="color:#22c55e">WhatsApp — N MAT</span>
-  </div>
-  <div class="tp-mock"><div class="mock mock-wap">
-  <div class="m-notch"></div>
-  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
-  <div class="wap-body">
-    <div class="wap-bubble">
-      
-      <div class="wap-title">Mais limite no seu cartão? Agora ficou fácil! 💳</div>
-      <div class="wap-msg">Agora você pode pedir mais limite para o seu PicPay Card.</div>
-      <div class="wap-time">10:23 ✓✓</div>
+<section class="slide" id="s27">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Limite — Quero mais Limite Abr.</div>
+      <div class="ssub">11650829788 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="wap-cta-btn">Quero mais limite</div>
+    <div class="str_"><div class="sper">02/04/2026</div></div>
   </div>
-  <div class="m-home"></div>
-</div></div>
-  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">52.81%</td><td class="mv">45.00%</td><td class="pos">+7.81pp</td></tr></tbody></table></div>
-</div><div class="tp-card">
-  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
-    <span class="tp-canal" style="color:#06b6d4">DM — MAT</span>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — N MAT</span>
   </div>
-  <div class="tp-mock"><div class="mock mock-dm">
-  <div class="dm-img-fallback">Banner DM</div>
-  <div class="dm-body">
-    <div class="dm-title">Mais limite no seu cartão? Agora ficou fácil! 💳</div>
-    <div class="dm-msg">Agora você pode pedir mais limite para o seu PicPay Card.</div>
-    <div class="dm-cta">Quero mais limite</div>
-  </div>
-</div></div>
-  <div class="tp-metrics"><div class="no-met">—</div></div>
-</div></div>
-
-  <div class="slide-footer">
-    <div class="sf-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
-        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
-        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
-      </svg>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <div class="wimgf">Imagem WhatsApp</div>
+      <div class="wtitle">Mais limite no seu cartão? Agora ficou fácil! 💳</div>
+      <div class="wmsg">Agora você pode pedir mais limite para o seu PicPay Card.</div>
+      <div class="wtime">10:23 ✓✓</div>
     </div>
-    <div class="sf-text">
+    <div class="wcta">Quero mais limite</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.81%</td><td class="pos">+27.46pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — MAT</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <div class="dimgf">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Mais limite no seu cartão? Agora ficou fácil! 💳</div>
+    <div class="dmsg">Agora você pode pedir mais limite para o seu PicPay Card.</div>
+    <div class="dcta">Quero mais limite</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
       <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
       <div><strong>Volume:</strong> 124K &nbsp; <strong>Entregues:</strong> 109K &nbsp; <strong>Abertos:</strong> 57K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
     </div>
   </div>
 </section>
 
+<section class="slide" id="s28">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">TESTE AB — Base Nitro Recorrentes (não transacionaram)</div>
+      <div class="ssub">11598007892 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Pula Compra 45%</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2854997233/Banner%20Whatsapp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Só no PicPay você pode pular compras para a próxima fatura. …</div>
+      <div class="wmsg">Aproveite essa e outras vantagens com seu cartão de crédito.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.83%</td><td class="pos">+27.48pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Vale Bonus 45%</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2855003855/Banner%20Whatsapp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Use seu PicPay Card no crédito até 31/3 e ganhe R$250 no app…</div>
+      <div class="wmsg">Aproveite todas as vantagens do seu cartão de crédito.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.83%</td><td class="pos">+27.48pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 75K &nbsp; <strong>Entregues:</strong> 65K &nbsp; <strong>Abertos:</strong> 34K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s29">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Limite Temporário — Última chance</div>
+      <div class="ssub">11549534159 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — WPP</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2841518378/DM%20-%20Banner%2" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Aumentamos o limite do seu PicPay Card ao máximo.</div>
+      <div class="wmsg">Última chance de aproveitar: use seu cartão no crédito antes que expire.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.03%</td><td class="pos">+26.68pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 59K &nbsp; <strong>Entregues:</strong> 50K &nbsp; <strong>Abertos:</strong> 26K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s30">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">TESTE AB — Base Nitro (tomaram negada)</div>
+      <div class="ssub">11598363494 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Pula Compra 45%</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2855125616/Banner%20Whatsapp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Só no PicPay você pode pular compras para a próxima fatura. …</div>
+      <div class="wmsg">Aproveite essa e outras vantagens com seu cartão de crédito.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">47.45%</td><td class="pos">+22.10pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Vale Bonus 45%</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2855126576/Banner%20Whatsapp" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Use seu PicPay Card no crédito até 31/3 e ganhe R$250 no app…</div>
+      <div class="wmsg">Aproveite todas as vantagens do seu cartão de crédito.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">47.45%</td><td class="pos">+22.10pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 37K &nbsp; <strong>Entregues:</strong> 32K &nbsp; <strong>Abertos:</strong> 15K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s31">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Ação Pgto Chave Pix</div>
+      <div class="ssub">11542167431 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00a</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <div class="wimgf">Imagem WhatsApp</div>
+      <div class="wtitle">Pague a fatura do PicPay Card com Pix.</div>
+      <div class="wmsg">A data de vencimento está chegando. Pague sua fatura usando a chave Pix.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Pagar fatura</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">97.10%</td><td class="pos">+71.75pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00b</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <div class="wimgf">Imagem WhatsApp</div>
+      <div class="wtitle">Pague a fatura do PicPay Card com Pix.</div>
+      <div class="wmsg">A data de vencimento está chegando. Use o deep link para pagar agora.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Pagar fatura</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">97.10%</td><td class="pos">+71.75pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 70 &nbsp; <strong>Entregues:</strong> 69 &nbsp; <strong>Abertos:</strong> 67 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s32">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Limite Temporário</div>
+      <div class="ssub">11443340356 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — Teste A</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2808202686/DM%20-%20Banner%2" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Aumentamos o limite do seu PicPay Card ao máximo.</div>
+      <div class="wmsg">Use seu cartão agora e aproveite o limite temporário.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — Teste B</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2808202802/DM%20-%20Banner%2" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Aumentamos o limite do seu PicPay Card ao máximo.</div>
+    <div class="dmsg">Use seu cartão agora e aproveite o limite temporário.</div>
+    <div class="dcta">Use seu cartão</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">57.61%</td><td class="pos">+54.56pp</td></tr><tr><td class="mn">CTR</td><td class="mb">74.72%</td><td class="mv">1.27%</td><td class="neg">-73.45pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">2.21%</td><td class="neg">-22.26pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 230K &nbsp; <strong>Entregues:</strong> 110K &nbsp; <strong>Abertos:</strong> 63K &nbsp; <strong>Clicados:</strong> 1K &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s33">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Adhoc Game N3 — Pagamento</div>
+      <div class="ssub">11518343782 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — DM</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832343007/Gemini_Generated_" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Pague sua fatura hoje e continue no Jogo do Limite</div>
+    <div class="dmsg">Sua jornada no Jogo do Limite continua! Pague para manter seus benefícios.</div>
+    <div class="dcta">Pagar fatura</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">70.55%</td><td class="pos">+67.50pp</td></tr><tr><td class="mn">CTR</td><td class="mb">74.72%</td><td class="mv">3.46%</td><td class="neg">-71.26pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">4.91%</td><td class="neg">-19.56pp</td></tr></tbody></table></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — WPP</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub">
+      <img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832343403/Gemini_Generated_" alt="" onerror="this.style.display='none'">
+      <div class="wtitle">Pague sua fatura hoje e continue no Jogo do Limite</div>
+      <div class="wmsg">Sua jornada no Jogo do Limite continua! Pague para manter seus benefícios.</div>
+      <div class="wtime">10:23 ✓✓</div>
+    </div>
+    <div class="wcta">Pagar fatura</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nm">Sem métricas</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 91K &nbsp; <strong>Entregues:</strong> 37K &nbsp; <strong>Abertos:</strong> 26K &nbsp; <strong>Clicados:</strong> 1K &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s34">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">Pula Compra — Aumento de Limite</div>
+      <div class="ssub">11549052378 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">Mar/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — DM</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2841392424/brief-305-retenca" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody">
+    <div class="dtitle">Use agora o seu PicPay Card e aproveite esse benef…</div>
+    <div class="dmsg">Com o Pula Compra você escolhe uma compra à vista na sua fatura e pula para a próxima.</div>
+    <div class="dcta">Aproveite hoje</div>
+    <div class="dreg">Regulamento</div>
+  </div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">74.72%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">8.43%</td><td class="neg">-16.04pp</td></tr></tbody></table></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 129K &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 13K &nbsp; <strong>Clicados:</strong> 1K &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
 
 <script>
-const slides = document.querySelectorAll('.slide');
-const dots   = document.querySelectorAll('.nd');
-function goTo(i) { slides[i].scrollIntoView({behavior:'smooth'}); }
-const io = new IntersectionObserver(e => {
-  e.forEach(x => {
-    if (x.isIntersecting) {
-      const i = [...slides].indexOf(x.target);
-      dots.forEach((d,j) => d.classList.toggle('active', i===j));
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.nd');
+function goTo(i){slides[i].scrollIntoView({behavior:'smooth'})}
+const io=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){
+      const i=[...slides].indexOf(x.target);
+      dots.forEach((d,j)=>d.classList.toggle('active',i===j));
     }
   });
-}, {threshold: 0.35});
-slides.forEach(s => io.observe(s));
-if(dots[0]) dots[0].classList.add('active');
+},{threshold:0.35});
+slides.forEach(s=>io.observe(s));
+if(dots[0])dots[0].classList.add('active');
 </script>
 </body>
 </html>
