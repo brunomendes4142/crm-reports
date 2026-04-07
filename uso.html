@@ -15,9 +15,23 @@ img{display:block;max-width:100%}
   position:sticky;top:0;z-index:100;box-shadow:0 1px 5px rgba(0,0,0,.06)}
 .hdr h1{font-size:14px;font-weight:700;color:#111}
 .hdr p{font-size:11px;color:#6b7280;margin-top:1px}
-.hdr-r{display:flex;gap:8px;align-items:center}
+.hdr-r{display:flex;gap:10px;align-items:center}
 .badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600}
 .bg{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+
+/* filtro */
+.search-wrap{position:relative;display:flex;align-items:center}
+.search-icon{width:15px;height:15px;position:absolute;left:9px;flex-shrink:0}
+.filter-input{border:1px solid #e5e7eb;border-radius:8px;padding:6px 30px 6px 30px;
+  font-size:12px;color:#111;background:#f9fafb;outline:none;width:240px;
+  transition:border-color .15s,box-shadow .15s}
+.filter-input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.1);background:#fff}
+.filter-input::placeholder{color:#9ca3af}
+.filter-clear{display:none;align-items:center;justify-content:center;
+  position:absolute;right:8px;background:none;border:none;
+  color:#9ca3af;cursor:pointer;font-size:12px;width:16px;height:16px;
+  border-radius:50%;padding:0;line-height:1}
+.filter-clear:hover{color:#374151;background:#f3f4f6}
 
 .sidenav{position:fixed;left:11px;top:50%;transform:translateY(-50%);
   display:flex;flex-direction:column;gap:5px;z-index:200}
@@ -190,12 +204,22 @@ img{display:block;max-width:100%}
     <p>Operacional de CRM Monday · Squad = Uso · Período mar–abr 2026 · Activity Name SFMC como chave de cruzamento</p>
   </div>
   <div class="hdr-r">
-    <span style="font-size:11px;color:#6b7280">13 briefings</span>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+        <circle cx="8.5" cy="8.5" r="5.5" stroke="#9ca3af" stroke-width="1.5"/>
+        <path d="M13 13l3 3" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <input id="filter-input" class="filter-input" type="text"
+        placeholder="Filtrar por Briefing ID ou nome…"
+        oninput="applyFilter(this.value)">
+      <button class="filter-clear" id="filter-clear" onclick="clearFilter()" title="Limpar">✕</button>
+    </div>
+    <span id="filter-count" style="font-size:11px;color:#6b7280">13 briefings</span>
     <span class="badge bg">Monday × SFMC</span>
   </div>
 </div>
 
-<section class="slide" id="s0">
+<section class="slide" id="s0" data-bid="11443340356" data-nome="2026/03 | limite - limite temporário">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Limite - Limite Temporário</div>
@@ -243,7 +267,7 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<section class="slide" id="s1">
+<section class="slide" id="s1" data-bid="" data-nome="2026/03 | shop 24x sem juros 14.04">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Shop 24x sem juros 14.04</div>
@@ -287,7 +311,7 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<section class="slide" id="s2">
+<section class="slide" id="s2" data-bid="11518444291" data-nome="2026/03 | super cbk">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Super CBK</div>
@@ -700,7 +724,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s3">
+<section class="slide" id="s3" data-bid="11549534159" data-nome="2026/03 | limite temporário - última chance">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Limite Temporário - Última chance</div>
@@ -735,7 +759,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s4">
+<section class="slide" id="s4" data-bid="11549052378" data-nome="2026/03 | pula compra - aumento de limite">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Pula Compra - Aumento de Limite</div>
@@ -765,7 +789,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s5">
+<section class="slide" id="s5" data-bid="11598007892" data-nome="2026/03 | teste abc - clientes base nitro (recorrentes que nao transacionaram)">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | TESTE ABC - Clientes Base Nitro (Recorrentes que nao transacionaram)</div>
@@ -819,7 +843,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s6">
+<section class="slide" id="s6" data-bid="11598363494" data-nome="2026/03 | teste ab - clientes base nitro (recorrentes tomaram negada)">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | TESTE AB - Clientes Base Nitro (Recorrentes tomaram negada)</div>
@@ -873,7 +897,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s7">
+<section class="slide" id="s7" data-bid="11601850645" data-nome="2026/03 | super cbk - uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Super CBK - USO</div>
@@ -1468,7 +1492,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s8">
+<section class="slide" id="s8" data-bid="11626191773" data-nome="2026/03 | uso - transitados sl - churn">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Uso - Transitados SL - Churn</div>
@@ -1506,7 +1530,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s9">
+<section class="slide" id="s9" data-bid="11648955721" data-nome="2026/03 | promocional - super cbk - páscoa (wpp)">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Promocional - Super CBK - Páscoa (WPP)</div>
@@ -1557,7 +1581,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s10">
+<section class="slide" id="s10" data-bid="11650829788" data-nome="2026/04 | limite - quero mais limite">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/04 | Limite - Quero mais Limite</div>
@@ -1603,7 +1627,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
 </section>
 
-<section class="slide" id="s11">
+<section class="slide" id="s11" data-bid="11663078427" data-nome="2026/04 | promocional - fase 2 - super cbk - opt in">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/04 | Promocional - Fase 2 - Super CBK - Opt In</div>
@@ -1858,7 +1882,7 @@ Participando do **Super Cashba…</div><div class="dcta">Quero participar</div><
   </div>
 </section>
 
-<section class="slide" id="s12">
+<section class="slide" id="s12" data-bid="11681000374" data-nome="2026/04 | promocional - compra premiada - opt in">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/04 | Promocional - Compra Premiada - Opt In</div>
@@ -1989,13 +2013,60 @@ Participe da **Compra Premiada P…</div><div class="dcta">Participe aqui</div><
 </section>
 
 <script>
-const slides=document.querySelectorAll('.slide');
-const dots=document.querySelectorAll('.nd');
-function goTo(i){slides[i].scrollIntoView({behavior:'smooth'})}
-const io=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting){const i=[...slides].indexOf(x.target);dots.forEach((d,j)=>d.classList.toggle('active',i===j));}}); },{threshold:0.35});
-slides.forEach(s=>io.observe(s));
-if(dots[0])dots[0].classList.add('active');
+const slides = document.querySelectorAll('.slide');
+const dots   = document.querySelectorAll('.nd');
+
+function goTo(i) { slides[i].scrollIntoView({behavior:'smooth'}); }
+
+// ── IntersectionObserver para nav dots ──────────────────────────────────────
+const io = new IntersectionObserver(e => {
+  e.forEach(x => {
+    if (x.isIntersecting) {
+      const i = [...slides].indexOf(x.target);
+      dots.forEach((d,j) => d.classList.toggle('active', i===j));
+    }
+  });
+}, {threshold: 0.35});
+slides.forEach(s => io.observe(s));
+if (dots[0]) dots[0].classList.add('active');
+
+// ── Filtro ───────────────────────────────────────────────────────────────────
+function applyFilter(q) {
+  const term = q.trim().toLowerCase();
+  const clearBtn = document.getElementById('filter-clear');
+  const countEl  = document.getElementById('filter-count');
+  clearBtn.style.display = term ? 'flex' : 'none';
+
+  let visible = 0;
+  slides.forEach((s, i) => {
+    const bid  = s.dataset.bid  || '';
+    const nome = s.dataset.nome || '';
+    const match = !term || bid.includes(term) || nome.includes(term);
+    s.style.display = match ? '' : 'none';
+    dots[i].style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+
+  countEl.textContent = term
+    ? visible + ' de 13 briefings'
+    : '13 briefings';
+}
+
+function clearFilter() {
+  const input = document.getElementById('filter-input');
+  input.value = '';
+  applyFilter('');
+  input.focus();
+}
+
+// Atalho de teclado: / para focar o filtro
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && document.activeElement !== document.getElementById('filter-input')) {
+    e.preventDefault();
+    document.getElementById('filter-input').focus();
+  }
+  if (e.key === 'Escape') clearFilter();
+});
 </script>
 </body>
 </html>
