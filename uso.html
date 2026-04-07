@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CRM Report — PicPay Card · Squad Uso · Mar–Abr 2026</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e8eaed;font-family:'Inter',system-ui,sans-serif;font-size:13px;color:#111827;line-height:1.5}
+img{display:block;max-width:100%}
+
+.hdr{background:#fff;border-bottom:1.5px solid #e5e7eb;padding:12px 32px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:100;box-shadow:0 1px 5px rgba(0,0,0,.06)}
+.hdr h1{font-size:14px;font-weight:700;color:#111}
+.hdr p{font-size:11px;color:#6b7280;margin-top:1px}
+.hdr-r{display:flex;gap:8px;align-items:center}
+.badge{padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600}
+.bg{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+
+.sidenav{position:fixed;left:11px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:5px;z-index:200}
+.nd{width:7px;height:7px;border-radius:50%;background:#d1d5db;cursor:pointer;transition:all .18s}
+.nd.active{background:#1f2937;transform:scale(1.5)}
+.nd:hover{background:#9ca3af}
+
+.slide{background:#f9fafb;border-bottom:2px solid #e5e7eb;
+  min-height:100vh;padding:32px 52px 40px;
+  display:flex;flex-direction:column;gap:20px}
+
+.stop{display:flex;justify-content:space-between;align-items:flex-start}
+.stitle{font-size:22px;font-weight:700;color:#21c55d;letter-spacing:-.3px;line-height:1.2}
+.ssub{font-size:11px;color:#9ca3af;margin-top:4px;font-family:monospace}
+.sper{font-size:13px;font-weight:600;color:#374151;background:#f3f4f6;
+  border:1px solid #e5e7eb;border-radius:6px;padding:4px 12px}
+
+.tprow{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+
+.var-label{width:100%;display:flex;align-items:center;gap:10px;padding:4px 0 2px;margin-top:2px}
+.var-label::after{content:"";flex:1;height:1px;background:#e5e7eb}
+.var-pill{font-size:10px;font-weight:700;color:#374151;background:#f3f4f6;
+  border:1px solid #e5e7eb;border-radius:20px;padding:2px 10px;white-space:nowrap;flex-shrink:0}
+.var-break{width:100%;height:10px}
+
+.tpc{background:#fff;border:1px solid #e5e7eb;border-radius:12px;
+  overflow:hidden;width:214px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.tphdr{padding:8px 11px;background:#fafafa;border-bottom:1px solid #f3f4f6}
+.tpcanal{font-size:11px;font-weight:700;letter-spacing:.2px}
+.tpmock{padding:11px;display:flex;justify-content:center;min-height:185px;align-items:flex-start}
+.tpmet{padding:0 8px 10px}
+
+/* mockups */
+.notch{width:46px;height:5px;background:#1f2937;border-radius:3px;margin:8px auto 5px}
+.home{width:34px;height:4px;background:#e5e7eb;border-radius:3px;margin:7px auto}
+
+.mpush{width:186px;background:#fff;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.screen{padding:0 5px}
+.pn{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:7px;display:flex;gap:6px;align-items:flex-start}
+.pico{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#22c55e,#16a34a);flex-shrink:0}
+.pb_{flex:1;min-width:0}
+.pt{font-size:9px;font-weight:700;color:#374151}
+.ptitle{font-size:9px;font-weight:700;color:#111;margin-top:1px;line-height:1.3}
+.pmsg{font-size:8px;color:#6b7280;margin-top:2px;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.ptime{font-size:8px;color:#9ca3af;flex-shrink:0}
+
+.minapp{width:186px;background:#fff;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.icard{border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;margin:0 3px}
+.iimg{width:100%;height:76px;object-fit:cover}
+.iimgf{width:100%;height:76px;background:linear-gradient(135deg,#dbeafe,#ede9fe);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#9ca3af;font-style:italic}
+.ibody{padding:7px}
+.ititle{font-size:9px;font-weight:700;color:#111;line-height:1.3}
+.imsg{font-size:8px;color:#6b7280;margin-top:2px;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.ibtn{margin-top:6px;background:#22c55e;color:#fff;font-size:9px;font-weight:700;text-align:center;padding:5px;border-radius:6px}
+
+.miafs{width:186px;background:#1f2937;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.fsscreen{padding:0!important;position:relative;min-height:152px}
+.fsimg{width:100%;height:152px;object-fit:cover}
+.fsimgf{width:100%;height:152px;background:linear-gradient(135deg,#1e1b4b,#312e81);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#a5b4fc;font-style:italic}
+.fsbtn{position:absolute;bottom:10px;left:10px;right:10px;background:#22c55e;
+  color:#fff;font-size:9px;font-weight:700;text-align:center;padding:6px;border-radius:7px}
+
+.mwap{width:186px;background:#e5ddd5;border:2px solid #1f2937;border-radius:22px;overflow:hidden}
+.whead{background:#075e54;padding:6px 8px;display:flex;gap:5px;align-items:center}
+.wav{width:20px;height:20px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:#fff;flex-shrink:0}
+.wname{font-size:9px;font-weight:700;color:#fff}
+.won{font-size:7px;color:#b2dfdb}
+.wbody{padding:5px 5px 3px;min-height:60px}
+.wbub{background:#fff;border-radius:0 8px 8px 8px;padding:5px;margin-bottom:4px}
+.wimg{width:100%;border-radius:4px;margin-bottom:3px;max-height:60px;object-fit:cover}
+.wimgf{width:100%;height:50px;background:linear-gradient(135deg,#dcfce7,#bbf7d0);
+  display:flex;align-items:center;justify-content:center;font-size:9px;color:#16a34a;
+  border-radius:4px;margin-bottom:3px;font-style:italic}
+.wtitle{font-size:8px;font-weight:700;color:#111;line-height:1.3;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.wmsg{font-size:7px;color:#374151;margin-top:2px;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+.wtime{font-size:7px;color:#9ca3af;text-align:right;margin-top:2px}
+.wcta{background:#25d366;color:#fff;font-size:8px;font-weight:700;
+  text-align:center;padding:4px 8px;border-radius:0 0 5px 5px}
+
+.memail{width:186px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;overflow:hidden}
+.ehdr{background:#f9fafb;padding:6px 8px;border-bottom:1px solid #e5e7eb}
+.efrom{font-size:7px;color:#9ca3af}
+.esubj{font-size:8px;font-weight:700;color:#111;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.epre{font-size:7px;color:#9ca3af}
+.eban{height:54px;background:linear-gradient(135deg,#ede9fe,#ddd6fe);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#7c3aed;font-style:italic}
+.ebody{padding:6px 8px}
+.emsg{font-size:8px;color:#374151;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical}
+.ecta{margin-top:6px;background:#7c3aed;color:#fff;font-size:9px;font-weight:700;
+  text-align:center;padding:5px;border-radius:6px}
+
+.mdm{width:186px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;overflow:hidden}
+.dimg{width:100%;max-height:82px;object-fit:cover}
+.dimgf{width:100%;height:66px;background:linear-gradient(135deg,#e0f2fe,#bae6fd);
+  display:flex;align-items:center;justify-content:center;font-size:10px;color:#0369a1;font-style:italic}
+.dbody{padding:7px}
+.dtitle{font-size:8px;font-weight:700;color:#111;line-height:1.3}
+.dmsg{font-size:8px;color:#374151;margin-top:2px;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}
+.dcta{margin-top:6px;background:#22c55e;color:#fff;font-size:9px;font-weight:700;
+  text-align:center;padding:5px;border-radius:6px}
+.dreg{margin-top:3px;font-size:8px;text-align:center;color:#9ca3af;
+  border-top:1px solid #f3f4f6;padding-top:3px}
+
+.msms{width:186px;background:#fff;border:1.5px solid #e5e7eb;border-radius:10px;overflow:hidden;padding:8px}
+.smshead{display:flex;gap:6px;align-items:center;margin-bottom:6px}
+.smsico{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#16a34a);flex-shrink:0}
+.smsname{font-size:9px;font-weight:700;color:#111}
+.smsdesc{font-size:8px;color:#9ca3af}
+.smsbub{font-size:8px;color:#374151;line-height:1.35;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical}
+
+.mgen{width:178px;background:#f9fafb;border:1px dashed #d1d5db;border-radius:8px;padding:10px}
+.glabel{font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+
+.mt{width:100%;border-collapse:collapse;border-top:1px solid #f3f4f6;margin-top:3px}
+.mt thead th{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+  color:#9ca3af;padding:4px 3px;text-align:left;border-bottom:1px solid #f3f4f6}
+.mt tbody td{padding:3px;font-size:11px;color:#374151;border-bottom:1px solid #fafafa}
+.mt tbody tr:last-child td{border-bottom:none}
+.mn{font-weight:700;color:#374151;width:38px}
+.mb{color:#9ca3af}
+.mv{font-weight:600;color:#111}
+.pos{font-weight:700;color:#16a34a}
+.neg{font-weight:700;color:#dc2626}
+.nd_{font-weight:400;color:#9ca3af}
+.nm{font-size:10px;color:#d1d5db;padding:5px 3px}
+.nao-enviado{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:600;color:#9ca3af;padding:8px 3px}
+.nao-env-dot{width:6px;height:6px;border-radius:50%;background:#d1d5db;flex-shrink:0}
+.tp-vol{font-size:9px;color:#9ca3af;padding:4px 3px 0;border-top:1px solid #f9fafb;margin-top:3px}
+
+.sfooter{display:flex;gap:12px;align-items:center;
+  padding:12px 16px;background:#fff;border:1px solid #e5e7eb;
+  border-radius:10px;max-width:680px}
+.sftext{font-size:12px;color:#374151;line-height:1.7}
+.sftext strong{font-weight:700}
+
+@media print{
+  .hdr,.sidenav{display:none}
+  .slide{page-break-after:always;min-height:auto;padding:18px}
+}
+</style>
+</head>
+<body>
+<nav class="sidenav"><div class="nd" onclick="goTo(0)" id="nd-0" title="2026/03 | Limite - Limite Temp"></div>
+<div class="nd" onclick="goTo(1)" id="nd-1" title="2026/03 | Shop 24x sem juros 1"></div>
+<div class="nd" onclick="goTo(2)" id="nd-2" title="2026/03 | Super CBK"></div>
+<div class="nd" onclick="goTo(3)" id="nd-3" title="2026/03 | Limite Temporário - "></div>
+<div class="nd" onclick="goTo(4)" id="nd-4" title="2026/03 | Pula Compra - Aument"></div>
+<div class="nd" onclick="goTo(5)" id="nd-5" title="2026/03 | TESTE ABC - Clientes"></div>
+<div class="nd" onclick="goTo(6)" id="nd-6" title="2026/03 | TESTE AB - Clientes "></div>
+<div class="nd" onclick="goTo(7)" id="nd-7" title="2026/03 | Super CBK - USO"></div>
+<div class="nd" onclick="goTo(8)" id="nd-8" title="2026/03 | Uso - Transitados SL"></div>
+<div class="nd" onclick="goTo(9)" id="nd-9" title="2026/03 | Promocional - Super "></div>
+<div class="nd" onclick="goTo(10)" id="nd-10" title="2026/04 | Limite - Quero mais "></div>
+<div class="nd" onclick="goTo(11)" id="nd-11" title="2026/04 | Promocional - Fase 2"></div>
+<div class="nd" onclick="goTo(12)" id="nd-12" title="2026/04 | Promocional - Compra"></div>
+</nav>
+<div class="hdr">
+  <div>
+    <h1>Report CRM — PicPay Card · Squad Uso · Mar–Abr 2026</h1>
+    <p>Operacional de CRM Monday · Squad = Uso · Período mar–abr 2026 · Activity Name SFMC como chave de cruzamento</p>
+  </div>
+  <div class="hdr-r">
+    <span style="font-size:11px;color:#6b7280">13 briefings</span>
+    <span class="badge bg">Monday × SFMC</span>
+  </div>
+</div>
+
+<section class="slide" id="s0">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Limite - Limite Temporário</div>
+      <div class="ssub">11443340356 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 300000</div>
+    </div>
+    <div class="str_"><div class="sper">06/03 – 10/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00 · B</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2808202802/DM%20-%20Banner%20Aproveite%20o%20novo%20limite%20(2)%20(1)%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Aumentamos o limite do seu PicPay Card ao máximo.**
+
+**Use seu cartão** na função crédito **até 27…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">24.28%</td><td class="neg">-0.19pp</td></tr></tbody></table><div class="tp-vol">env 103K · ab 5K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00 · A</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2808202686/DM%20-%20Banner%20Aproveite%20o%20novo%20limite%20(2)%20(1)%20(2).png" alt="" onerror="this.style.display='none'"><div class="wtitle"></div><div class="wmsg">*Aumentamos o limite do seu PicPay Card ao máximo.*
+
+*Use seu cartão* na função crédito *até 27/03/2026* para …</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.36%</td><td class="pos">+27.01pp</td></tr></tbody></table><div class="tp-vol">env 127K · ab 57K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s1">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Shop 24x sem juros 14.04</div>
+      <div class="ssub"> &nbsp;·&nbsp; Pendente</div>
+    </div>
+    <div class="str_"><div class="sper">14/03 – 14/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <div class="dimgf" >Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg"></div><div class="dcta">Ver mais</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><div class="iimgf" >Mockup In-App</div>
+      <div class="ibody"><div class="ititle"></div><div class="imsg"></div><div class="ibtn">Ver mais</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Pendente</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s2">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Super CBK</div>
+      <div class="ssub">11518444291 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 822000</div>
+    </div>
+    <div class="str_"><div class="sper">20/03 – 03/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="var-label"><span class="var-pill">Black</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D-1</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832399367/DM%20-%20Super%20Cashback_Black_16.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Chegou o Super Cashback do seu PicPay Card Black, participe agora!** 🤩
+
+Receba **cashback em dobro…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: </div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">2x mais cashback para você. 🤑
+Bata a meta com seu cartão Black e ganhe um Super Cashback. Participe …</div><div class="ecta">Quero participar</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">5.41%</td><td class="mv">16.38%</td><td class="pos">+10.97pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.81%</td><td class="mv">0.49%</td><td class="neg">-3.32pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.88%</td><td class="mv">3.00%</td><td class="pos">+2.12pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Chegou o Super Cashback! \U0001f911
+Ganhe cashback em dobro com seu PicPay Card …</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D05</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832425392/Banner%20DM%20-%20Super%20Cashback_Black_20.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Quer ganhar cashback em dobro? Aproveite seu PicPay Card Black.**🤩 
+
+**Bora participar do Super Ca…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838380882/IMG-inapp%20modal%20-%20Super%20Cashback_Black%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle"></div><div class="imsg">2,4% é cashback em dobro para você! 
+Aproveite o benefício especial do PicPay Ca…</div><div class="ibtn">Quero participar</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">16.38%</td><td class="neg">-4.43pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.49%</td><td class="neg">-49.65pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.00%</td><td class="pos">+0.09pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">2x mais cashback para você. 🤑
+Bata a meta com seu cartão Black e ganhe um Super …</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D10</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832496073/Banner%20DM%20-%20Super%20Cashback_Black_24.03%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Última chance! Comprou no crédito, ganhou 2,4% de cashback, não perca.**🤑
+
+Participe do **Super Ca…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen"><img class="fsimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832469285/trava%20tela%20-%20Super%20Cashback_Black.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="fsimgf" style="display:none">Imagem Full Screen</div><div class="fsbtn">Quero participar</div></div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">16.38%</td><td class="neg">-4.43pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.49%</td><td class="neg">-49.65pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.00%</td><td class="pos">+0.09pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Ganhe cashback em dobro!
+Vem para o Super Cashback: participe com seu cartão Bla…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Gold + Platinum</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D-1</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832567717/DM%20-%20Super%20Cashback_Platinum%20e%20Gold_16.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Chegou o Super Cashback do seu PicPay Card, participe agora!** 🤩
+
+**Receba R$ 250 em Vale Bonus** …</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: </div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Ganhe R$ 250 em Vale Bonus. \U0001f911
+Bata a meta com seu PicPay Card e ganhe no programa Super Cas…</div><div class="ecta">Quero participar</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">5.41%</td><td class="mv">16.38%</td><td class="pos">+10.97pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.81%</td><td class="mv">0.49%</td><td class="neg">-3.32pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.88%</td><td class="mv">3.00%</td><td class="pos">+2.12pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Chegou o Super Cashback! 🤑
+Participe com seu cartão e ganhe R$ 250 em Vale Bonus…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D05</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832689090/Banner%20DM%20-%20Super%20Cashback_Platinum%20e%20Gold_20.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Quer ganhar R$ 250 em Vale Bonus? Aproveite seu PicPay Card.**🤩 
+
+**Bora participar do Super Cashb…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838397170/IMG-inapp%20modal%20-%20Super%20Cashback_Platinum%20e%20Gold_24.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle"></div><div class="imsg">R$ 250 em Vale Bonus para você! 
+Participe com seu PicPay Card e tenha descontos…</div><div class="ibtn">Quero participar</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">16.38%</td><td class="neg">-4.43pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.49%</td><td class="neg">-49.65pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.00%</td><td class="pos">+0.09pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">R$ 250 em Vale Bonus para você! 🤑
+Super Cashback PicPay Card: bata sua meta e ap…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D10</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832721793/Banner%20DM%20-%20Super%20Cashback_Platinum%20e%20Gold_24.03%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Última chance! Comprou no crédito, ganhou R$ 250 em Vale Bonus, não perca.**🤑
+
+Participe do **Supe…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen"><img class="fsimg" src="https://picpay.monday.com/protected_static/17037971/resources/2832712749/trava%20tela%20-%20Super%20Cashback_Platinum%20e%20Gold.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="fsimgf" style="display:none">Imagem Full Screen</div><div class="fsbtn">Quero participar</div></div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">16.38%</td><td class="neg">-4.43pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.49%</td><td class="neg">-49.65pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.00%</td><td class="pos">+0.09pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Vale Bonus dá desconto em lojas!🤑
+Super Cashback PicPay Card: bata sua meta para…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Epic</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838420139/WhatsApp%20DM%20-%20Super%20Cashback_Epic%201%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle"></div><div class="wmsg">*Chegou o Super Cashback do seu cartão Black Epic, participe agora!* 🤩
+
+Preparamos especialmente para você uma…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">16.38%</td><td class="neg">-8.97pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #6366f1">
+    <span class="tpcanal" style="color:#6366f1">In-App FS — D04</span>
+  </div>
+  <div class="tpmock"><div class="mock miafs">
+  <div class="notch"></div>
+  <div class="screen fsscreen"><img class="fsimg" src="https://picpay.monday.com/protected_static/17037971/resources/2839080681/trava%20tela%20-%20Super%20Cashback_Epic%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="fsimgf" style="display:none">Imagem Full Screen</div><div class="fsbtn">Quero participar</div></div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">16.38%</td><td class="neg">-4.43pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.49%</td><td class="neg">-49.65pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.00%</td><td class="pos">+0.09pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D04</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">Chegou o Super Cashback Epic! 🤑
+Ganhe cashback em dobro com seu cartão Black Epi…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838449247/WhatsApp%20DM%20-%20Super%20Cashback_Epic%202%20(3).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**Tenha cashback em dobro para viver novas experiências com o PicPay.** 🤩
+
+Participe do **Super Cash…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D11</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: </div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Ganhar 2x mais cashback é épico! 🤩
+Participe do Super Cashback com seu cartão Black Epic e viva o ex…</div><div class="ecta">-</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">5.41%</td><td class="mv">16.38%</td><td class="pos">+10.97pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.81%</td><td class="mv">0.49%</td><td class="neg">-3.32pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.88%</td><td class="mv">3.00%</td><td class="pos">+2.12pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D13</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2836093777/Banner%20DM%20-%20Super%20Cashback_Black.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle"></div><div class="dmsg">**2,6% de cashback para você viver novas experiências no PicPay.** 🤑
+
+Participe do **Super Cashback*…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">16.38%</td><td class="pos">+13.33pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">3.00%</td><td class="neg">-21.47pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D48</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2838452857/IMG-inapp%20modal%20-%20Super%20Cashback_Epic%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle"></div><div class="imsg">Ganhe 2,6% de cashback épico.
+Última chance! Aproveite esse benefício exclusivo …</div><div class="ibtn">Quero participar</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">16.38%</td><td class="neg">-4.43pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">0.49%</td><td class="neg">-49.65pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">3.00%</td><td class="pos">+0.09pp</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D48</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">PicPay Card</div>
+        <div class="pmsg">2x mais cashback é épico! 🤩
+Participe do Super Cashback com seu cartão Black Epi…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.38%</td><td class="pos">+15.64pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.49%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 3.5M · ab 364K</div></div>
+</div><div class="var-break"></div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Limite Temporário - Última chance</div>
+      <div class="ssub">11549534159 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 63163</div>
+    </div>
+    <div class="str_"><div class="sper">21/03 – 21/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2841518378/DM%20-%20Banner%20Aproveite%20o%20novo%20limite%20(2)%20(1)%20(2)%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Aumentamos o limite do seu PicPay Card ao máximo.*</div><div class="wmsg">Última chance de aproveitar: *use seu cartão* na função crédito *até 25/03/2026* para permanecer com o limite …</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.03%</td><td class="pos">+26.68pp</td></tr></tbody></table><div class="tp-vol">env 59K · ab 26K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Pula Compra - Aumento de Limite</div>
+      <div class="ssub">11549052378 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 175685</div>
+    </div>
+    <div class="str_"><div class="sper">20/03 – 20/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2841392424/brief-305-retencao-whatsapp-pula-compra-n1-n2-n3-n4.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Use agora o seu PicPay Card e aproveite esse b…</div><div class="dmsg">Com o **Pula Compra** você escolhe uma compra à vista na sua fatura atual e joga para a próxima, gan…</div><div class="dcta">Aproveite hoje</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">8.43%</td><td class="neg">-16.04pp</td></tr></tbody></table><div class="tp-vol">env 129K · ab 13K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | TESTE ABC - Clientes Base Nitro (Recorrentes que nao transacionaram)</div>
+      <div class="ssub">11598007892 &nbsp;·&nbsp; GI + GC + GCU · Vol. planejado: 172000</div>
+    </div>
+    <div class="str_"><div class="sper">28/03 – 28/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D-2 · B</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2854997233/Banner%20Whatsapp%20-%2011134539706_Ativa%C3%A7%C3%A3o%20e%20Uso_Pula%20Compra%20-1.png" alt="" onerror="this.style.display='none'"><div class="wtitle">Só no PicPay você pode pular compras feitas com seu Pic…</div><div class="wmsg">Aproveite essa e outras vantagens com seu cartão de crédito:
+
+- Compras no PicPay Shop em até *10x sem juros*;…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.12%</td><td class="pos">+26.77pp</td></tr></tbody></table><div class="tp-vol">env 37K · ab 17K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D-2 · C</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2855003855/Banner%20Whatsapp%20-%2011134539706_Ativa%C3%A7%C3%A3o%20e%20Uso_Pula%20Compra%20-%20Vale%20Bonus.png" alt="" onerror="this.style.display='none'"><div class="wtitle">Use seu *PicPay Card* na função crédito em compras a pa…</div><div class="wmsg">Aproveite todas as vantagens do seu cartão de crédito:
+
+- Compras no PicPay Shop em até *10x sem juros*;
+- *Pi…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">53.54%</td><td class="pos">+28.19pp</td></tr></tbody></table><div class="tp-vol">env 37K · ab 17K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | TESTE AB - Clientes Base Nitro (Recorrentes tomaram negada)</div>
+      <div class="ssub">11598363494 &nbsp;·&nbsp; GI + GC + GCU · Vol. planejado: 38000</div>
+    </div>
+    <div class="str_"><div class="sper">28/03 – 28/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D-2 · A</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2855125616/Banner%20Whatsapp%20-%2011134539706_Ativa%C3%A7%C3%A3o%20e%20Uso_Pula%20Compra%20-1.png" alt="" onerror="this.style.display='none'"><div class="wtitle">Só no PicPay você pode pular compras feitas com seu Pic…</div><div class="wmsg">Aproveite essa e outras vantagens com seu cartão de crédito:
+
+- Compras no PicPay Shop em até *10x sem juros*;…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">46.12%</td><td class="pos">+20.77pp</td></tr></tbody></table><div class="tp-vol">env 18K · ab 7K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D-2 · B</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2855126576/Banner%20Whatsapp%20-%2011134539706_Ativa%C3%A7%C3%A3o%20e%20Uso_Pula%20Compra%20-%20Vale%20Bonus.png" alt="" onerror="this.style.display='none'"><div class="wtitle">Use seu *PicPay Card* na função crédito em compras a pa…</div><div class="wmsg">Aproveite todas as vantagens do seu cartão de crédito:
+
+- Compras no PicPay Shop em até *10x sem juros*;
+- *Pi…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">48.75%</td><td class="pos">+23.40pp</td></tr></tbody></table><div class="tp-vol">env 18K · ab 7K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Super CBK - USO</div>
+      <div class="ssub">11601850645 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 10000</div>
+    </div>
+    <div class="str_"><div class="sper">26/03 – 20/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="var-label"><span class="var-pill">Gold + Platinum</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856596236/IMG-inapp%20modal%20-%20Platinum%20e%20Gold_23.03.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Use seu PicPay Card para ganhar.</div><div class="imsg">Até 20/4! Bata a meta de compras com o cartão e ganhe no Super Cashback.</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">84.44%</td><td class="pos">+63.63pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">5.33%</td><td class="neg">-44.81pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">6.31%</td><td class="pos">+3.40pp</td></tr></tbody></table><div class="tp-vol">env 3K · ab 2K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Ganhe R$ 250 em Vale Bonus! \U0001f911</div>
+        <div class="pmsg">Use agora seu PicPay Card e ganhe no Super Cashback. Aproveite.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">5.55%</td><td class="pos">+4.81pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 8K · ab 446</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: R$ 250 em Vale Bonus é no PicPay!🤑</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Use sempre seu cartão, bata sua meta e aproveite seu Vale Bonus em várias lojas.</div><div class="ecta">Use seu cartão</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">5.41%</td><td class="mv">12.64%</td><td class="pos">+7.23pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.81%</td><td class="mv">0.51%</td><td class="neg">-3.30pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.88%</td><td class="mv">4.00%</td><td class="pos">+3.12pp</td></tr></tbody></table><div class="tp-vol">env 1K · ab 175</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">R$ 250 em Vale Bonus é no PicPay!🤑</div>
+        <div class="pmsg">Use sempre seu cartão, bata sua meta e aproveite seu Vale Bonus em várias lojas.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">3.70%</td><td class="pos">+2.96pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 906 · ab 33</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D06</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856668246/Whatsapp%20-%20Super%20Cashback_Platinum%20e%20Gold_27.03%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Imperdível! Ganhe R$ 250 em Vale Bonus usando seu cart…</div><div class="wmsg">Com seu *Super Cashback*, comprar com o *PicPay Card* ficou ainda melhor:
+
+- Use seu cartão na função crédito,…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">62.90%</td><td class="pos">+37.55pp</td></tr></tbody></table><div class="tp-vol">env 5K · ab 3K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856679484/Banner%20DM%20-%20Super%20Cashback_Platinum%20e%20Gold_29.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Ganhe R$ 250 em Vale Bonus para ter descontos …</div><div class="dmsg">Aproveite o **Super Cashback PicPay Card.** Confira: 
+
+- Use seu cartão na função crédito, **físico …</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856687205/IMG-inapp%20modal%20-%20Super%20Cashback_Platinum%20e%20Gold_29.03.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">R$ 250 em Vale Bonus é no PicPay…</div><div class="imsg">Até 20/4! Use o cartão físico ou virtual, bata a meta e ganhe seu Vale Bonus.</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">67.86%</td><td class="pos">+47.05pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">5.42%</td><td class="neg">-44.72pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">7.98%</td><td class="pos">+5.07pp</td></tr></tbody></table><div class="tp-vol">env 11K · ab 5K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Ganhe R$ 250 em Vale Bonus! \U0001f929</div>
+        <div class="pmsg">Use seu cartão, pule a compra da fatura atual para a próxima e receba Vale Bonus…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">3.64%</td><td class="pos">+2.90pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 2K · ab 107</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D14</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Super Cashback é só até 20/4!🎯</div>
+        <div class="pmsg">Confira quanto falta para garantir R$ 250 em Vale Bonus e aproveite sua oferta.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">0.00%</td><td class="neg">-0.74pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 6 · ab —</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D15</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856733184/Whatsapp%20-%20Super%20Cashback_Platinum%20e%20Gold_D7%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Só até 20/4! Use seu cartão e bata sua meta no…</div><div class="dmsg">Suas compras no crédito com seu **PicPay Card** em **mercado, farmácia, delivery, lojas online** est…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D19</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856761599/Banner%20DM%20-%20Super%20Cashback_Platinum%20e%20Gold_D8.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Tem R$ 250 em Vale Bonus esperando por você, n…</div><div class="dmsg">Só com seu **PicPay Card**, você ganha **Vale Bonus** para ter **desconto** em lojas, mercados e res…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D21</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">O Super Cashback está acabando!⏰</div>
+        <div class="pmsg">Sua oferta acaba em 20/4. Use o PicPay Card para não perder R$ 250 em Vale Bonus…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.67%</td><td class="pos">+15.93pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 6 · ab 1</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D23</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856793170/Banner%20DM%20-%20Super%20Cashback_Platinum%20e%20Gold_D10%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**O Super Cashback está acabando! Garanta hoje s…</div><div class="dmsg">**Até 20/4**, use seu **PicPay Card** no crédito para pagar até aquele cafezinho no dia a dia e cheg…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D25</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856803701/Whatsapp%20-%20Super%20Cashback_Platinum%20e%20Gold_D11%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*O Super Cashback acaba hoje, vem ganhar R$ 250 em Vale…</div><div class="wmsg">Ainda dá tempo! Use seu *PicPay Card no crédito*, físico ou virtual, bata sua meta e garanta seu Vale Bonus.
+
+…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">50.00%</td><td class="pos">+24.65pp</td></tr></tbody></table><div class="tp-vol">env 5 · ab 1</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Black</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856851419/IMG-inapp%20modal%20-%20Super%20Cashback_Black%20%2023.03.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">2,4% de cashback é no PicPay.</div><div class="imsg">Até 20/4! Use o cartão Black físico ou virtual, bata a meta e turbine seus ganho…</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">74.96%</td><td class="pos">+54.15pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">9.48%</td><td class="neg">-40.66pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">12.64%</td><td class="pos">+9.73pp</td></tr></tbody></table><div class="tp-vol">env 949 · ab 530</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">2,4% de cashback é imperdível! 🤑</div>
+        <div class="pmsg">Use seu PicPay Card Black e ganhe mais no Super Cashback. Aproveite.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">9.72%</td><td class="pos">+8.98pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 145 · ab 14</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Cashback em dobro é no PicPay!🤑</div>
+        <div class="pmsg">Use seu cartão Black em todas as compras para receber um Super Cashback de 2,4%.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">4.36%</td><td class="pos">+3.62pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 785 · ab 34</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D06</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856882301/Banner%20DM%20-%20Super%20Cashback_Black_27.03%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Imperdível! Ganhe cashback em dobro com seu cartão Bla…</div><div class="wmsg">Com o *Super Cashback,* comprar com o *PicPay Card Black* ficou ainda melhor:
+
+- Use seu cartão Black na funçã…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">54.94%</td><td class="pos">+29.59pp</td></tr></tbody></table><div class="tp-vol">env 1K · ab 701</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856896688/DM%20-%20Super%20Cashback_Black_29.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**De 1,2% para 2,4%! O PicPay dobrou o cashback …</div><div class="dmsg">Que tal turbinar seus ganhos com um **Super Cashback**? Confira como:
+
+- Use seu cartão Black na fun…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856906519/IMG-inapp%20modal%20-%20Super%20Cashback_Black%20%2023.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">2,4% de cashback é no PicPay.</div><div class="imsg">Até 20/4! Use o cartão Black físico ou virtual, bata a meta e turbine seus ganho…</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">65.70%</td><td class="pos">+44.89pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">5.35%</td><td class="neg">-44.79pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">8.14%</td><td class="pos">+5.23pp</td></tr></tbody></table><div class="tp-vol">env 1K · ab 835</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">2,4% de cashback é imperdível! 🤑</div>
+        <div class="pmsg">Use seu PicPay Card Black e ganhe mais no Super Cashback. Aproveite.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">16.67%</td><td class="pos">+15.93pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 6 · ab 1</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D14</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: 2,4% de cashback é imperdível! 🤑</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Use seu PicPay Card Black e ganhe mais no Super Cashback. Não perca!</div><div class="ecta">Use seu cartão</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D14</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Exclusivo! Super Cashback de 2,4%.</div>
+        <div class="pmsg">Confira sua meta e continue usando seu cartão Black para ganhar mais cashback.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">33.33%</td><td class="pos">+32.59pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 6 · ab 2</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D18</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856959367/IMG-inapp%20modal%20-%20Super%20Cashback_Black%20%2023.03%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Ganhe um Super Cashback até 20/4…</div><div class="imsg">Concentre todas as compras no seu PicPay Card Black para ter 2,4% de cashback.</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">100.00%</td><td class="pos">+79.19pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">20.00%</td><td class="neg">-30.14pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">20.00%</td><td class="pos">+17.09pp</td></tr></tbody></table><div class="tp-vol">env 5 · ab 5</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D21</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2856980896/WhatsApp%20DM%20-%20Super%20Cashback_Black%20D7%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**O cashback em dobro do seu PicPay Card Black v…</div><div class="dmsg">Aproveite um **Super Cashback** de 1,2% para **2,4%**. Uma condição pensada para você que é cliente …</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D25</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857049286/Banner%20DM%20-%20Super%20Cashback_Black%20D8%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Último dia do Super Cashback do seu cartão Black, corr…</div><div class="wmsg">O cashback em *dobro* do seu PicPay Card Black acaba hoje. Amanhã já volta a 1,2%. 
+
+*Confira seu status no Su…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">20.00%</td><td class="neg">-5.35pp</td></tr></tbody></table><div class="tp-vol">env 5 · ab 1</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Epic</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857642327/IMG-inapp%20modal%20-%20Super%20Cashback_Epic%2023.03%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Ganhar um Super Cashback é épico…</div><div class="imsg">Exclusivo! Use seu cartão Black Epic até 20/4 e ganhe cashback em dobro.</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">21.05%</td><td class="neg">-29.09pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">20.47%</td><td class="pos">+17.56pp</td></tr></tbody></table><div class="tp-vol">env 2K · ab 1K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Cliente Epic tem 2,6% de cashback.\U0001…</div>
+        <div class="pmsg">Use seu cartão Black Epic e ganhe mais no Super Cashback. Aproveite.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">9.97%</td><td class="pos">+9.23pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 1K · ab 154</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: Epic tem cashback em dobro. \U0001f911</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Viva a experiência do cartão Black Epic e aproveite um Super Cashback de 2,6%.</div><div class="ecta">-</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">5.41%</td><td class="mv">36.11%</td><td class="pos">+30.70pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.81%</td><td class="mv">0.55%</td><td class="neg">-3.26pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.88%</td><td class="mv">1.52%</td><td class="pos">+0.64pp</td></tr></tbody></table><div class="tp-vol">env 1K · ab 460</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Epic tem cashback em dobro. \U0001f911</div>
+        <div class="pmsg">Viva a experiência do cartão Black Epic e aproveite um Super Cashback de 2,6%.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">5.65%</td><td class="pos">+4.91pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 1K · ab 96</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D06</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857682201/WhatsApp%20DM%20-%20Super%20Cashback_Epic%202%20(7).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Cashback em dobro! Garanta o benefício premium que res…</div><div class="wmsg">Com o *Super Cashback* sua experiência Epic ficou ainda melhor:
+
+- Use seu cartão Black Epic na função crédito…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">56.48%</td><td class="pos">+31.13pp</td></tr></tbody></table><div class="tp-vol">env 2K · ab 1K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857695984/Banner%20DM%20-%20Super%20Cashback_Epic%2029.03.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Cashback épico de 2,6% é só com seu cartão Bla…</div><div class="dmsg">Reservamos um benefício especial para você: **Super Cashback Epic.**
+
+- Use seu cartão Black Epic na…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857711243/IMG-inapp%20modal%20-%20Super%20Cashback_Epic%2029.03.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Viva o épico com cashback em dob…</div><div class="imsg">Ganhe 2,6% de cashback ao alcançar sua meta de compras com seu cartão Black Epic…</div><div class="ibtn">Use seu cartão</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.81%</td><td class="mv">87.21%</td><td class="pos">+66.40pp</td></tr><tr><td class="mn">CTR</td><td class="mb">50.14%</td><td class="mv">10.23%</td><td class="neg">-39.91pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">2.91%</td><td class="mv">11.73%</td><td class="pos">+8.82pp</td></tr></tbody></table><div class="tp-vol">env 2K · ab 1K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D12</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Não perca seu cashback em dobro!🤩</div>
+        <div class="pmsg">Viva o épico! Use agora seu cartão Black Epic e ganhe Super Cashback de 2,6%.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">33.33%</td><td class="pos">+32.59pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 6 · ab 2</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D14</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Exclusivo! Super Cashback de 2,6%.</div>
+        <div class="pmsg">Confira sua meta e continue usando seu cartão Black Epic para ter mais cashback.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.74%</td><td class="mv">33.33%</td><td class="pos">+32.59pp</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">0.00%</td><td class="nd">—</td></tr></tbody></table><div class="tp-vol">env 6 · ab 2</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D20</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857754443/WhatsApp%20DM%20-%20Super%20Cashback_Epic%20D7%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Seu Super Cashback de 2,6% vai expirar em brev…</div><div class="dmsg">**Até 20/4**, qualquer compra no crédito com seu **cartão Black Epic** físico ou virtual é válida pa…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D25</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2857763323/Banner%20DM%20-%20Super%20Cashback_Epic%20D8%20(1).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Último dia do Super Cashback do seu cartão Black Epic,…</div><div class="wmsg">*A partir de amanhã* o cashback do seu cartão Black Epic *volta a ser de 1,3%.* 
+
+*Confira seu status no Super…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="var-break"></div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Uso - Transitados SL - Churn</div>
+      <div class="ssub">11626191773 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 165000</div>
+    </div>
+    <div class="str_"><div class="sper">30/03 – 30/03/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2864058355/Banner%20Whatsapp%20-%2011134539706_Ativa%C3%A7%C3%A3o%20e%20Uso_Pula%20Compra%20-%20Vale%20Bonus.png" alt="" onerror="this.style.display='none'"><div class="wtitle">Use seu *PicPay Card* na função crédito em compras a pa…</div><div class="wmsg">Aproveite todas as vantagens do seu cartão de crédito:
+
+- Compras no PicPay Shop em até *10x sem juros*;
+- *Pi…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Use seu cartão</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">48.04%</td><td class="pos">+22.69pp</td></tr></tbody></table><div class="tp-vol">env 145K · ab 59K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/03 | Promocional - Super CBK - Páscoa (WPP)</div>
+      <div class="ssub">11648955721 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 270588</div>
+    </div>
+    <div class="str_"><div class="sper">01/04 – 01/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="var-label"><span class="var-pill">Gold + Platinum</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2870448053/Whatsapp%20-%20Super%20Cashback_Platinum%20e%20Gold_17.04.png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Ganhe R$ 250 em Vale Bonus para deixar sua Páscoa mais…</div><div class="wmsg">*Use seu PicPay Card no crédito* para presentear com o melhor chocolate.
+
+*Ao bater sua meta de compras*, você…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">54.10%</td><td class="pos">+28.75pp</td></tr></tbody></table><div class="tp-vol">env 237K · ab 114K</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Black</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2870467625/WhatsApp%20DM%20-%20Super%20Cashback_Black%2014.4.png" alt="" onerror="this.style.display='none'"><div class="wtitle">*2x mais cashback para deixar sua Páscoa 2x mais doce.*…</div><div class="wmsg">Use seu *PicPay Card Black* para presentear com o melhor chocolate nesse feriado e receba o *dobro de cashback…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">53.63%</td><td class="pos">+28.28pp</td></tr></tbody></table><div class="tp-vol">env 11K · ab 5K</div></div>
+</div><div class="var-break"></div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/04 | Limite - Quero mais Limite</div>
+      <div class="ssub">11650829788 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="str_"><div class="sper">02/04 – 02/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D00 · B</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2870555784/BANNER%20DM%20%E2%80%93%202%20(1)%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Mais limite no seu cartão? Agora ficou fácil!*…</div><div class="dmsg">Agora você **pode pedir mais limite para o seu PicPay Card.** Se aprovado, o valor fica disponível n…</div><div class="dcta">Quero mais limite</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">52.81%</td><td class="pos">+49.76pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">0.00%</td><td class="neg">-24.47pp</td></tr></tbody></table><div class="tp-vol">env 124K · ab 57K</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D00 · A</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2870550303/BANNER%20DM%20%E2%80%93%202%20(1)%20(2).png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Mais limite no seu cartão? Agora ficou fácil!* 🤑</div><div class="wmsg">Agora você *pode pedir mais limite para o seu PicPay Card.* Se aprovado, o valor fica disponível na hora.
+
+*Pe…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero mais limite</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.35%</td><td class="mv">52.81%</td><td class="pos">+27.46pp</td></tr></tbody></table><div class="tp-vol">env 124K · ab 57K</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s11">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/04 | Promocional - Fase 2 - Super CBK - Opt In</div>
+      <div class="ssub">11663078427 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 700000</div>
+    </div>
+    <div class="str_"><div class="sper">06/04 – 17/04/2026</div></div>
+  </div>
+  <div class="tprow"><div class="var-label"><span class="var-pill">Gold + Platinum</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Super Cashback imperdível! 🤩</div>
+        <div class="pmsg">Ganhe R$ 250 em Vale Bonus ao bater a meta com seu PicPay Card. Participe agora.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2874784830/Banner%20DM%20-%20Super%20Cashback_Platinum%20e%20Gold_08.4.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Quer R$ 250 em Vale Bonus para economizar no m…</div><div class="dmsg">Vem participar do **Super Cashback!** 
+
+Bata a meta de compras com seu **PicPay Card** e receba R$ 2…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D04</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2874796782/Whatsapp%20-%20Super%20Cashback_Platinum%20e%20Gold_11.4.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Com o PicPay Card, ganhe R$ 250 em Vale Bonus …</div><div class="dmsg">Você usa cartão de crédito no mercado, delivery, para pagar a conta de luz...
+
+Agora, com essas mesm…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2874811497/IMG-inapp%20modal%20-%20Super%20Cashback_Platinum%20e%20Gold_14.4.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Não perca R$ 250 em Vale Bonus!</div><div class="imsg">Toque em “Quero participar", bata sua meta e aproveite o benefício do seu cartão…</div><div class="ibtn">Quero participar</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D10</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Vai deixar o Vale Bonus para trás?🤑</div>
+        <div class="pmsg">O Super Cashback acabará  dia 20/4. Bata a meta com o cartão pra ganhar. Partici…</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Black</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Super Cashback exclusivo.\U0001f929</div>
+        <div class="pmsg">2,4% de cashback ao bater sua meta com seu cartão Black. Participe agora.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D02</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2874861899/Banner%20DM%20-%20Super%20Cashback_Black_08.4.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Participar do Super Cashback de 2,4% vale muit…</div><div class="dmsg">Concentre suas compras no **PicPay Card Black**, bata sua meta e garanta esse cashback exclusivo de …</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D04</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2874887690/WhatsApp%20DM%20-%20Super%20Cashback_Black_11.4.png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Seu cartão Black te dá o dobro de cashback, isso você …</div><div class="wmsg">Hoje, seu *PicPay Card Black* oferece 1,2% de cashback padrão, certo?
+
+Participando do *Super Cashback* esse o…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D08</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2874908277/IMG-inapp%20modal%20-%20Super%20Cashback_Black%2014.04.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Ganhe um Super Cashback de 2,4%!</div><div class="imsg">Toque em “Quero participar”, bata sua meta e aproveite o benefício do cartão Bla…</div><div class="ibtn">Quero participar</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D10</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Vai perder o cashback em dobro?\U0001f92…</div>
+        <div class="pmsg">Até 20/4! Bata a meta com seu cartão Black e ganhe 2,4% de cashback. Toque aqui.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="var-break"></div><div class="var-label"><span class="var-pill">Epic</span></div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D04</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Condição exclusiva Epic. 🤩</div>
+        <div class="pmsg">2,6% de cashback ao alcançar sua meta com o cartão Black Epic. Participe agora.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2875004123/Banner%20DM%20-%20Super%20Cashback_Epic%2013.04%20(1).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**A condição exclusiva do Super Cashback foi pen…</div><div class="dmsg">Seu **cartão Black Epic** já oferece 1,3% de cashback padrão, certo?
+
+Participando do **Super Cashba…</div><div class="dcta">Quero participar</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D10</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2875026522/IMG-inapp%20modal%20-%20Super%20Cashback_Epic%2016.04.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Últimos dias do cashback em dobr…</div><div class="imsg">Participe com seu cartão Black Epic até 20/4 e eleve sua experiência Epic.</div><div class="ibtn">Quero participar</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp — D13</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2875078690/WhatsApp%20DM%20-%20Super%20Cashback_Epic%2018.04.png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Atualização: o Super Cashback Epic acabará amanhã.* 👑</div><div class="wmsg">A condição especial de *2,6% de cashback* do *cartão Black Epic* vai acabar, e o percentual retornará ao padrã…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D14</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Último dia do Super Cashback. 👑</div>
+        <div class="pmsg">Garanta sua oferta exclusiva de 2,6% de cashback e viva uma experiência Epic.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="var-break"></div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="stop">
+    <div class="stl">
+      <div class="stitle">2026/04 | Promocional - Compra Premiada - Opt In</div>
+      <div class="ssub">11681000374 &nbsp;·&nbsp; GI + GCU · Vol. planejado: 87416</div>
+    </div>
+    <div class="str_"><div class="sper">06/04 – 06/05/2026</div></div>
+  </div>
+  <div class="tprow"><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D01</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Chegou a Compra Premiada! \U0001f525</div>
+        <div class="pmsg">Use seu PicPay Card no crédito e concorra a R$ 100 toda semana. Toque aqui.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail — D03</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: Quer ganhar um Pix de R$ 100?\U0001f911</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Chegou a Compra Premiada! Use seu cartão e tenha números da sorte para o sorteio.</div><div class="ecta">Aproveitar</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #3b82f6">
+    <span class="tpcanal" style="color:#3b82f6">In-App — D05</span>
+  </div>
+  <div class="tpmock"><div class="mock minapp">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="icard"><img class="iimg" src="https://picpay.monday.com/protected_static/17037971/resources/2879537809/IMG-inapp%20modal%20-%20Compra%20Premiada.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='flex'"><div class="iimgf" style="display:none">Mockup In-App</div>
+      <div class="ibody"><div class="ititle">Sua próxima compra pode valer R$…</div><div class="imsg">Só com o PicPay Card, tenha números da sorte para concorrer a R$ 100 toda semana…</div><div class="ibtn">Participe aqui</div></div>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #f59e0b">
+    <span class="tpcanal" style="color:#f59e0b">Push — D07</span>
+  </div>
+  <div class="tpmock"><div class="mock mpush">
+  <div class="notch"></div>
+  <div class="screen">
+    <div class="pn">
+      <div class="pico"></div>
+      <div class="pb_">
+        <div class="pt">PicPay</div>
+        <div class="ptitle">Hoje é seu dia de sorte! 🍀</div>
+        <div class="pmsg">Chegou a Compra Premiada PicPay Card com prêmios semanais de R$ 100. Toque aqui.</div>
+      </div>
+      <span class="ptime">agora</span>
+    </div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #06b6d4">
+    <span class="tpcanal" style="color:#06b6d4">DM</span>
+  </div>
+  <div class="tpmock"><div class="mock mdm">
+  <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2879613805/Banner%20DM%20-%20Compra%20Premiada%201.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
+  <div class="dbody"><div class="dtitle">**Chegou a oferta para você ganhar R$ 100 na con…</div><div class="dmsg">Chegou a oferta para você ganhar R$ 100 na conta, sem pegadinha! 🤑
+
+Participe da **Compra Premiada P…</div><div class="dcta">Participe aqui</div><div class="dreg">Regulamento</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #a855f7">
+    <span class="tpcanal" style="color:#a855f7">E-mail</span>
+  </div>
+  <div class="tpmock"><div class="mock memail">
+  <div class="ehdr">
+    <div class="efrom">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="esubj">Subject: Reta final da Compra Premiada!\U0001f911</div>
+    <div class="epre">Preheader: X</div>
+  </div>
+  <div class="eban">Header E-mail</div>
+  <div class="ebody"><div class="emsg">Concorra a R$ 100 toda semana. Para confirmar sua participação, toque aqui.</div><div class="ecta">Aproveitar</div></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div><div class="tpc">
+  <div class="tphdr" style="border-top:3px solid #22c55e">
+    <span class="tpcanal" style="color:#22c55e">WhatsApp</span>
+  </div>
+  <div class="tpmock"><div class="mock mwap">
+  <div class="notch"></div>
+  <div class="whead"><div class="wav">PP</div><div><div class="wname">PicPay</div><div class="won">online</div></div></div>
+  <div class="wbody">
+    <div class="wbub"><img class="wimg" src="https://picpay.monday.com/protected_static/17037971/resources/2879612058/Banner%20DM%20-%20Compra%20Premiada%202.png" alt="" onerror="this.style.display='none'"><div class="wtitle">*Quer ganhar R$ 100 para pagar sua fatura ou usar como …</div><div class="wmsg">Participe da *Compra Premiada PicPay Card*. É fácil:
+ -A cada *R$ 30* em compras no crédito com o cartão.
+- Re…</div><div class="wtime">10:23 ✓✓</div></div>
+    <div class="wcta">Quero participar</div>
+  </div>
+  <div class="home"></div>
+</div></div>
+  <div class="tpmet"><div class="nao-enviado"><span class="nao-env-dot"></span>Não enviado</div></div>
+</div></div>
+  <div class="sfooter">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
+      <ellipse cx="12" cy="5" rx="9" ry="3"/>
+      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+      <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+    </svg>
+    <div class="sftext">
+      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.nd');
+function goTo(i){slides[i].scrollIntoView({behavior:'smooth'})}
+const io=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){const i=[...slides].indexOf(x.target);dots.forEach((d,j)=>d.classList.toggle('active',i===j));}}); },{threshold:0.35});
+slides.forEach(s=>io.observe(s));
+if(dots[0])dots[0].classList.add('active');
+</script>
+</body>
+</html>
