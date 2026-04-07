@@ -32,6 +32,10 @@ img{display:block;max-width:100%}
   color:#9ca3af;cursor:pointer;font-size:12px;width:16px;height:16px;
   border-radius:50%;padding:0;line-height:1}
 .filter-clear:hover{color:#374151;background:#f3f4f6}
+.filter-select{border:1px solid #e5e7eb;border-radius:8px;padding:6px 10px;
+  font-size:12px;color:#374151;background:#f9fafb;outline:none;cursor:pointer;
+  transition:border-color .15s}
+.filter-select:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,.1);background:#fff}
 
 .sidenav{position:fixed;left:11px;top:50%;transform:translateY(-50%);
   display:flex;flex-direction:column;gap:5px;z-index:200}
@@ -222,16 +226,21 @@ img{display:block;max-width:100%}
         <path d="M13 13l3 3" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
       </svg>
       <input id="filter-input" class="filter-input" type="text"
-        placeholder="Filtrar por Briefing ID ou nome…"
-        oninput="applyFilter(this.value)">
+        placeholder="Briefing ID ou nome…"
+        oninput="applyFilter()">
       <button class="filter-clear" id="filter-clear" onclick="clearFilter()" title="Limpar">✕</button>
     </div>
+    <select id="filter-op" class="filter-select" onchange="applyFilter()" title="Filtrar por Operação">
+      <option value="">Todas as operações</option>
+      <option value="growth cards">Growth Cards</option>
+      <option value="master (ativação e uso)">Master (Ativação e uso)</option>
+    </select>
     <span id="filter-count" style="font-size:11px;color:#6b7280">13 briefings</span>
     <span class="badge bg">Monday × SFMC</span>
   </div>
 </div>
 
-<section class="slide" id="s0" data-bid="11443340356" data-nome="2026/03 | limite - limite temporário">
+<section class="slide" id="s0" data-bid="11443340356" data-nome="2026/03 | limite - limite temporário" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Limite - Limite Temporário</div>
@@ -274,13 +283,17 @@ img{display:block;max-width:100%}
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000AfmfIAC/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s1" data-bid="" data-nome="2026/03 | shop 24x sem juros 14.04">
+<section class="slide" id="s1" data-bid="" data-nome="2026/03 | shop 24x sem juros 14.04" data-operacao="master (ativação e uso)" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Shop 24x sem juros 14.04</div>
@@ -319,13 +332,17 @@ img{display:block;max-width:100%}
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Pendente</div>
+      <div>
+        <strong>Operação:</strong> Master (Ativação e uso) &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Pendente
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <span class="seg-empty">Segmento não informado</span></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s2" data-bid="11518444291" data-nome="2026/03 | super cbk">
+<section class="slide" id="s2" data-bid="11518444291" data-nome="2026/03 | super cbk" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Super CBK</div>
@@ -733,13 +750,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Régua automatizada
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B1dVIAS/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s3" data-bid="11549534159" data-nome="2026/03 | limite temporário - última chance">
+<section class="slide" id="s3" data-bid="11549534159" data-nome="2026/03 | limite temporário - última chance" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Limite Temporário - Última chance</div>
@@ -769,13 +790,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B3vRIAS/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s4" data-bid="11549052378" data-nome="2026/03 | pula compra - aumento de limite">
+<section class="slide" id="s4" data-bid="11549052378" data-nome="2026/03 | pula compra - aumento de limite" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Pula Compra - Aumento de Limite</div>
@@ -800,13 +825,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B3ozIAC/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s5" data-bid="11598007892" data-nome="2026/03 | teste abc - clientes base nitro (recorrentes que nao transacionaram)">
+<section class="slide" id="s5" data-bid="11598007892" data-nome="2026/03 | teste abc - clientes base nitro (recorrentes que nao transacionaram)" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | TESTE ABC - Clientes Base Nitro (Recorrentes que nao transacionaram)</div>
@@ -855,13 +884,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BER3IAO/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s6" data-bid="11598363494" data-nome="2026/03 | teste ab - clientes base nitro (recorrentes tomaram negada)">
+<section class="slide" id="s6" data-bid="11598363494" data-nome="2026/03 | teste ab - clientes base nitro (recorrentes tomaram negada)" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | TESTE AB - Clientes Base Nitro (Recorrentes tomaram negada)</div>
@@ -910,13 +943,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B3gvIAC/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s7" data-bid="11601850645" data-nome="2026/03 | super cbk - uso">
+<section class="slide" id="s7" data-bid="11601850645" data-nome="2026/03 | super cbk - uso" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Super CBK - USO</div>
@@ -1506,13 +1543,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Régua automatizada
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BEXVIA4/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s8" data-bid="11626191773" data-nome="2026/03 | uso - transitados sl - churn">
+<section class="slide" id="s8" data-bid="11626191773" data-nome="2026/03 | uso - transitados sl - churn" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Uso - Transitados SL - Churn</div>
@@ -1545,13 +1586,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BD0LIAW/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s9" data-bid="11648955721" data-nome="2026/03 | promocional - super cbk - páscoa (wpp)">
+<section class="slide" id="s9" data-bid="11648955721" data-nome="2026/03 | promocional - super cbk - páscoa (wpp)" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/03 | Promocional - Super CBK - Páscoa (WPP)</div>
@@ -1597,13 +1642,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BER3IAO/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s10" data-bid="11650829788" data-nome="2026/04 | limite - quero mais limite">
+<section class="slide" id="s10" data-bid="11650829788" data-nome="2026/04 | limite - quero mais limite" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/04 | Limite - Quero mais Limite</div>
@@ -1644,13 +1693,17 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU600000091rJIAQ/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s11" data-bid="11663078427" data-nome="2026/04 | promocional - fase 2 - super cbk - opt in">
+<section class="slide" id="s11" data-bid="11663078427" data-nome="2026/04 | promocional - fase 2 - super cbk - opt in" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/04 | Promocional - Fase 2 - Super CBK - Opt In</div>
@@ -1900,13 +1953,17 @@ Participando do **Super Cashba…</div><div class="dcta">Quero participar</div><
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Régua automatizada
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/1sgU6000000BRPtIAO/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="s12" data-bid="11681000374" data-nome="2026/04 | promocional - compra premiada - opt in">
+<section class="slide" id="s12" data-bid="11681000374" data-nome="2026/04 | promocional - compra premiada - opt in" data-operacao="growth cards" data-frente="uso">
   <div class="stop">
     <div class="stl">
       <div class="stitle">2026/04 | Promocional - Compra Premiada - Opt In</div>
@@ -2031,7 +2088,11 @@ Participe da **Compra Premiada P…</div><div class="dcta">Participe aqui</div><
       <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
     </svg>
     <div class="sftext">
-      <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div>
+        <strong>Operação:</strong> Growth Cards &nbsp;·&nbsp;
+        <strong>Frente:</strong> Uso &nbsp;·&nbsp;
+        <strong>Tipo:</strong> Envio pontual (Ad hoc)
+      </div>
       <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU60000006IOrIAM/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
@@ -2043,7 +2104,6 @@ const dots   = document.querySelectorAll('.nd');
 
 function goTo(i) { slides[i].scrollIntoView({behavior:'smooth'}); }
 
-// ── IntersectionObserver para nav dots ──────────────────────────────────────
 const io = new IntersectionObserver(e => {
   e.forEach(x => {
     if (x.isIntersecting) {
@@ -2056,37 +2116,41 @@ slides.forEach(s => io.observe(s));
 if (dots[0]) dots[0].classList.add('active');
 
 // ── Filtro ───────────────────────────────────────────────────────────────────
-function applyFilter(q) {
-  const term = q.trim().toLowerCase();
+function applyFilter() {
+  const term    = document.getElementById('filter-input').value.trim().toLowerCase();
+  const opVal   = document.getElementById('filter-op').value.toLowerCase();
   const clearBtn = document.getElementById('filter-clear');
   const countEl  = document.getElementById('filter-count');
   clearBtn.style.display = term ? 'flex' : 'none';
 
   let visible = 0;
   slides.forEach((s, i) => {
-    const bid  = s.dataset.bid  || '';
-    const nome = s.dataset.nome || '';
-    const match = !term || bid.includes(term) || nome.includes(term);
-    s.style.display = match ? '' : 'none';
+    const bid    = s.dataset.bid   || '';
+    const nome   = s.dataset.nome  || '';
+    const opData = s.dataset.operacao || '';
+    const matchText = !term   || bid.includes(term)  || nome.includes(term);
+    const matchOp   = !opVal  || opData.includes(opVal);
+    const match = matchText && matchOp;
+    s.style.display    = match ? '' : 'none';
     dots[i].style.display = match ? '' : 'none';
     if (match) visible++;
   });
 
-  countEl.textContent = term
+  const hasFilter = term || opVal;
+  countEl.textContent = hasFilter
     ? visible + ' de 13 briefings'
     : '13 briefings';
 }
 
 function clearFilter() {
-  const input = document.getElementById('filter-input');
-  input.value = '';
-  applyFilter('');
-  input.focus();
+  document.getElementById('filter-input').value = '';
+  document.getElementById('filter-op').value = '';
+  applyFilter();
+  document.getElementById('filter-input').focus();
 }
 
-// Atalho de teclado: / para focar o filtro
 document.addEventListener('keydown', e => {
-  if (e.key === '/' && document.activeElement !== document.getElementById('filter-input')) {
+  if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
     e.preventDefault();
     document.getElementById('filter-input').focus();
   }
