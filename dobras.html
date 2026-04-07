@@ -3,968 +3,1286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CRM Report — PicPay Card · Abril 2026 · Dobras</title>
+<title>CRM Report — PicPay Card · Abril 2026</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { background: #eef0f2; font-family: 'Inter', system-ui, sans-serif; font-size: 13px; color: #111827; }
+body { background: #e8eaed; font-family: 'Inter', system-ui, sans-serif; font-size: 13px;
+  color: #111827; line-height: 1.5; }
+img { display: block; max-width: 100%; }
 
-/* header */
-.hdr { background: #fff; border-bottom: 2px solid #e5e7eb; padding: 14px 32px;
+/* ── header ── */
+.hdr { background: #fff; border-bottom: 1.5px solid #e5e7eb; padding: 13px 36px;
   display: flex; justify-content: space-between; align-items: center;
-  position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-.hdr h1 { font-size: 15px; font-weight: 700; }
-.hdr p  { font-size: 11px; color: #6b7280; margin-top: 2px; }
-.hdr-right { display: flex; gap: 8px; align-items: center; }
-.hdr-badge { padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600;
-  background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+  position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+.hdr h1 { font-size: 14px; font-weight: 700; color: #111; }
+.hdr p  { font-size: 11px; color: #6b7280; margin-top: 1px; }
+.hdr-r  { display: flex; gap: 8px; align-items: center; }
+.badge  { padding: 3px 11px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.b-green { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.b-cnt   { font-size: 11px; color: #6b7280; }
 
-/* nav lateral */
-.sidenav { position: fixed; left: 14px; top: 50%; transform: translateY(-50%);
-  display: flex; flex-direction: column; gap: 7px; z-index: 200; }
-.nav-dot { width: 8px; height: 8px; border-radius: 50%; background: #d1d5db;
-  cursor: pointer; transition: all .2s; border: none; outline: none; }
-.nav-dot.active { background: #1a1a2e; transform: scale(1.5); }
-.nav-dot:hover { background: #6b7280; }
+/* ── nav lateral ── */
+.sidenav { position: fixed; left: 12px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 6px; z-index: 200; }
+.nd { width: 7px; height: 7px; border-radius: 50%; background: #d1d5db;
+  cursor: pointer; transition: all .18s; }
+.nd.active { background: #374151; transform: scale(1.5); }
+.nd:hover  { background: #9ca3af; }
 
-/* slide */
-.slide { background: #fff; border-bottom: 1px solid #e5e7eb;
-  padding: 36px 52px 48px 52px; min-height: 100vh;
-  display: flex; flex-direction: column; gap: 22px; }
+/* ── slide ── */
+.slide { background: #f9fafb; border-bottom: 2px solid #e5e7eb;
+  min-height: 100vh; padding: 36px 52px 44px 52px;
+  display: flex; flex-direction: column; gap: 24px; }
 
-/* slide header */
-.slide-hdr { display: flex; justify-content: space-between; align-items: flex-start; }
-.slide-hdr-left { display: flex; flex-direction: column; gap: 7px; }
-.canal-pill { display: inline-flex; padding: 3px 11px; border-radius: 20px;
-  font-size: 11px; font-weight: 700; border: 1px solid; width: fit-content; }
-.slide-title { font-size: 24px; font-weight: 700; letter-spacing: -.4px; line-height: 1.2; }
-.slide-meta { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-.bid-tag { font-family: monospace; font-size: 11px; color: #6b7280;
-  background: #f3f4f6; padding: 2px 7px; border-radius: 4px; border: 1px solid #e5e7eb; }
-.sep { color: #d1d5db; }
-.slide-meta span { font-size: 12px; color: #6b7280; }
+/* ── slide top ── */
+.slide-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.sl-title  { font-size: 22px; font-weight: 700; color: #21c55d; letter-spacing: -.3px; line-height: 1.2; }
+.sl-sub    { font-size: 11px; color: #9ca3af; margin-top: 4px; font-family: monospace; }
+.sl-per    { font-size: 13px; font-weight: 600; color: #374151;
+  background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px;
+  padding: 4px 12px; }
 
-/* perf badge */
-.pb { padding: 5px 16px; border-radius: 20px; font-size: 12px; font-weight: 700;
-  border: 1px solid; display: inline-block; }
-.pb-green  { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
-.pb-yellow { background: #fefce8; color: #a16207; border-color: #fde68a; }
-.pb-red    { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
-.pb-gray   { background: #f9fafb; color: #6b7280; border-color: #e5e7eb; }
+/* ── TP row ── */
+.tp-row { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
 
-/* slide body */
-.slide-body { display: grid; grid-template-columns: 210px 1fr; gap: 40px; align-items: start; }
+/* ── TP card ── */
+.tp-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
+  overflow: hidden; width: 220px; flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.tp-hdr  { padding: 9px 12px; background: #fafafa; border-bottom: 1px solid #f3f4f6; }
+.tp-canal { font-size: 11px; font-weight: 700; letter-spacing: .2px; }
+.tp-mock { padding: 12px; display: flex; justify-content: center; min-height: 200px; align-items: flex-start; }
+.tp-metrics { padding: 0 10px 12px; }
 
-/* mockup */
-.mock-col { display: flex; justify-content: center; }
-.mockup { width: 196px; background: #fff; border-radius: 28px; border: 2px solid #1a1a2e;
-  overflow: hidden; box-shadow: 0 6px 28px rgba(0,0,0,.13); }
-.phone-notch { width: 56px; height: 6px; background: #1a1a2e; border-radius: 4px;
-  margin: 10px auto 8px; }
-.phone-home { width: 38px; height: 5px; background: #e5e7eb; border-radius: 4px;
-  margin: 10px auto; }
-.phone-screen-empty { height: 60px; background: #f9fafb; }
+/* ── MOCKUPS COMUNS ── */
+.mock { position: relative; }
+.m-notch { width: 48px; height: 5px; background: #1f2937; border-radius: 3px;
+  margin: 8px auto 6px; }
+.m-home  { width: 36px; height: 4px; background: #e5e7eb; border-radius: 3px;
+  margin: 8px auto; }
 
-/* push */
-.push-notif { margin: 6px 8px 4px; background: #f9fafb; border-radius: 12px;
-  padding: 9px; display: flex; gap: 7px; align-items: flex-start;
-  border: 1px solid #e5e7eb; }
-.push-icon { width: 26px; height: 26px; border-radius: 7px;
-  background: linear-gradient(135deg, #21c55d, #16a34a); flex-shrink: 0; }
-.push-body { flex: 1; min-width: 0; }
-.push-title { font-size: 10px; font-weight: 700; color: #111; }
-.push-msg { font-size: 9px; color: #6b7280; line-height: 1.35; margin-top: 2px;
+/* PUSH */
+.mock-push { width: 190px; background: #fff; border: 2px solid #1f2937;
+  border-radius: 22px; overflow: hidden; }
+.m-screen  { padding: 0 6px; }
+.push-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px;
+  padding: 8px; display: flex; gap: 6px; }
+.push-icon-wrap { flex-shrink: 0; }
+.push-icon { width: 24px; height: 24px; border-radius: 6px;
+  background: linear-gradient(135deg, #22c55e, #16a34a); }
+.push-content { flex: 1; min-width: 0; }
+.push-app   { font-size: 9px; font-weight: 700; color: #374151; }
+.push-title { font-size: 9px; font-weight: 700; color: #111; margin-top: 1px;
+  line-height: 1.3; }
+.push-body  { font-size: 8px; color: #6b7280; margin-top: 2px; line-height: 1.3;
   overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
-.push-time { font-size: 8px; color: #9ca3af; flex-shrink: 0; padding-top: 1px; }
+.push-time  { font-size: 8px; color: #9ca3af; flex-shrink: 0; }
 
-/* in-app */
-.inapp-card { margin: 6px 8px; border-radius: 14px; overflow: hidden; border: 1px solid #e5e7eb; }
-.inapp-img { height: 90px; background: linear-gradient(135deg, #dbeafe, #ede9fe);
+/* IN-APP MODAL */
+.mock-inapp { width: 190px; background: #fff; border: 2px solid #1f2937;
+  border-radius: 22px; overflow: hidden; }
+.ia-card    { border-radius: 12px; overflow: hidden; border: 1px solid #e5e7eb;
+  margin: 0 4px; }
+.ia-img     { width: 100%; height: 80px; object-fit: cover; }
+.ia-img-fallback { width: 100%; height: 80px; background: linear-gradient(135deg, #dbeafe, #ede9fe);
   display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: #9ca3af; }
-.inapp-content { padding: 9px 10px; }
-.inapp-title { font-size: 10px; font-weight: 700; color: #111;
-  overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.inapp-sub { font-size: 9px; color: #9ca3af; margin-top: 2px; }
-.inapp-btn { margin-top: 8px; background: #22c55e; color: #fff;
-  font-size: 10px; font-weight: 700; text-align: center;
-  padding: 6px; border-radius: 8px; }
+  font-size: 10px; color: #9ca3af; }
+.ia-body    { padding: 8px; }
+.ia-title   { font-size: 9px; font-weight: 700; color: #111; line-height: 1.3; }
+.ia-msg     { font-size: 8px; color: #6b7280; margin-top: 2px; line-height: 1.3;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.ia-btn     { margin-top: 7px; background: #22c55e; color: #fff;
+  font-size: 9px; font-weight: 700; text-align: center;
+  padding: 5px; border-radius: 6px; }
 
-/* whatsapp */
-.wap-header { background: #075e54; padding: 8px 10px;
-  display: flex; align-items: center; gap: 8px; }
-.wap-avatar { width: 26px; height: 26px; border-radius: 50%;
-  background: #25d366; display: flex; align-items: center;
-  justify-content: center; font-size: 8px; font-weight: 700; color: #fff; }
-.wap-name   { font-size: 10px; font-weight: 700; color: #fff; }
-.wap-status { font-size: 8px; color: #b2dfdb; }
-.wap-body   { background: #e5ddd5; min-height: 80px; padding: 8px 8px 4px; }
-.wap-bubble { background: #fff; border-radius: 0 10px 10px 10px;
-  padding: 7px 9px; max-width: 96%; }
-.wap-msg  { font-size: 9px; color: #111; line-height: 1.4;
+/* IN-APP FULL SCREEN */
+.mock-iafs  { width: 190px; background: #1f2937; border: 2px solid #1f2937;
+  border-radius: 22px; overflow: hidden; }
+.iafs-screen { padding: 0 !important; position: relative; min-height: 160px; }
+.iafs-img   { width: 100%; height: 160px; object-fit: cover; }
+.iafs-img-fallback { width: 100%; height: 160px; background: linear-gradient(135deg, #1e1b4b, #312e81);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; color: #a5b4fc; }
+.iafs-btn   { position: absolute; bottom: 12px; left: 12px; right: 12px;
+  background: #22c55e; color: #fff; font-size: 9px; font-weight: 700;
+  text-align: center; padding: 7px; border-radius: 8px; }
+
+/* WHATSAPP */
+.mock-wap   { width: 190px; background: #e5ddd5; border: 2px solid #1f2937;
+  border-radius: 22px; overflow: hidden; }
+.wap-hdr    { background: #075e54; padding: 6px 8px; display: flex; gap: 6px; align-items: center; }
+.wap-av     { width: 22px; height: 22px; border-radius: 50%; background: #25d366;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 7px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.wap-name   { font-size: 9px; font-weight: 700; color: #fff; }
+.wap-on     { font-size: 7px; color: #b2dfdb; }
+.wap-body   { padding: 6px 6px 4px; }
+.wap-bubble { background: #fff; border-radius: 0 8px 8px 8px; padding: 6px; margin-bottom: 4px; }
+.wap-img    { width: 100%; border-radius: 4px; margin-bottom: 4px; max-height: 70px; object-fit: cover; }
+.wap-title  { font-size: 8px; font-weight: 700; color: #111; line-height: 1.3;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.wap-msg    { font-size: 7px; color: #374151; margin-top: 2px; line-height: 1.35;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.wap-time   { font-size: 7px; color: #9ca3af; text-align: right; margin-top: 2px; }
+.wap-cta-btn { background: #25d366; color: #fff; font-size: 8px; font-weight: 700;
+  text-align: center; padding: 5px 8px; border-radius: 0 0 6px 6px; }
+
+/* E-MAIL */
+.mock-email { width: 190px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+.email-hdr  { background: #f9fafb; padding: 6px 8px; border-bottom: 1px solid #e5e7eb; }
+.email-from { font-size: 8px; color: #9ca3af; }
+.email-subj { font-size: 9px; font-weight: 700; color: #111; overflow: hidden;
+  white-space: nowrap; text-overflow: ellipsis; }
+.email-banner { height: 60px; background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: #7c3aed; }
+.email-body { padding: 6px 8px; }
+.email-msg  { font-size: 8px; color: #374151; line-height: 1.35;
   overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
-.wap-time { font-size: 8px; color: #9ca3af; text-align: right; margin-top: 3px; }
+.email-cta  { margin-top: 7px; background: #7c3aed; color: #fff;
+  font-size: 9px; font-weight: 700; text-align: center;
+  padding: 5px; border-radius: 6px; }
 
-/* data col */
-.data-col { display: flex; flex-direction: column; gap: 14px; }
+/* DM */
+.mock-dm    { width: 190px; background: #fff; border: 1.5px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+.dm-img     { width: 100%; max-height: 90px; object-fit: cover; }
+.dm-img-fallback { width: 100%; height: 70px; background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  display: flex; align-items: center; justify-content: center; font-size: 9px; color: #0369a1; }
+.dm-body    { padding: 8px; }
+.dm-title   { font-size: 9px; font-weight: 700; color: #111; line-height: 1.3; }
+.dm-msg     { font-size: 8px; color: #374151; margin-top: 3px; line-height: 1.35;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
+.dm-cta     { margin-top: 6px; font-size: 9px; font-weight: 700; color: #0369a1; }
 
-/* kpi row */
-.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-.kpi-box  { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px; }
-.kpi-l    { font-size: 10px; font-weight: 600; text-transform: uppercase;
-  letter-spacing: .5px; color: #9ca3af; margin-bottom: 3px; }
-.kpi-v    { font-size: 19px; font-weight: 700; color: #111; }
+/* GENÉRICO */
+.mock-generic { width: 180px; background: #f9fafb; border: 1px dashed #d1d5db;
+  border-radius: 8px; padding: 10px; }
+.gen-label  { font-size: 9px; font-weight: 700; color: #9ca3af; text-transform: uppercase;
+  letter-spacing: .5px; margin-bottom: 4px; }
+.gen-title  { font-size: 9px; font-weight: 700; color: #374151; }
+.gen-msg    { font-size: 8px; color: #6b7280; margin-top: 3px; line-height: 1.35;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
 
-/* section label */
-.section-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .7px; color: #9ca3af; border-bottom: 1px solid #e5e7eb; padding-bottom: 5px; }
-
-/* metric table */
-.mt { width: 100%; border-collapse: collapse; border-radius: 8px;
-  overflow: hidden; border: 1px solid #e5e7eb; }
-.mt thead th { background: #f9fafb; padding: 7px 12px; text-align: left;
-  font-size: 10px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .5px; color: #6b7280; border-bottom: 1px solid #e5e7eb; }
-.mt tbody td { padding: 8px 12px; border-bottom: 1px solid #f3f4f6; font-size: 12px; }
+/* ── Métrica table ── */
+.mt { width: 100%; border-collapse: collapse; border-top: 1px solid #f3f4f6; margin-top: 4px; }
+.mt thead th { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+  color: #9ca3af; padding: 4px 4px; text-align: left; border-bottom: 1px solid #f3f4f6; }
+.mt tbody td { padding: 4px; font-size: 11px; color: #374151; border-bottom: 1px solid #f9fafb; }
 .mt tbody tr:last-child td { border-bottom: none; }
-.mt tbody tr:hover { background: #fafafa; }
-.mn { font-weight: 700; color: #374151; width: 65px; }
-.mv { font-weight: 600; color: #111; }
+.mn { font-weight: 700; color: #374151; width: 42px; }
 .mb { color: #9ca3af; }
-.md { font-weight: 700; }
-.pos { color: #16a34a; }
-.neg { color: #dc2626; }
-.nd  { color: #9ca3af; }
+.mv { font-weight: 600; color: #111; }
+.pos { font-weight: 700; color: #16a34a; }
+.neg { font-weight: 700; color: #dc2626; }
+.no-met { font-size: 10px; color: #d1d5db; padding: 6px 4px; }
 
-/* ctx */
-.ctx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 20px; }
-.ctx-item { display: flex; gap: 7px; align-items: baseline; }
-.ctx-l    { font-size: 10px; color: #9ca3af; white-space: nowrap; min-width: 88px; }
-.ctx-v    { font-size: 12px; color: #374151; font-weight: 500; }
+/* ── Slide footer ── */
+.slide-footer { display: flex; gap: 14px; align-items: center;
+  padding: 14px 18px; background: #fff; border: 1px solid #e5e7eb;
+  border-radius: 10px; max-width: 650px; }
+.sf-icon { flex-shrink: 0; }
+.sf-text { font-size: 12px; color: #374151; line-height: 1.7; }
+.sf-text strong { font-weight: 700; }
 
+/* ── print ── */
 @media print {
   .hdr, .sidenav { display: none; }
-  .slide { page-break-after: always; min-height: auto; padding: 24px; }
+  .slide { page-break-after: always; min-height: auto; padding: 20px; }
 }
 </style>
 </head>
 <body>
 
-<nav class="sidenav" id="sidenav">
-<div class="nav-dot" onclick="goTo(0)" id="dot-0" title="In-App | 2026/03 | Promocional - R"></div>
-<div class="nav-dot" onclick="goTo(1)" id="dot-1" title="In-App | 2026/03 | Super CBK - USO"></div>
-<div class="nav-dot" onclick="goTo(2)" id="dot-2" title="In-App | 2026/03 | InApp FS - Proj"></div>
-<div class="nav-dot" onclick="goTo(3)" id="dot-3" title="Push | 2026/03 | Super CBK - OPT"></div>
-<div class="nav-dot" onclick="goTo(4)" id="dot-4" title="Push | 2025/12 | Aumento de Limi"></div>
-<div class="nav-dot" onclick="goTo(5)" id="dot-5" title="Push | 2025/12 | Aumento de Limi"></div>
-<div class="nav-dot" onclick="goTo(6)" id="dot-6" title="Push | 2026/04 | Pula Pré Páscoa"></div>
-<div class="nav-dot" onclick="goTo(7)" id="dot-7" title="Push | 2026/04 | PCA Pré Páscoa"></div>
-<div class="nav-dot" onclick="goTo(8)" id="dot-8" title="Push | 2026/03 | Promocional - R"></div>
-<div class="nav-dot" onclick="goTo(9)" id="dot-9" title="Push | 2026/03 | InApp FS - Proj"></div>
-<div class="nav-dot" onclick="goTo(10)" id="dot-10" title="Push | 2026/02 | Debito Automati"></div>
-<div class="nav-dot" onclick="goTo(11)" id="dot-11" title="Push | 2026/03 | AdHoc Alta Prop"></div>
-<div class="nav-dot" onclick="goTo(12)" id="dot-12" title="WhatsApp | 2026/04 | Promocional - S"></div>
-<div class="nav-dot" onclick="goTo(13)" id="dot-13" title="WhatsApp | 2026/04 | Limite - Quero "></div>
+<nav class="sidenav">
+<div class="nd" onclick="goTo(0)" id="nd-0" title="Promocional — Roleta Páscoa Op"></div>
+<div class="nd" onclick="goTo(1)" id="nd-1" title="Super CBK — USO"></div>
+<div class="nd" onclick="goTo(2)" id="nd-2" title="InApp FS — Projeto Rádio — Niv"></div>
+<div class="nd" onclick="goTo(3)" id="nd-3" title="Super CBK — OPT IN"></div>
+<div class="nd" onclick="goTo(4)" id="nd-4" title="Aumento de Limite c/ Flag"></div>
+<div class="nd" onclick="goTo(5)" id="nd-5" title="Aumento de Limite s/ Flag"></div>
+<div class="nd" onclick="goTo(6)" id="nd-6" title="Pula Pré Páscoa"></div>
+<div class="nd" onclick="goTo(7)" id="nd-7" title="PCA Pré Páscoa"></div>
+<div class="nd" onclick="goTo(8)" id="nd-8" title="Promocional — Roleta Páscoa Op"></div>
+<div class="nd" onclick="goTo(9)" id="nd-9" title="InApp FS — Projeto Rádio — Ben"></div>
+<div class="nd" onclick="goTo(10)" id="nd-10" title="Débito Automático N3"></div>
+<div class="nd" onclick="goTo(11)" id="nd-11" title="AdHoc Alta Propensão v25/03"></div>
+<div class="nd" onclick="goTo(12)" id="nd-12" title="Promocional — Super CBK Páscoa"></div>
+<div class="nd" onclick="goTo(13)" id="nd-13" title="Limite — Quero mais Limite Abr"></div>
 
 </nav>
 
 <div class="hdr">
   <div>
     <h1>Report CRM — PicPay Card · Abril 2026</h1>
-    <p>Dobras por Briefing ID · somente campanhas identificadas no Monday (Operacional de CRM)</p>
+    <p>Uma dobra por Briefing ID · touchpoints por canal · apenas campanhas com match no Monday</p>
   </div>
-  <div class="hdr-right">
-    <span style="font-size:11px;color:#6b7280">14 briefings</span>
-    <span class="hdr-badge">Monday verificado</span>
+  <div class="hdr-r">
+    <span class="b-cnt">14 campanhas</span>
+    <span class="badge b-green">Monday verificado</span>
   </div>
 </div>
 
 
-<section class="slide" id="slide-0">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#3b82f61a;border-color:#3b82f655;color:#3b82f6">In-App</span>
-      <h2 class="slide-title">2026/03 | Promocional - Roleta Páscoa - Opt In (n2 e N3)</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11547915328</span>
-        <span class="sep">·</span>
-        <span>GI + GCU</span>
-        <span class="sep">·</span><span>30/03 – 24/04/2026</span>
-      </div>
+<section class="slide" id="s0">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Promocional — Roleta Páscoa Opt-In (N2/N3)</div>
+      <div class="sl-sub">11547915328 &nbsp;·&nbsp; GI + GCU</div>
     </div>
-    <div class="slide-hdr-right"><span class="pb pb-yellow">No bench</span></div>
+    <div class="sl-right">
+      <div class="sl-per">30/03 – 24/04/2026</div>
+    </div>
   </div>
 
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="inapp-card">
-    <div class="inapp-img"><span>Banner</span></div>
-    <div class="inapp-content">
-      <div class="inapp-title">2026/03 | Promocional - Roleta...</div>
-      <div class="inapp-sub">Toque para saber mais</div>
-      <div class="inapp-btn">Ver oferta</div>
-    </div>
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #64748b">
+    <span class="tp-canal" style="color:#64748b">Banner — Banner Home</span>
   </div>
-  <div class="phone-home"></div>
+  <div class="tp-mock"><div class="mock mock-generic">
+  <div class="gen-label">Banner</div>
+  <div class="gen-title">Roleta de Páscoa</div>
+  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">36.73%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #94a3b8">
+    <span class="tp-canal" style="color:#94a3b8">Prop. Valor — Prop. Valor</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-generic">
+  <div class="gen-label">Prop. Valor</div>
+  <div class="gen-title">Roleta de Páscoa</div>
+  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
 </div></div>
 
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">8.9M</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">6.5M</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">2.4M</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">155K</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mv">36.73%</td><td class="mb">30.00%</td><td class="md"><span class="pos">+6.73pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">2.41%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">6.56%</td><td class="mb">8.00%</td><td class="md"><span class="neg">-1.44pp</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        <div class="ctx-item"><span class="ctx-l">Vol. planejado</span><span class="ctx-v">5.0M</span></div>
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">23/03/2026</span></div>
-      </div>
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 8.9M &nbsp; <strong>Entregues:</strong> 6.5M &nbsp; <strong>Abertos:</strong> 2.4M &nbsp; <strong>Clicados:</strong> 155K &nbsp; <strong>TPs:</strong> 2</div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="slide-1">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#3b82f61a;border-color:#3b82f655;color:#3b82f6">In-App</span>
-      <h2 class="slide-title">2026/03 | Super CBK - USO</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11601850645</span>
-        <span class="sep">·</span>
-        <span>GI + GCU</span>
-        <span class="sep">·</span><span>26/03 – 20/04/2026</span>
-      </div>
+<section class="slide" id="s1">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Super CBK — USO</div>
+      <div class="sl-sub">11601850645 &nbsp;·&nbsp; GI + GCU</div>
     </div>
-    <div class="slide-hdr-right"><span class="pb pb-green">Acima do bench</span></div>
+    <div class="sl-right">
+      <div class="sl-per">26/03 – 20/04/2026</div>
+    </div>
   </div>
 
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="inapp-card">
-    <div class="inapp-img"><span>Banner</span></div>
-    <div class="inapp-content">
-      <div class="inapp-title">2026/03 | Super CBK - USO</div>
-      <div class="inapp-sub">Toque para saber mais</div>
-      <div class="inapp-btn">Ver oferta</div>
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D1</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Ganhe R$ 250 em Vale Bonus! \U0001f381</div>
+        <div class="push-body">Use agora seu PicPay Card e ganhe no Super Cashback.</div>
+      </div>
+      <span class="push-time">agora</span>
     </div>
   </div>
-  <div class="phone-home"></div>
+  <div class="m-home"></div>
 </div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">25K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">19K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">13K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">698</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mv">66.56%</td><td class="mb">30.00%</td><td class="md"><span class="pos">+36.56pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">3.49%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">5.25%</td><td class="mb">8.00%</td><td class="md"><span class="neg">-2.75pp</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        <div class="ctx-item"><span class="ctx-l">Vol. planejado</span><span class="ctx-v">10K</span></div>
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Contextual</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">26/03/2026</span></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
+    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D1</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-inapp">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="ia-card">
+      <img class="ia-img" src="https://picpay.monday.com/protected_static/17037971/resources/2856596236/IMG-ina" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ia-img-fallback" style="display:none">Banner</div>
+      <div class="ia-body">
+        <div class="ia-title">Use seu PicPay Card para ganhar.</div>
+        <div class="ia-msg">Até 20/4! Bata a meta de compras com o cartão e ganhe no Super Cashback.</div>
+        <div class="ia-btn">Use seu cartão</div>
       </div>
     </div>
   </div>
-</section>
-
-<section class="slide" id="slide-2">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#3b82f61a;border-color:#3b82f655;color:#3b82f6">In-App</span>
-      <h2 class="slide-title">2026/03 | InApp FS - Projeto Rádio - Nivelamento de cartão</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11574115615</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>24/03 – 24/03/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-gray">Dados insuf.</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="inapp-card">
-    <div class="inapp-img"><span>Banner</span></div>
-    <div class="inapp-content">
-      <div class="inapp-title">2026/03 | InApp FS - Projeto R...</div>
-      <div class="inapp-sub">Toque para saber mais</div>
-      <div class="inapp-btn">Ver oferta</div>
-    </div>
-  </div>
-  <div class="phone-home"></div>
+  <div class="m-home"></div>
 </div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">—</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">—</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">3</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">1</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mv">N/A</td><td class="mb">30.00%</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">CTR</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">33.33%</td><td class="mb">8.00%</td><td class="md"><span class="pos">+25.33pp</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Ativação</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Personalization (NRT)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        <div class="ctx-item"><span class="ctx-l">Vol. planejado</span><span class="ctx-v">5.0M</span></div>
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Contextual</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">24/03/2026</span></div>
-      </div>
-    </div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">66.56%</td><td class="mv">30.00%</td><td class="pos">+36.56pp</td></tr><tr><td class="mn">CTR</td><td class="mb">3.49%</td><td class="mv">2.00%</td><td class="pos">+1.49pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">5.25%</td><td class="mv">8.00%</td><td class="neg">-2.75pp</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #a855f7">
+    <span class="tp-canal" style="color:#a855f7">E-mail — D2</span>
   </div>
-</section>
-
-<section class="slide" id="slide-3">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/03 | Super CBK - OPT IN</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11518444291</span>
-        <span class="sep">·</span>
-        <span>GI + GCU</span>
-        <span class="sep">·</span><span>20/03 – 03/04/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-green">Acima do bench</span></div>
+  <div class="tp-mock"><div class="mock mock-email">
+  <div class="email-hdr">
+    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="email-subj">R$ 250 em Vale Bonus é no PicPay!🎁</div>
   </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/03 | Super CBK - OPT IN</div>
-    </div>
-    <div class="push-time">agora</div>
+  <div class="email-banner">Header E-mail</div>
+  <div class="email-body">
+    <div class="email-msg">Use sempre seu cartão, bata sua meta e aproveite seu Vale Bonus.</div>
+    <div class="email-cta">Use seu cartão</div>
   </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
 </div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">1.1M</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">726K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">150K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">4K</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">66.93%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">20.67%</td><td class="mb">5.00%</td><td class="md"><span class="pos">+15.67pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">0.68%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">3.28%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">12.67%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        <div class="ctx-item"><span class="ctx-l">Vol. planejado</span><span class="ctx-v">822K</span></div>
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">18/03/2026</span></div>
-      </div>
-    </div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #22c55e">
+    <span class="tp-canal" style="color:#22c55e">WhatsApp — D3</span>
   </div>
-</section>
-
-<section class="slide" id="slide-4">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2025/12 | Aumento de Limite c/ Flag</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">9873449684</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>Ongoing</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-green">Acima do bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2025/12 | Aumento de Limite c/ Flag</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">682K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">578K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">149K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">17K</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">84.73%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">25.76%</td><td class="mb">5.00%</td><td class="md"><span class="pos">+20.76pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">2.99%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">11.63%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">14.63%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">—</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Ativa</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">25/08/2025</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-5">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2025/12 | Aumento de Limite s/ Flag</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">35600</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>Ongoing</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-yellow">No bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2025/12 | Aumento de Limite s/ Flag</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">152K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">152K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">7K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">99.53%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">4.81%</td><td class="mb">5.00%</td><td class="md"><span class="neg">-0.19pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">0.00%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">0.00%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">0.47%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">—</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Ativa</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Contextual</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">29/04/2025</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-6">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/04 | Pula Pré Páscoa</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11651313975</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>02/04 – 02/04/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-red">Abaixo do bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/04 | Pula Pré Páscoa</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">966K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">961K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">6K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">99.53%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">0.64%</td><td class="mb">5.00%</td><td class="md"><span class="neg">-4.36pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">0.00%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">0.00%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">0.47%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Pagamentos</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">02/04/2024</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-7">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/04 | PCA Pré Páscoa</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11651432318</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>02/04 – 02/04/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-red">Abaixo do bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/04 | PCA Pré Páscoa</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">563K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">560K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">3K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">99.41%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">0.59%</td><td class="mb">5.00%</td><td class="md"><span class="neg">-4.41pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">0.00%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">0.00%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">0.59%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Pagamentos</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">02/04/2026</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-8">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/03 | Promocional - Roleta Páscoa - Opt In (N1)</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11547533390</span>
-        <span class="sep">·</span>
-        <span>GI + GCU</span>
-        <span class="sep">·</span><span>30/03 – 24/04/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-red">Abaixo do bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/03 | Promocional - Roleta Páscoa - Opt ...</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">222K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">95K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">955</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">1</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">43.10%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">1.00%</td><td class="mb">5.00%</td><td class="md"><span class="neg">-4.00pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">0.00%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">0.10%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">0.59%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        <div class="ctx-item"><span class="ctx-l">Vol. planejado</span><span class="ctx-v">2.0M</span></div>
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">23/03/2026</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-9">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/03 | InApp FS - Projeto Rádio - Benefícios do Cartão</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11597850523</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>30/03 – 30/03/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-gray">Dados insuf.</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/03 | InApp FS - Projeto Rádio - Benefíc...</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">—</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">—</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">896</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">29</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">N/A</td><td class="mb">5.00%</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">CTR</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">3.24%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Ativação</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Personalization (NRT)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Contextual</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">26/03/2026</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-10">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/02 | Debito Automatico N3</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11230710810</span>
-        <span class="sep">·</span>
-        <span>GI + GCU</span>
-        <span class="sep">·</span><span>25/02 – 31/03/2027</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-green">Acima do bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/02 | Debito Automatico N3</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">28</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">27</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">3</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">96.43%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">11.11%</td><td class="mb">5.00%</td><td class="md"><span class="pos">+6.11pp</span></td></tr><tr><td class="mn">CTR</td><td class="mv">0.00%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">0.00%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">10.71%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Pagamentos</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Régua automatizada</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">26/02/2026</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-11">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#f59e0b1a;border-color:#f59e0b55;color:#f59e0b">Push</span>
-      <h2 class="slide-title">2026/03 | AdHoc Alta Propensão v2503</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11417758537</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>24/03 – 24/03/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-gray">Dados insuf.</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="push-notif">
-    <div class="push-icon"></div>
-    <div class="push-body">
-      <div class="push-title">PicPay</div>
-      <div class="push-msg">2026/03 | AdHoc Alta Propensão v2503</div>
-    </div>
-    <div class="push-time">agora</div>
-  </div>
-  <div class="phone-screen-empty"></div>
-  <div class="phone-home"></div>
-</div></div>
-
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">—</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">—</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">1</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">N/A</td><td class="mb">5.00%</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">CTR</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">CTOR</td><td class="mv">0.00%</td><td class="mb">N/A</td><td class="md"><span class="nd">N/A</span></td></tr><tr><td class="mn">Bounce</td><td class="mv">N/A</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Pagamentos</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">03/03/2026</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="slide" id="slide-12">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#22c55e1a;border-color:#22c55e55;color:#22c55e">WhatsApp</span>
-      <h2 class="slide-title">2026/04 | Promocional - Super CBK - Páscoa (WPP)</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11648955721</span>
-        <span class="sep">·</span>
-        <span>GI + GCU</span>
-        <span class="sep">·</span><span>01/04 – 01/04/2026</span>
-      </div>
-    </div>
-    <div class="slide-hdr-right"><span class="pb pb-yellow">No bench</span></div>
-  </div>
-
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="wap-header">
-    <div class="wap-avatar">PP</div>
-    <div class="wap-info">
-      <div class="wap-name">PicPay</div>
-      <div class="wap-status">online</div>
-    </div>
-  </div>
+  <div class="tp-mock"><div class="mock mock-wap">
+  <div class="m-notch"></div>
+  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
   <div class="wap-body">
     <div class="wap-bubble">
-      <div class="wap-msg">2026/04 | Promocional - Super CBK - Páscoa (WPP)</div>
-      <div class="wap-time">10:23</div>
+      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2856668246/Whatsap" alt="banner" onerror="this.style.display='none'">
+      <div class="wap-title">Imperdível! Ganhe R$ 250 em Vale Bonus.</div>
+      <div class="wap-msg">Com seu Super Cashback, comprar com o PicPay Card ficou ainda melhor.</div>
+      <div class="wap-time">10:23 ✓✓</div>
     </div>
+    <div class="wap-cta-btn">Use seu cartão</div>
   </div>
-  <div class="phone-home"></div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
+    <span class="tp-canal" style="color:#06b6d4">DM — D4</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-dm">
+  <div class="dm-img-fallback">Banner DM</div>
+  <div class="dm-body">
+    <div class="dm-title">Ganhe R$ 250 em Vale Bonus para ter descontos.</div>
+    <div class="dm-msg">Aproveite o Super Cashback PicPay Card.</div>
+    <div class="dm-cta">Use seu cartão</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
 </div></div>
 
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">248K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">221K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">120K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
-
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">89.25%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">54.08%</td><td class="mb">45.00%</td><td class="md"><span class="pos">+9.08pp</span></td></tr></tbody></table>
-
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        <div class="ctx-item"><span class="ctx-l">Vol. planejado</span><span class="ctx-v">270K</span></div>
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">01/04/2026</span></div>
-      </div>
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 25K &nbsp; <strong>Entregues:</strong> 19K &nbsp; <strong>Abertos:</strong> 13K &nbsp; <strong>Clicados:</strong> 698 &nbsp; <strong>TPs:</strong> 5</div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="slide-13">
-  <div class="slide-hdr">
-    <div class="slide-hdr-left">
-      <span class="canal-pill" style="background:#22c55e1a;border-color:#22c55e55;color:#22c55e">WhatsApp</span>
-      <h2 class="slide-title">2026/04 | Limite - Quero mais Limite Abr.</h2>
-      <div class="slide-meta">
-        <span class="bid-tag">11650829788</span>
-        <span class="sep">·</span>
-        <span>GI + GC + GCU</span>
-        <span class="sep">·</span><span>02/04 – 02/04/2026</span>
-      </div>
+<section class="slide" id="s2">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">InApp FS — Projeto Rádio — Nivelamento de cartão</div>
+      <div class="sl-sub">11574115615 &nbsp;·&nbsp; GI + GC + GCU</div>
     </div>
-    <div class="slide-hdr-right"><span class="pb pb-yellow">No bench</span></div>
+    <div class="sl-right">
+      <div class="sl-per">24/03/2026</div>
+    </div>
   </div>
 
-  <div class="slide-body">
-    <div class="mock-col"><div class="mockup">
-  <div class="phone-notch"></div>
-  <div class="wap-header">
-    <div class="wap-avatar">PP</div>
-    <div class="wap-info">
-      <div class="wap-name">PicPay</div>
-      <div class="wap-status">online</div>
-    </div>
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #6366f1">
+    <span class="tp-canal" style="color:#6366f1">In-App FS — D00</span>
   </div>
-  <div class="wap-body">
-    <div class="wap-bubble">
-      <div class="wap-msg">2026/04 | Limite - Quero mais Limite Abr.</div>
-      <div class="wap-time">10:23</div>
-    </div>
+  <div class="tp-mock"><div class="mock mock-iafs">
+  <div class="m-notch"></div>
+  <div class="m-screen iafs-screen">
+    <img class="iafs-img" src="https://picpay.monday.com/protected_static/17037971/resources/2848959233/InApp-N" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="iafs-img-fallback" style="display:none">Full Screen</div>
+    <div class="iafs-btn">Confira</div>
   </div>
-  <div class="phone-home"></div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">30.00%</td><td class="">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">2.00%</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">33.33%</td><td class="mv">8.00%</td><td class="pos">+25.33pp</td></tr></tbody></table></div>
 </div></div>
 
-    <div class="data-col">
-      <div class="kpi-row">
-        <div class="kpi-box"><div class="kpi-l">Enviados</div><div class="kpi-v">124K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Entregues</div><div class="kpi-v">109K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Abertos</div><div class="kpi-v">57K</div></div>
-        <div class="kpi-box"><div class="kpi-l">Clicados</div><div class="kpi-v">—</div></div>
-      </div>
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 3 &nbsp; <strong>Clicados:</strong> 1 &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
 
-      <div class="section-lbl">Performance vs. Benchmark</div>
-      <table class="mt"><thead><tr><th>Metrica</th><th>Real</th><th>Bench</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">DR</td><td class="mv">87.78%</td><td class="mb">—</td><td class="md"><span class="nd">—</span></td></tr><tr><td class="mn">OR</td><td class="mv">52.81%</td><td class="mb">45.00%</td><td class="md"><span class="pos">+7.81pp</span></td></tr></tbody></table>
+<section class="slide" id="s3">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Super CBK — OPT IN</div>
+      <div class="sl-sub">11518444291 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">20/03 – 03/04/2026</div>
+    </div>
+  </div>
 
-      <div class="section-lbl" style="margin-top:14px">Contexto Monday</div>
-      <div class="ctx-grid">
-        <div class="ctx-item"><span class="ctx-l">Frente</span><span class="ctx-v">Uso</span></div>
-        <div class="ctx-item"><span class="ctx-l">Tipo</span><span class="ctx-v">Envio pontual (Ad hoc)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Segmento</span><span class="ctx-v">Data Cloud (Data 360)</span></div>
-        <div class="ctx-item"><span class="ctx-l">Marcacao</span><span class="ctx-v">GI + GC + GCU</span></div>
-        <div class="ctx-item"><span class="ctx-l">Status</span><span class="ctx-v" style="color:#16a34a;font-weight:600">Entregue 🚀</span></div>
-        
-        <div class="ctx-item"><span class="ctx-l">Obj. Braze</span><span class="ctx-v">Vendas</span></div>
-        <div class="ctx-item"><span class="ctx-l">Criacao</span><span class="ctx-v">02/04/2026</span></div>
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #64748b">
+    <span class="tp-canal" style="color:#64748b">Banner — D1</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-generic">
+  <div class="gen-label">Banner</div>
+  <div class="gen-title">Super Cashback</div>
+  <div class="gen-msg">Ganhe 2x mais cashback com o cartão Black.</div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
+    <span class="tp-canal" style="color:#06b6d4">DM — D1</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-dm">
+  <div class="dm-img-fallback">Banner DM</div>
+  <div class="dm-body">
+    <div class="dm-title">Chegou o Super Cashback!</div>
+    <div class="dm-msg">Chegou o Super Cashback do seu PicPay Card Black, participe agora.</div>
+    <div class="dm-cta">Quero participar</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D3</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Chegou o Super Cashback! \U0001f381</div>
+        <div class="push-body">Ganhe cashback em dobro com seu cartão Black.</div>
       </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">20.67%</td><td class="mv">5.00%</td><td class="pos">+15.67pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.68%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">3.28%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #a855f7">
+    <span class="tp-canal" style="color:#a855f7">E-mail — D3</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-email">
+  <div class="email-hdr">
+    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="email-subj">2x mais cashback para você. 🎁</div>
+  </div>
+  <div class="email-banner">Header E-mail</div>
+  <div class="email-body">
+    <div class="email-msg">Bata a meta com seu cartão e ganhe no Super Cashback.</div>
+    <div class="email-cta">Quero participar</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
+    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D6</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-inapp">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="ia-card">
+      <img class="ia-img" src="https://picpay.monday.com/protected_static/17037971/resources/2838380882/IMG-ina" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ia-img-fallback" style="display:none">Banner</div>
+      <div class="ia-body">
+        <div class="ia-title">2,4% é cashback em dobro para vo…</div>
+        <div class="ia-msg">Aproveite o benefício do Super Cashback.</div>
+        <div class="ia-btn">Quero participar</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #6366f1">
+    <span class="tp-canal" style="color:#6366f1">In-App FS — D12</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-iafs">
+  <div class="m-notch"></div>
+  <div class="m-screen iafs-screen">
+    <img class="iafs-img" src="https://picpay.monday.com/protected_static/17037971/resources/2832469285/trava%2" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="iafs-img-fallback" style="display:none">Full Screen</div>
+    <div class="iafs-btn">Quero participar</div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #22c55e">
+    <span class="tp-canal" style="color:#22c55e">WhatsApp — D1 Epic</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-wap">
+  <div class="m-notch"></div>
+  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
+  <div class="wap-body">
+    <div class="wap-bubble">
+      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2838420139/WhatsAp" alt="banner" onerror="this.style.display='none'">
+      <div class="wap-title">Chegou o Super Cashback do seu cartão Black Epic.</div>
+      <div class="wap-msg">Ganhe cashback em dobro com seu Black Epic.</div>
+      <div class="wap-time">10:23 ✓✓</div>
+    </div>
+    <div class="wap-cta-btn">Quero participar</div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 1.1M &nbsp; <strong>Entregues:</strong> 726K &nbsp; <strong>Abertos:</strong> 150K &nbsp; <strong>Clicados:</strong> 4K &nbsp; <strong>TPs:</strong> 7</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s4">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Aumento de Limite c/ Flag</div>
+      <div class="sl-sub">9873449684 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">Ongoing</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Seu limite pode aumentar!</div>
+        <div class="push-body">Mais chances de aumentar seu limite. Ative o débito automático.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">25.76%</td><td class="mv">5.00%</td><td class="pos">+20.76pp</td></tr><tr><td class="mn">CTR</td><td class="mb">2.99%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">11.63%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
+    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-inapp">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="ia-card">
+      <img class="ia-img" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/1fdacd8d-cc0a-4a11-84bb-ce91b8c9037e.png" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="ia-img-fallback" style="display:none">Banner</div>
+      <div class="ia-body">
+        <div class="ia-title">Aumente seu limite agora.</div>
+        <div class="ia-msg">Use seu cartão e ganhe mais limite.</div>
+        <div class="ia-btn">Use seu cartão</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
+    <span class="tp-canal" style="color:#06b6d4">DM — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-dm">
+  <img class="dm-img" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/aa5499ce-d125-439a-b8d8-5d550b96a350.png" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="dm-img-fallback" style="display:none">Banner DM</div>
+  <div class="dm-body">
+    <div class="dm-title">Mais limite para você!</div>
+    <div class="dm-msg">Aumente o limite do seu PicPay Card.</div>
+    <div class="dm-cta">Use seu cartão</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #a855f7">
+    <span class="tp-canal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-email">
+  <div class="email-hdr">
+    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="email-subj">Aumento de limite disponível.</div>
+  </div>
+  <div class="email-banner">Header E-mail</div>
+  <div class="email-body">
+    <div class="email-msg">Ative seu débito automático e ganhe mais limite.</div>
+    <div class="email-cta">Ative aqui</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 682K &nbsp; <strong>Entregues:</strong> 578K &nbsp; <strong>Abertos:</strong> 149K &nbsp; <strong>Clicados:</strong> 17K &nbsp; <strong>TPs:</strong> 4</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s5">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Aumento de Limite s/ Flag</div>
+      <div class="sl-sub">35600 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">Ongoing</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Seu limite pode aumentar!</div>
+        <div class="push-body">Mais chances de aumentar seu limite. Ative o débito automático.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">4.81%</td><td class="mv">5.00%</td><td class="neg">-0.19pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
+    <span class="tp-canal" style="color:#06b6d4">DM — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-dm">
+  <img class="dm-img" src="https://image.marketing.picpay.com/lib/fe3411747364047f741d70/m/1/99a92fc4-a382-4aa0-bd05-acc958e9d2ff.png" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="dm-img-fallback" style="display:none">Banner DM</div>
+  <div class="dm-body">
+    <div class="dm-title">Mais limite no seu cartão!</div>
+    <div class="dm-msg">Você pode ter mais limite agora. Ative aqui.</div>
+    <div class="dm-cta">Ative aqui</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #a855f7">
+    <span class="tp-canal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-email">
+  <div class="email-hdr">
+    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="email-subj">Aumento de limite disponível.</div>
+  </div>
+  <div class="email-banner">Header E-mail</div>
+  <div class="email-body">
+    <div class="email-msg">Ative seu débito automático e ganhe mais limite.</div>
+    <div class="email-cta">Ative aqui</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 152K &nbsp; <strong>Entregues:</strong> 152K &nbsp; <strong>Abertos:</strong> 7K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 3</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s6">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Pula Pré Páscoa</div>
+      <div class="sl-sub">11651313975 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">02/04/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00-A</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Contando os dias para a Páscoa?</div>
+        <div class="push-body">Com o Pula Compra, você consegue pular a compra desta fatura.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00-B</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Últimos dias para aproveitar 🐣</div>
+        <div class="push-body">Com o Pula Compra, você pode garantir a sua Páscoa.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D01-A</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Contando os dias para a Páscoa?</div>
+        <div class="push-body">Compre à vista com o PicPay Card.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D01-B</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Deixou para a última hora? 🐣</div>
+        <div class="push-body">Compre à vista com o PicPay Card.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.64%</td><td class="mv">5.00%</td><td class="neg">-4.36pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 966K &nbsp; <strong>Entregues:</strong> 961K &nbsp; <strong>Abertos:</strong> 6K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 4</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s7">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">PCA Pré Páscoa</div>
+      <div class="sl-sub">11651432318 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">02/04/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Pensando nos chocolates?</div>
+        <div class="push-body">Aproveite seu PicPay Card na Páscoa.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">0.59%</td><td class="mv">5.00%</td><td class="neg">-4.41pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 563K &nbsp; <strong>Entregues:</strong> 560K &nbsp; <strong>Abertos:</strong> 3K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 1</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s8">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Promocional — Roleta Páscoa Opt-In (N1)</div>
+      <div class="sl-sub">11547533390 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">30/03 – 24/04/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #64748b">
+    <span class="tp-canal" style="color:#64748b">Banner — Banner Home</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-generic">
+  <div class="gen-label">Banner</div>
+  <div class="gen-title">Roleta de Páscoa</div>
+  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #94a3b8">
+    <span class="tp-canal" style="color:#94a3b8">Prop. Valor — Prop. Valor</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-generic">
+  <div class="gen-label">Prop. Valor</div>
+  <div class="gen-title">Roleta de Páscoa</div>
+  <div class="gen-msg">Até R$ 250 em Vale Bonus para você!</div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 222K &nbsp; <strong>Entregues:</strong> 95K &nbsp; <strong>Abertos:</strong> 955 &nbsp; <strong>Clicados:</strong> 1 &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s9">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">InApp FS — Projeto Rádio — Benefícios do Cartão</div>
+      <div class="sl-sub">11597850523 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">30/03/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #6366f1">
+    <span class="tp-canal" style="color:#6366f1">In-App FS — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-iafs">
+  <div class="m-notch"></div>
+  <div class="m-screen iafs-screen">
+    <img class="iafs-img" src="https://picpay.monday.com/protected_static/17037971/resources/2861338942/in-app-" alt="banner" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="iafs-img-fallback" style="display:none">Full Screen</div>
+    <div class="iafs-btn">Confira</div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Experimente o Minhas Assinaturas. \U00…</div>
+        <div class="push-body">Ganhe 2% de cashback em assinaturas com seu PicPay Card.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">5.00%</td><td class="">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">3.24%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Ativação &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 896 &nbsp; <strong>Clicados:</strong> 29 &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s10">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Débito Automático N3</div>
+      <div class="sl-sub">11230710810 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">25/02 – 31/03/2027</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #a855f7">
+    <span class="tp-canal" style="color:#a855f7">E-mail — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-email">
+  <div class="email-hdr">
+    <div class="email-from">PicPay &lt;crm@picpay.com&gt;</div>
+    <div class="email-subj">Ative o débito automático.</div>
+  </div>
+  <div class="email-banner">Header E-mail</div>
+  <div class="email-body">
+    <div class="email-msg">Mais chances de aumentar seu limite. Ative o débito automático.</div>
+    <div class="email-cta">\u2014</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Mais chances de aumentar seu limite.</div>
+        <div class="push-body">Ative o débito automático no PicPay Card.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">11.11%</td><td class="mv">5.00%</td><td class="pos">+6.11pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
+    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D03</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-inapp">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="ia-card">
+      <div class="ia-img-fallback">Banner</div>
+      <div class="ia-body">
+        <div class="ia-title">Ative já o débito automático.</div>
+        <div class="ia-msg">Garanta o pagamento do PicPay Card no vencimento.</div>
+        <div class="ia-btn">\u2014</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D03</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">Ative já o débito automático 💳</div>
+        <div class="push-body">Garanta o pagamento do PicPay Card no vencimento.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">11.11%</td><td class="mv">5.00%</td><td class="pos">+6.11pp</td></tr><tr><td class="mn">CTR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div><strong>Volume:</strong> 28 &nbsp; <strong>Entregues:</strong> 27 &nbsp; <strong>Abertos:</strong> 3 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 4</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s11">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">AdHoc Alta Propensão v25/03</div>
+      <div class="sl-sub">11417758537 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">24/03/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #3b82f6">
+    <span class="tp-canal" style="color:#3b82f6">In-App Modal — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-inapp">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="ia-card">
+      <div class="ia-img-fallback">Banner</div>
+      <div class="ia-body">
+        <div class="ia-title">Parcele a fatura do PicPay Card.</div>
+        <div class="ia-msg">A fatura veio mais alta este mês? Parcele agora e organize suas finanças.</div>
+        <div class="ia-btn">\u2014</div>
+      </div>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #f59e0b">
+    <span class="tp-canal" style="color:#f59e0b">Push — D00</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-push">
+  <div class="m-notch"></div>
+  <div class="m-screen">
+    <div class="push-card">
+      <div class="push-icon-wrap"><div class="push-icon"></div></div>
+      <div class="push-content">
+        <div class="push-app">PicPay</div>
+        <div class="push-title">A fatura veio mais alta neste mês?</div>
+        <div class="push-body">Parcele agora e organize suas finanças.</div>
+      </div>
+      <span class="push-time">agora</span>
+    </div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">—</td><td class="mv">5.00%</td><td class="">—</td></tr><tr><td class="mn">CTR</td><td class="mb">—</td><td class="mv">—</td><td class="">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">0.00%</td><td class="mv">—</td><td class="">—</td></tr></tbody></table></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Pagamentos &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> — &nbsp; <strong>Entregues:</strong> — &nbsp; <strong>Abertos:</strong> 1 &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s12">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Promocional — Super CBK Páscoa (WhatsApp)</div>
+      <div class="sl-sub">11648955721 &nbsp;·&nbsp; GI + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">01/04/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #22c55e">
+    <span class="tp-canal" style="color:#22c55e">WhatsApp — Gold/Platinum</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-wap">
+  <div class="m-notch"></div>
+  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
+  <div class="wap-body">
+    <div class="wap-bubble">
+      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2870448053/Whatsap" alt="banner" onerror="this.style.display='none'">
+      <div class="wap-title">Ganhe R$ 250 em Vale Bonus para deixar sua Páscoa mais …</div>
+      <div class="wap-msg">Use seu PicPay Card no crédito para presentear com o melhor chocolate.</div>
+      <div class="wap-time">10:23 ✓✓</div>
+    </div>
+    <div class="wap-cta-btn">Quero participar</div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">54.08%</td><td class="mv">45.00%</td><td class="pos">+9.08pp</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #22c55e">
+    <span class="tp-canal" style="color:#22c55e">WhatsApp — Black</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-wap">
+  <div class="m-notch"></div>
+  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
+  <div class="wap-body">
+    <div class="wap-bubble">
+      <img class="wap-img" src="https://picpay.monday.com/protected_static/17037971/resources/2870467625/WhatsAp" alt="banner" onerror="this.style.display='none'">
+      <div class="wap-title">2x mais cashback para deixar sua Páscoa 2x mais doce. 🍫</div>
+      <div class="wap-msg">Use seu PicPay Card Black para presentear com o melhor chocolate.</div>
+      <div class="wap-time">10:23 ✓✓</div>
+    </div>
+    <div class="wap-cta-btn">Quero participar</div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">54.08%</td><td class="mv">45.00%</td><td class="pos">+9.08pp</td></tr></tbody></table></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 248K &nbsp; <strong>Entregues:</strong> 221K &nbsp; <strong>Abertos:</strong> 120K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="s13">
+  <div class="slide-top">
+    <div class="sl-left">
+      <div class="sl-title">Limite — Quero mais Limite Abr.</div>
+      <div class="sl-sub">11650829788 &nbsp;·&nbsp; GI + GC + GCU</div>
+    </div>
+    <div class="sl-right">
+      <div class="sl-per">02/04/2026</div>
+    </div>
+  </div>
+
+  <div class="tp-row"><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #22c55e">
+    <span class="tp-canal" style="color:#22c55e">WhatsApp — N MAT</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-wap">
+  <div class="m-notch"></div>
+  <div class="wap-hdr"><div class="wap-av">PP</div><div><div class="wap-name">PicPay</div><div class="wap-on">online</div></div></div>
+  <div class="wap-body">
+    <div class="wap-bubble">
+      
+      <div class="wap-title">Mais limite no seu cartão? Agora ficou fácil! 💳</div>
+      <div class="wap-msg">Agora você pode pedir mais limite para o seu PicPay Card.</div>
+      <div class="wap-time">10:23 ✓✓</div>
+    </div>
+    <div class="wap-cta-btn">Quero mais limite</div>
+  </div>
+  <div class="m-home"></div>
+</div></div>
+  <div class="tp-metrics"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">52.81%</td><td class="mv">45.00%</td><td class="pos">+7.81pp</td></tr></tbody></table></div>
+</div><div class="tp-card">
+  <div class="tp-hdr" style="border-top:3px solid #06b6d4">
+    <span class="tp-canal" style="color:#06b6d4">DM — MAT</span>
+  </div>
+  <div class="tp-mock"><div class="mock mock-dm">
+  <div class="dm-img-fallback">Banner DM</div>
+  <div class="dm-body">
+    <div class="dm-title">Mais limite no seu cartão? Agora ficou fácil! 💳</div>
+    <div class="dm-msg">Agora você pode pedir mais limite para o seu PicPay Card.</div>
+    <div class="dm-cta">Quero mais limite</div>
+  </div>
+</div></div>
+  <div class="tp-metrics"><div class="no-met">—</div></div>
+</div></div>
+
+  <div class="slide-footer">
+    <div class="sf-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/>
+      </svg>
+    </div>
+    <div class="sf-text">
+      <div><strong>Frente:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div><strong>Volume:</strong> 124K &nbsp; <strong>Entregues:</strong> 109K &nbsp; <strong>Abertos:</strong> 57K &nbsp; <strong>Clicados:</strong> — &nbsp; <strong>TPs:</strong> 2</div>
     </div>
   </div>
 </section>
@@ -972,18 +1290,18 @@ body { background: #eef0f2; font-family: 'Inter', system-ui, sans-serif; font-si
 
 <script>
 const slides = document.querySelectorAll('.slide');
-const dots   = document.querySelectorAll('.nav-dot');
+const dots   = document.querySelectorAll('.nd');
 function goTo(i) { slides[i].scrollIntoView({behavior:'smooth'}); }
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const i = [...slides].indexOf(e.target);
+const io = new IntersectionObserver(e => {
+  e.forEach(x => {
+    if (x.isIntersecting) {
+      const i = [...slides].indexOf(x.target);
       dots.forEach((d,j) => d.classList.toggle('active', i===j));
     }
   });
-}, {threshold:0.4});
+}, {threshold: 0.35});
 slides.forEach(s => io.observe(s));
-if (dots[0]) dots[0].classList.add('active');
+if(dots[0]) dots[0].classList.add('active');
 </script>
 </body>
 </html>
