@@ -180,6 +180,14 @@ img{display:block;max-width:100%}
   border-radius:10px;max-width:680px}
 .sftext{font-size:12px;color:#374151;line-height:1.7}
 .sftext strong{font-weight:700}
+.sf-seg{display:flex;align-items:center;gap:6px}
+.seg-link{display:inline-flex;align-items:center;gap:4px;font-size:12px;
+  font-weight:600;color:#3b82f6;text-decoration:none;
+  padding:2px 8px;border-radius:5px;border:1px solid #bfdbfe;
+  background:#eff6ff;transition:all .15s}
+.seg-link:hover{background:#dbeafe;border-color:#93c5fd;color:#2563eb}
+.seg-link svg{width:10px;height:10px;flex-shrink:0}
+.seg-empty{font-size:12px;color:#9ca3af;font-style:italic}
 
 @media print{
   .hdr,.sidenav{display:none}
@@ -233,7 +241,7 @@ img{display:block;max-width:100%}
   </div>
   <div class="tprow"><div class="var-label"><span class="var-pill" style="background:#6b728018;border-color:#6b728044;color:#6b7280">Sem quebra por variante</span></div><div class="tpc">
   <div class="tphdr" style="border-top:3px solid #06b6d4">
-    <span class="tpcanal" style="color:#06b6d4">DM — D00 · B</span><span class="perf-badge trophy" title="Supera o benchmark de OR">🏆</span>
+    <span class="tpcanal" style="color:#06b6d4">DM — D00 · B</span>
   </div>
   <div class="tpmock"><div class="mock mdm">
   <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2808202802/DM%20-%20Banner%20Aproveite%20o%20novo%20limite%20(2)%20(1)%20(2).png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
@@ -241,7 +249,7 @@ img{display:block;max-width:100%}
 
 **Use seu cartão** na função crédito **até 27…</div><div class="dcta">Use seu cartão</div><div class="dreg">Regulamento</div></div>
 </div></div>
-  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">5.62%</td><td class="pos">+2.57pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">24.28%</td><td class="neg">-0.19pp</td></tr></tbody></table><div class="tp-vol">env 103K · ab 5K</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">24.28%</td><td class="neg">-0.19pp</td></tr></tbody></table><div class="tp-vol">env 103K · ab 5K</div></div>
 </div><div class="tpc">
   <div class="tphdr" style="border-top:3px solid #22c55e">
     <span class="tpcanal" style="color:#22c55e">WhatsApp — D00 · A</span><span class="perf-badge trophy" title="Supera o benchmark de OR">🏆</span>
@@ -267,6 +275,7 @@ img{display:block;max-width:100%}
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000AfmfIAC/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -311,6 +320,7 @@ img{display:block;max-width:100%}
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Pendente</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <span class="seg-empty">Segmento não informado</span></div>
     </div>
   </div>
 </section>
@@ -724,6 +734,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B1dVIAS/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -759,6 +770,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B3vRIAS/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -773,13 +785,13 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
   </div>
   <div class="tprow"><div class="var-label"><span class="var-pill" style="background:#6b728018;border-color:#6b728044;color:#6b7280">Sem quebra por variante</span></div><div class="tpc">
   <div class="tphdr" style="border-top:3px solid #06b6d4">
-    <span class="tpcanal" style="color:#06b6d4">DM — D00</span><span class="perf-badge trophy" title="Supera o benchmark de OR">🏆</span>
+    <span class="tpcanal" style="color:#06b6d4">DM — D00</span>
   </div>
   <div class="tpmock"><div class="mock mdm">
   <img class="dimg" src="https://picpay.monday.com/protected_static/17037971/resources/2841392424/brief-305-retencao-whatsapp-pula-compra-n1-n2-n3-n4.png" alt="" onerror="this.style.display='none';this.nextSibling.style.display='block'"><div class="dimgf" style="display:none">Header DM</div>
   <div class="dbody"><div class="dtitle">**Use agora o seu PicPay Card e aproveite esse b…</div><div class="dmsg">Com o **Pula Compra** você escolhe uma compra à vista na sua fatura atual e joga para a próxima, gan…</div><div class="dcta">Aproveite hoje</div><div class="dreg">Regulamento</div></div>
 </div></div>
-  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">10.19%</td><td class="pos">+7.14pp</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">8.43%</td><td class="neg">-16.04pp</td></tr></tbody></table><div class="tp-vol">env 129K · ab 13K</div></div>
+  <div class="tpmet"><table class="mt"><thead><tr><th>Métrica</th><th>PP</th><th>Peça</th><th>Dif</th></tr></thead><tbody><tr><td class="mn">OR</td><td class="mb">3.05%</td><td class="mv">—</td><td class="nd">—</td></tr><tr><td class="mn">CTOR</td><td class="mb">24.47%</td><td class="mv">8.43%</td><td class="neg">-16.04pp</td></tr></tbody></table><div class="tp-vol">env 129K · ab 13K</div></div>
 </div><div class="var-break"></div></div>
   <div class="sfooter">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" style="flex-shrink:0">
@@ -789,6 +801,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B3ozIAC/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -843,6 +856,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BER3IAO/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -897,6 +911,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000B3gvIAC/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -1492,6 +1507,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BEXVIA4/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -1530,6 +1546,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BD0LIAW/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -1581,6 +1598,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU6000000BER3IAO/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -1627,6 +1645,7 @@ Participe do Super Cashback com seu cartão Black Epi…</div>
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU600000091rJIAQ/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -1882,6 +1901,7 @@ Participando do **Super Cashba…</div><div class="dcta">Quero participar</div><
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Régua automatizada</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/1sgU6000000BRPtIAO/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -2012,6 +2032,7 @@ Participe da **Compra Premiada P…</div><div class="dcta">Participe aqui</div><
     </svg>
     <div class="sftext">
       <div><strong>Squad:</strong> Uso &nbsp;·&nbsp; <strong>Tipo:</strong> Envio pontual (Ad hoc)</div>
+      <div class="sf-seg"><strong>Segmento:</strong> <a class="seg-link" href="https://picpaydatacloud.lightning.force.com/lightning/r/MarketSegment/1sgU60000006IOrIAM/view" target="_blank" title="Ver segmento no Salesforce">Ver segmento <svg viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
     </div>
   </div>
 </section>
